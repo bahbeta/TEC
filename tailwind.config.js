@@ -7,22 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
+        'deep-calm': '#1E2A3A',
+        'warm-sand': '#E7D9C4',
+        'terracotta': '#C97A65',
+        'cloud-white': '#FAF9F6',
         'charcoal-black': '#1d0c2f',
         'soft-white': '#fffbf4',
         'muted-gold': '#af3b19',
         'warm-beige': '#fffbf4',
         'slate-gray': '#243859',
         'desert-taupe': '#862a22',
-        'dark-teal': '#0B1D26',
-        'golden-accent': '#FBD784',
-        'navy-deep': '#0f2027',
       },
       fontFamily: {
-        'heading': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Segoe UI', 'Helvetica Neue', 'sans-serif'],
-        'body': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'Segoe UI', 'Helvetica Neue', 'sans-serif'],
-        'accent': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Segoe UI', 'Helvetica Neue', 'sans-serif'],
-        'serif': ['Playfair Display', 'serif'],
-        'sans': ['Archivo', 'Inter', 'sans-serif'],
+        'display': ['Playfair Display', 'Georgia', 'serif'],
+        'body': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'sans-serif'],
+        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       maxWidth: {
         'content': '1120px',

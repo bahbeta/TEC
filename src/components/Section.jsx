@@ -6,16 +6,16 @@ const Section = ({
   id,
   children,
   className = '',
-  background = 'dark-teal',
+  background = 'cloud-white',
   containerClassName = ''
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const backgrounds = {
-    'dark-teal': 'bg-dark-teal text-soft-white',
-    'navy-deep': 'bg-navy-deep text-soft-white',
-    'charcoal-black': 'bg-charcoal-black text-soft-white',
+    'cloud-white': 'bg-cloud-white text-deep-calm',
+    'warm-sand': 'bg-warm-sand text-deep-calm',
+    'deep-calm': 'bg-deep-calm text-cloud-white',
   };
 
   return (
@@ -25,7 +25,7 @@ const Section = ({
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-      className={`py-20 md:py-32 lg:py-40 ${backgrounds[background]} ${className}`}
+      className={`section-spacing ${backgrounds[background]} ${className}`}
     >
       <div className={`max-w-7xl mx-auto px-6 md:px-12 ${containerClassName}`}>
         {children}
