@@ -5,32 +5,58 @@ const BackgroundMusic = () => {
   const audioRef = useRef(null);
   const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showSplash, setShowSplash] = useState(true);
+  const hasStarted = useRef(false);
 
-  const startMusic = async () => {
+  useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    try {
-      audio.loop = true;
-      audio.volume = 0.3;
-      await audio.play();
-      setIsPlaying(true);
-      console.log('✅ Music started playing');
-    } catch (error) {
-      console.error('Failed to play music:', error);
-    }
-  };
+    audio.loop = true;
+    audio.volume = 0.3;
 
-  const handleEnter = async () => {
-    await startMusic();
-    setShowSplash(false);
-  };
+    // Try silent start immediately on load
+    const tryAutoplay = async () => {
+      try {
+        await audio.play();
+        setIsPlaying(true);
+      } catch (err) {
+        // Silently fail - will try on first interaction
+      }
+    };
 
-  useEffect(() => {
-    // Cleanup on unmount
+    // Start music on first user interaction (invisible to user)
+    const startOnInteraction = async () => {
+      if (hasStarted.current) return;
+      hasStarted.current = true;
+
+      try {
+        await audio.play();
+        setIsPlaying(true);
+      } catch (err) {
+        // Ignore errors
+      }
+
+      // Clean up listeners
+      document.removeEventListener('scroll', startOnInteraction);
+      document.removeEventListener('mousemove', startOnInteraction);
+      document.removeEventListener('click', startOnInteraction);
+      document.removeEventListener('touchstart', startOnInteraction);
+    };
+
+    // Try autoplay first
+    tryAutoplay();
+
+    // Set up invisible fallback triggers
+    document.addEventListener('scroll', startOnInteraction, { once: true, passive: true });
+    document.addEventListener('mousemove', startOnInteraction, { once: true });
+    document.addEventListener('click', startOnInteraction, { once: true });
+    document.addEventListener('touchstart', startOnInteraction, { once: true });
+
     return () => {
-      const audio = audioRef.current;
+      document.removeEventListener('scroll', startOnInteraction);
+      document.removeEventListener('mousemove', startOnInteraction);
+      document.removeEventListener('click', startOnInteraction);
+      document.removeEventListener('touchstart', startOnInteraction);
       if (audio) {
         audio.pause();
         audio.currentTime = 0;
@@ -57,43 +83,6 @@ const BackgroundMusic = () => {
         preload="auto"
         playsInline
       />
-
-      {/* Splash Screen Overlay */}
-      <AnimatePresence>
-        {showSplash && (
-          <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            className="fixed inset-0 z-[9999] bg-gradient-to-br from-sage-green via-deep-calm to-charcoal flex items-center justify-center"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-center px-6"
-            >
-              <h1 className="font-cormorant text-5xl md:text-7xl text-soft-sand mb-6 font-light">
-                The Elevate Collective
-              </h1>
-              <p className="text-soft-sand/80 text-lg md:text-xl mb-12 font-light max-w-md mx-auto">
-                Immerse yourself in a transformative wellness experience
-              </p>
-              <motion.button
-                onClick={handleEnter}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-12 py-4 bg-soft-sand text-deep-calm rounded-full text-lg font-medium hover:bg-white transition-colors shadow-xl"
-              >
-                Enter Experience
-              </motion.button>
-              <p className="text-soft-sand/50 text-sm mt-6">
-                🎵 Music will begin
-              </p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <motion.button
         onClick={toggleMute}
