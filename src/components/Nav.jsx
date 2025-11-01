@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Nav = () => {
@@ -14,9 +15,10 @@ const Nav = () => {
   }, []);
 
   const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Philosophy', href: '#philosophy' },
-    { label: 'Experiences', href: '#experiences' },
+    { label: 'About', href: '#about', type: 'anchor' },
+    { label: 'Philosophy', href: '#philosophy', type: 'anchor' },
+    { label: 'Experiences', href: '#experiences', type: 'anchor' },
+    { label: 'Blog', href: '/blog', type: 'link' },
   ];
 
   return (
@@ -45,18 +47,30 @@ const Nav = () => {
           {/* Nav Items - Centered */}
           <div className="hidden lg:flex items-center space-x-10">
             {navItems.map((item, index) => (
-              <motion.a
-                key={item.href}
-                href={item.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className={`text-sm font-body font-medium transition-colors duration-200 ${
-                  scrolled ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
-                }`}
-              >
-                {item.label}
-              </motion.a>
+              item.type === 'link' ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={`text-sm font-body font-medium transition-colors duration-200 ${
+                    scrolled ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <motion.a
+                  key={item.href}
+                  href={item.href}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  className={`text-sm font-body font-medium transition-colors duration-200 ${
+                    scrolled ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
+                  }`}
+                >
+                  {item.label}
+                </motion.a>
+              )
             ))}
           </div>
 
