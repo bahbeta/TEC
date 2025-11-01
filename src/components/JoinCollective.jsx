@@ -37,17 +37,38 @@ const JoinCollective = () => {
     >
       <motion.div
         style={{ y, opacity }}
-        className="max-w-4xl mx-auto px-6 md:px-12"
+        className="max-w-6xl mx-auto px-6 md:px-12"
       >
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center"
+          className="grid md:grid-cols-2 gap-12 items-center"
         >
+          {/* Text Content */}
+          <div className="text-left">
+            {/* Category Label */}
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-px bg-terracotta"></div>
+              <span className="text-terracotta text-xs tracking-[0.3em] uppercase font-body">
+                Join The Collective
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-cloud-white mb-6 leading-tight">
+              Start Your Journey Today
+            </h2>
+
+            <p className="text-lg md:text-xl text-cloud-white/70 leading-relaxed">
+              Be the first to know about upcoming retreats, exclusive insights, and transformative wellness experience
+            </p>
+          </div>
+
+          {/* Form */}
           {!submitted ? (
-            <div className="max-w-md mx-auto">
+            <div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <input
                   type="text"
