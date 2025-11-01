@@ -35,13 +35,15 @@ const Nav = () => {
           {/* Logo */}
           <motion.a
             href="#"
-            whileHover={{ scale: 1.05, letterSpacing: "0.05em" }}
+            whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className={`text-2xl md:text-3xl font-display font-bold tracking-tighter transition-all duration-500 ${
-              scrolled ? 'text-cloud-white' : 'text-[#1F2A3A]'
-            }`}
+            className="transition-all duration-500"
           >
-            TEC
+            <img
+              src="/images/tec-logo.jpg"
+              alt="The Elevate Collective"
+              className="h-10 md:h-12 w-auto object-contain"
+            />
           </motion.a>
 
           {/* Nav Items - Centered */}

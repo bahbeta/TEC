@@ -12,9 +12,11 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-3xl md:text-4xl font-display font-bold text-cloud-white mb-4">
-              TEC
-            </h3>
+            <img
+              src="/images/tec-logo.jpg"
+              alt="The Elevate Collective"
+              className="h-16 w-auto object-contain mb-4"
+            />
             <p className="text-cloud-white/70 leading-relaxed mb-6">
               Get out there & discover your next wellness experience, retreat & destination!
             </p>
