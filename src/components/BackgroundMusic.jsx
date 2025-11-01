@@ -3,11 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const BackgroundMusic = () => {
   const audioRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(() => {
-    // Check localStorage for saved preference
-    const saved = localStorage.getItem('musicMuted');
-    return saved === 'true';
-  });
+  const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
@@ -17,28 +13,42 @@ const BackgroundMusic = () => {
     // Set audio properties
     audio.loop = true;
     audio.volume = 0.3; // Set to 30% volume for background ambience
-    audio.muted = isMuted;
 
-    // Attempt to play audio
+    // Attempt to play audio - start muted to bypass browser restrictions, then unmute
     const playAudio = async () => {
       try {
+        // Start muted to bypass autoplay restrictions
+        audio.muted = true;
         await audio.play();
         setIsPlaying(true);
+
+        // Unmute after a short delay (browsers allow this)
+        setTimeout(() => {
+          audio.muted = false;
+          setIsMuted(false);
+        }, 100);
       } catch (error) {
-        console.log('Autoplay prevented by browser. User interaction required.');
-        // If autoplay fails, we'll try again on first user interaction
+        console.log('Autoplay with mute failed, trying on user interaction...');
+        // If even muted autoplay fails, try again on first user interaction
         const handleInteraction = async () => {
           try {
+            audio.muted = true;
             await audio.play();
             setIsPlaying(true);
+            setTimeout(() => {
+              audio.muted = false;
+              setIsMuted(false);
+            }, 100);
             document.removeEventListener('click', handleInteraction);
             document.removeEventListener('touchstart', handleInteraction);
+            document.removeEventListener('scroll', handleInteraction);
           } catch (err) {
             console.error('Failed to play audio:', err);
           }
         };
-        document.addEventListener('click', handleInteraction);
-        document.addEventListener('touchstart', handleInteraction);
+        document.addEventListener('click', handleInteraction, { once: true });
+        document.addEventListener('touchstart', handleInteraction, { once: true });
+        document.addEventListener('scroll', handleInteraction, { once: true });
       }
     };
 
@@ -54,11 +64,10 @@ const BackgroundMusic = () => {
 
   useEffect(() => {
     const audio = audioRef.current;
-    if (audio) {
+    if (audio && isPlaying) {
       audio.muted = isMuted;
-      localStorage.setItem('musicMuted', isMuted.toString());
     }
-  }, [isMuted]);
+  }, [isMuted, isPlaying]);
 
   const toggleMute = () => {
     setIsMuted(prev => !prev);
