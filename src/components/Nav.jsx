@@ -31,20 +31,29 @@ const Nav = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
+        <div className="flex items-center justify-between relative">
+          {/* Logo - Positioned to overlap */}
           <motion.a
             href="#"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="transition-all duration-500"
+            className={`absolute transition-all duration-500 ${
+              scrolled ? 'top-[-20px]' : 'top-[-40px]'
+            }`}
           >
             <img
               src="/images/tec-logo.png"
               alt="The Elevate Collective"
-              className="h-10 md:h-12 w-auto object-contain"
+              className={`w-auto object-contain transition-all duration-500 ${
+                scrolled ? 'h-24 md:h-28' : 'h-32 md:h-40'
+              }`}
             />
           </motion.a>
+
+          {/* Spacer to prevent content overlap */}
+          <div className={`transition-all duration-500 ${
+            scrolled ? 'w-32 md:w-40' : 'w-40 md:w-52'
+          }`}></div>
 
           {/* Nav Items - Centered */}
           <div className="hidden lg:flex items-center space-x-10">
