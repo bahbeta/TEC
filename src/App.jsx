@@ -10,18 +10,20 @@ import BackgroundMusic from './components/BackgroundMusic';
 
 function App() {
   return (
-    <SmoothScroll>
-      <BackgroundMusic />
-      <div className="App bg-deep-calm">
-        <Nav />
-        <Hero />
-        <AboutUs />
-        <Experiences />
-        <Founders />
-        <JoinCollective />
-        <Footer />
-      </div>
-    </SmoothScroll>
+    <div className="relative">
+      <SmoothScroll>
+        <BackgroundMusic />
+        <div className="App bg-deep-calm">
+          <Nav />
+          <Hero />
+          <AboutUs />
+          <Experiences />
+          <Founders />
+          <JoinCollective />
+          <Footer />
+        </div>
+      </SmoothScroll>
+    </div>
   );
 }
 
