@@ -69,15 +69,11 @@ const BackgroundMusic = () => {
     };
 
     const cleanup = () => {
-      document.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('click', handleClick);
       document.removeEventListener('touchstart', handleTouch);
       document.removeEventListener('keydown', handleKeydown);
     };
 
-    const handleScroll = () => startOnInteraction('scroll');
-    const handleMouseMove = () => startOnInteraction('mousemove');
     const handleClick = () => startOnInteraction('click');
     const handleTouch = () => startOnInteraction('touch');
     const handleKeydown = () => startOnInteraction('keydown');
@@ -85,12 +81,13 @@ const BackgroundMusic = () => {
     // Try autoplay first
     tryAutoplay();
 
-    // Set up invisible fallback triggers - use named functions to ensure cleanup works
-    document.addEventListener('scroll', handleScroll, { once: true, passive: true });
-    document.addEventListener('mousemove', handleMouseMove, { once: true });
+    // IMPORTANT: Only click, touch, and keydown are valid "user gestures" for audio
+    // mousemove and scroll are NOT considered valid by browsers!
     document.addEventListener('click', handleClick, { once: true });
     document.addEventListener('touchstart', handleTouch, { once: true });
     document.addEventListener('keydown', handleKeydown, { once: true });
+
+    console.log('⏳ Music will start on your first click, touch, or keypress');
 
     return () => {
       cleanup();
