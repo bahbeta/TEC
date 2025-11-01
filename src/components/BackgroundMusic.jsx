@@ -5,82 +5,32 @@ const BackgroundMusic = () => {
   const audioRef = useRef(null);
   const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const hasTriedAutoplay = useRef(false);
+  const [showSplash, setShowSplash] = useState(true);
+
+  const startMusic = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    try {
+      audio.loop = true;
+      audio.volume = 0.3;
+      await audio.play();
+      setIsPlaying(true);
+      console.log('✅ Music started playing');
+    } catch (error) {
+      console.error('Failed to play music:', error);
+    }
+  };
+
+  const handleEnter = async () => {
+    await startMusic();
+    setShowSplash(false);
+  };
 
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio || hasTriedAutoplay.current) return;
-
-    hasTriedAutoplay.current = true;
-
-    // Set audio properties
-    audio.loop = true;
-    audio.volume = 0.3; // Set to 30% volume for background ambience
-
-    // Aggressively try to start playback immediately
-    const startPlayback = async () => {
-      try {
-        // First attempt: try playing muted
-        audio.muted = true;
-        const playPromise = audio.play();
-
-        if (playPromise !== undefined) {
-          await playPromise;
-          setIsPlaying(true);
-          console.log('✅ Audio autoplay started (muted)');
-
-          // Unmute after a short delay
-          setTimeout(() => {
-            audio.muted = false;
-            setIsMuted(false);
-            console.log('✅ Audio unmuted');
-          }, 300);
-        }
-      } catch (error) {
-        console.log('⚠️ Autoplay prevented, waiting for user interaction...', error.message);
-
-        // Fallback: Play on ANY user interaction
-        const handleFirstInteraction = async () => {
-          try {
-            audio.muted = true;
-            await audio.play();
-            setIsPlaying(true);
-            console.log('✅ Audio started after user interaction');
-
-            setTimeout(() => {
-              audio.muted = false;
-              setIsMuted(false);
-              console.log('✅ Audio unmuted after interaction');
-            }, 300);
-
-            // Remove all listeners after successful playback
-            cleanup();
-          } catch (err) {
-            console.error('❌ Failed to play audio:', err);
-          }
-        };
-
-        const cleanup = () => {
-          document.removeEventListener('click', handleFirstInteraction);
-          document.removeEventListener('touchstart', handleFirstInteraction);
-          document.removeEventListener('keydown', handleFirstInteraction);
-          document.removeEventListener('scroll', handleFirstInteraction);
-          window.removeEventListener('mousemove', handleFirstInteraction);
-        };
-
-        // Add multiple event listeners to catch first interaction
-        document.addEventListener('click', handleFirstInteraction, { once: true });
-        document.addEventListener('touchstart', handleFirstInteraction, { once: true });
-        document.addEventListener('keydown', handleFirstInteraction, { once: true });
-        document.addEventListener('scroll', handleFirstInteraction, { once: true, passive: true });
-        window.addEventListener('mousemove', handleFirstInteraction, { once: true });
-      }
-    };
-
-    // Try to start immediately
-    startPlayback();
-
+    // Cleanup on unmount
     return () => {
+      const audio = audioRef.current;
       if (audio) {
         audio.pause();
         audio.currentTime = 0;
@@ -107,6 +57,43 @@ const BackgroundMusic = () => {
         preload="auto"
         playsInline
       />
+
+      {/* Splash Screen Overlay */}
+      <AnimatePresence>
+        {showSplash && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="fixed inset-0 z-[9999] bg-gradient-to-br from-sage-green via-deep-calm to-charcoal flex items-center justify-center"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-center px-6"
+            >
+              <h1 className="font-cormorant text-5xl md:text-7xl text-soft-sand mb-6 font-light">
+                The Elevate Collective
+              </h1>
+              <p className="text-soft-sand/80 text-lg md:text-xl mb-12 font-light max-w-md mx-auto">
+                Immerse yourself in a transformative wellness experience
+              </p>
+              <motion.button
+                onClick={handleEnter}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-12 py-4 bg-soft-sand text-deep-calm rounded-full text-lg font-medium hover:bg-white transition-colors shadow-xl"
+              >
+                Enter Experience
+              </motion.button>
+              <p className="text-soft-sand/50 text-sm mt-6">
+                🎵 Music will begin
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <motion.button
         onClick={toggleMute}
