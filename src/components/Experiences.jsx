@@ -22,7 +22,7 @@ const Experiences = () => {
       price: 'AED 650',
       slots: '12 spots available',
       cta: 'Join the Next Reset',
-      image: '/src/assets/images/img-120.jpg',
+      image: '/images/brand/yoga-meditation.jpg',
     },
     {
       title: 'Full-Day Event',
@@ -40,7 +40,7 @@ const Experiences = () => {
       price: 'AED 1,400',
       slots: 'Limited to 16 participants',
       cta: 'Register Interest',
-      image: '/src/assets/images/img-058.jpg',
+      image: '/images/brand/fitness-workout.jpg',
     },
     {
       title: 'UAE Overnight Retreat',
@@ -58,7 +58,7 @@ const Experiences = () => {
       price: 'AED 2,800',
       slots: 'Only 10 spaces',
       cta: 'Reserve Your Space',
-      image: '/src/assets/images/img-121.jpg',
+      image: '/images/brand/meditation-geometric.jpg',
     },
     {
       title: 'International Retreat',
@@ -77,7 +77,7 @@ const Experiences = () => {
       price: 'AED 9,500',
       slots: 'Exclusive group of 8',
       cta: 'Apply to Join',
-      image: '/src/assets/images/img-134.jpg',
+      image: '/images/brand/tropical-meditation.jpg',
     },
   ];
 

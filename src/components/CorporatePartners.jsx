@@ -49,7 +49,7 @@ const CorporatePartners = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-3xl mx-auto mb-12"
         >
           <h2 className="font-cormorant text-5xl md:text-6xl text-deep-calm mb-6">
             Corporate Wellness Programs
@@ -58,6 +58,26 @@ const CorporatePartners = () => {
             Invest in your team's well-being. Our corporate wellness programs help create
             a healthier, more productive, and more engaged workforce.
           </p>
+        </motion.div>
+
+        {/* Hero Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative h-96 rounded-2xl overflow-hidden shadow-2xl mb-20"
+        >
+          <img
+            src="/images/brand/fitness-workout.jpg"
+            alt="Corporate wellness training"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-deep-calm/60 to-transparent flex items-end justify-center pb-8">
+            <p className="text-white text-xl md:text-2xl font-cormorant font-medium">
+              Empowering teams through holistic wellness
+            </p>
+          </div>
         </motion.div>
 
         {/* Benefits Grid */}
