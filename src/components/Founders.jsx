@@ -50,7 +50,7 @@ const Founders = () => {
               {/* Founder Card */}
               <div className="bg-cloud-white rounded-3xl overflow-hidden apple-shadow-lg hover:apple-shadow-xl transition-all duration-500 hover:-translate-y-1">
                 {/* Image */}
-                <div className="relative h-[400px] overflow-hidden">
+                <div className="relative h-[280px] overflow-hidden">
                   <img
                     src={founder.image}
                     alt={founder.name}
