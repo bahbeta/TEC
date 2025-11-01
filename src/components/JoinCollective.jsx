@@ -46,24 +46,6 @@ const JoinCollective = () => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          {/* Category Label */}
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="w-16 h-px bg-terracotta"></div>
-            <span className="text-terracotta text-xs tracking-[0.3em] uppercase font-body">
-              Join The Collective
-            </span>
-            <div className="w-16 h-px bg-terracotta"></div>
-          </div>
-
-          {/* Headline */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-cloud-white mb-8 leading-tight">
-            Start Your Journey Today
-          </h2>
-
-          <p className="text-lg md:text-xl text-cloud-white/70 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Be the first to know about upcoming retreats, exclusive insights, and transformative wellness experiences.
-          </p>
-
           {!submitted ? (
             <div className="max-w-md mx-auto">
               <form onSubmit={handleSubmit} className="space-y-4">
