@@ -55,31 +55,33 @@ const Nav = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between relative">
-          {/* Logo - Positioned to overlap */}
-          <motion.a
-            href="#"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className={`absolute transition-all duration-500 ${
-              scrolled ? 'top-[-20px]' : 'top-[-40px]'
-            }`}
-          >
-            <img
-              src="/images/tec-logo.png"
-              alt="The Elevate Collective"
-              className={`w-auto object-contain ${
-                scrolled ? 'h-24 md:h-28' : 'h-32 md:h-40'
-              }`}
+          {/* Logo - Positioned to overlap (half above navbar, half inside) */}
+          <Link to="/">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="absolute transition-all duration-500 cursor-pointer"
               style={{
-                filter: isDarkBackground ? 'none' : 'brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(1739%) hue-rotate(173deg) brightness(95%) contrast(92%)',
-                transition: 'all 0.5s ease-out'
+                top: scrolled ? '-47px' : '-63px',
+                left: 0,
               }}
-            />
-          </motion.a>
+            >
+              <img
+                src="/images/tec-logo.png"
+                alt="The Elevate Collective"
+                className="w-auto object-contain transition-all duration-500"
+                style={{
+                  height: scrolled ? '160px' : '240px',
+                  filter: isDarkBackground ? 'none' : 'brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(1739%) hue-rotate(173deg) brightness(95%) contrast(92%)',
+                  transition: 'all 0.5s ease-out'
+                }}
+              />
+            </motion.div>
+          </Link>
 
           {/* Spacer to prevent content overlap */}
           <div className={`transition-all duration-500 ${
-            scrolled ? 'w-32 md:w-40' : 'w-40 md:w-52'
+            scrolled ? 'w-52 md:w-64' : 'w-64 md:w-80'
           }`}></div>
 
           {/* Nav Items - Centered */}

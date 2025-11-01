@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -12,11 +13,13 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <img
-              src="/images/tec-logo.png"
-              alt="The Elevate Collective"
-              className="h-24 md:h-32 w-auto object-contain mb-6"
-            />
+            <Link to="/" className="inline-block hover:opacity-80 transition-opacity duration-300">
+              <img
+                src="/images/tec-logo.png"
+                alt="The Elevate Collective"
+                className="h-24 md:h-32 w-auto object-contain mb-6"
+              />
+            </Link>
             <p className="text-cloud-white/70 leading-relaxed mb-6">
               Get out there & discover your next wellness experience, retreat & destination!
             </p>
