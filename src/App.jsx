@@ -5,7 +5,6 @@ import AboutUs from './components/AboutUs';
 import Experiences from './components/Experiences';
 import Founders from './components/Founders';
 import CorporatePartners from './components/CorporatePartners';
-import ContactUs from './components/ContactUs';
 import JoinCollective from './components/JoinCollective';
 import Footer from './components/Footer';
 import SmoothScroll from './components/SmoothScroll';
@@ -25,7 +24,6 @@ const HomePage = () => (
     <Experiences />
     <CorporatePartners />
     <Founders />
-    <ContactUs />
     <JoinCollective />
     <Footer />
   </div>

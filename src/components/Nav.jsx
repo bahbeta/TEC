@@ -19,7 +19,6 @@ const Nav = () => {
     { label: 'Events', href: '#experiences', type: 'anchor' },
     { label: 'Corporate Partners', href: '#partners', type: 'anchor' },
     { label: 'Blogs', href: '/blog', type: 'link' },
-    { label: 'Contact Us', href: '#contact', type: 'anchor' },
   ];
 
   return (
@@ -77,7 +76,7 @@ const Nav = () => {
 
           {/* Account Link */}
           <motion.a
-            href="#contact"
+            href="#join"
             whileHover={{ scale: 1.05 }}
             className={`hidden lg:flex items-center gap-2 text-sm font-body font-medium transition-colors duration-200 ${
               scrolled ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
