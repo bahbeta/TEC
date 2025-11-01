@@ -50,13 +50,13 @@ const Founders = () => {
               {/* Founder Card */}
               <div className="bg-cloud-white rounded-3xl overflow-hidden apple-shadow-lg hover:apple-shadow-xl transition-all duration-500 hover:-translate-y-1 h-[750px] flex flex-col">
                 {/* Image */}
-                <div className="relative h-[350px] flex-shrink-0 overflow-hidden">
+                <div className="relative h-[350px] flex-shrink-0 overflow-hidden bg-warm-sand">
                   <img
                     src={founder.image}
                     alt={founder.name}
-                    className="w-full h-full object-cover object-center grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                    className="w-full h-full object-contain object-center grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-deep-calm/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-deep-calm/60 to-transparent pointer-events-none"></div>
 
                   {/* Name Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-8">
