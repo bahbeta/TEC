@@ -9,54 +9,91 @@ const BackgroundMusic = () => {
 
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio) {
+      console.error('❌ Audio element not found');
+      return;
+    }
+
+    console.log('🎵 BackgroundMusic mounted');
+    console.log('🎵 Audio src:', audio.src);
 
     audio.loop = true;
     audio.volume = 0.3;
 
+    // Check if audio can load
+    audio.addEventListener('canplay', () => {
+      console.log('✅ Audio loaded and ready to play');
+    });
+
+    audio.addEventListener('error', (e) => {
+      console.error('❌ Audio error:', e);
+    });
+
     // Try silent start immediately on load
     const tryAutoplay = async () => {
+      console.log('🔄 Attempting autoplay...');
       try {
-        await audio.play();
-        setIsPlaying(true);
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          await playPromise;
+          setIsPlaying(true);
+          console.log('✅ AUTOPLAY SUCCEEDED!');
+        }
       } catch (err) {
-        // Silently fail - will try on first interaction
+        console.log('⚠️ Autoplay blocked:', err.message);
+        console.log('💡 Waiting for user interaction...');
       }
     };
 
     // Start music on first user interaction (invisible to user)
-    const startOnInteraction = async () => {
+    const startOnInteraction = async (eventType) => {
       if (hasStarted.current) return;
       hasStarted.current = true;
 
+      console.log(`🎯 User interaction detected: ${eventType}`);
+      console.log('🔄 Starting playback...');
+
       try {
-        await audio.play();
-        setIsPlaying(true);
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          await playPromise;
+          setIsPlaying(true);
+          console.log('✅ MUSIC PLAYING! Volume:', audio.volume);
+        }
       } catch (err) {
-        // Ignore errors
+        console.error('❌ Failed to play:', err.message);
       }
 
       // Clean up listeners
-      document.removeEventListener('scroll', startOnInteraction);
-      document.removeEventListener('mousemove', startOnInteraction);
-      document.removeEventListener('click', startOnInteraction);
-      document.removeEventListener('touchstart', startOnInteraction);
+      cleanup();
     };
+
+    const cleanup = () => {
+      document.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('click', handleClick);
+      document.removeEventListener('touchstart', handleTouch);
+      document.removeEventListener('keydown', handleKeydown);
+    };
+
+    const handleScroll = () => startOnInteraction('scroll');
+    const handleMouseMove = () => startOnInteraction('mousemove');
+    const handleClick = () => startOnInteraction('click');
+    const handleTouch = () => startOnInteraction('touch');
+    const handleKeydown = () => startOnInteraction('keydown');
 
     // Try autoplay first
     tryAutoplay();
 
-    // Set up invisible fallback triggers
-    document.addEventListener('scroll', startOnInteraction, { once: true, passive: true });
-    document.addEventListener('mousemove', startOnInteraction, { once: true });
-    document.addEventListener('click', startOnInteraction, { once: true });
-    document.addEventListener('touchstart', startOnInteraction, { once: true });
+    // Set up invisible fallback triggers - use named functions to ensure cleanup works
+    document.addEventListener('scroll', handleScroll, { once: true, passive: true });
+    document.addEventListener('mousemove', handleMouseMove, { once: true });
+    document.addEventListener('click', handleClick, { once: true });
+    document.addEventListener('touchstart', handleTouch, { once: true });
+    document.addEventListener('keydown', handleKeydown, { once: true });
 
     return () => {
-      document.removeEventListener('scroll', startOnInteraction);
-      document.removeEventListener('mousemove', startOnInteraction);
-      document.removeEventListener('click', startOnInteraction);
-      document.removeEventListener('touchstart', startOnInteraction);
+      cleanup();
       if (audio) {
         audio.pause();
         audio.currentTime = 0;
