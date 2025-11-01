@@ -15,7 +15,7 @@ const Footer = () => {
             <img
               src="/images/tec-logo.png"
               alt="The Elevate Collective"
-              className="h-16 w-auto object-contain mb-4"
+              className="h-24 md:h-32 w-auto object-contain mb-6"
             />
             <p className="text-cloud-white/70 leading-relaxed mb-6">
               Get out there & discover your next wellness experience, retreat & destination!
