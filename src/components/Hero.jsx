@@ -10,8 +10,10 @@ const Hero = () => {
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.6, 0.4]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.08, 0.10], [1, 1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 0.10], [0, -100]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.06, 0.12], [1, 1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 0.12], [0, -100]);
+  const contentScale = useTransform(scrollYProgress, [0, 0.12], [1, 0.85]);
+  const contentRotateX = useTransform(scrollYProgress, [0, 0.12], [0, -15]);
 
   // 8-layer parallax system - progressive depth
   const layer1Y = useTransform(scrollYProgress, [0, 1], [0, 100]);
@@ -38,15 +40,24 @@ const Hero = () => {
   const layer8Y = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const layer8Scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
-  // About sections scroll transforms - more aggressive timing
-  const aboutContainerOpacity = useTransform(scrollYProgress, [0.10, 0.12, 0.58, 0.60], [0, 1, 1, 0]);
+  // About sections scroll transforms - smoother timing with 3D
+  const aboutContainerOpacity = useTransform(scrollYProgress, [0.08, 0.12, 0.58, 0.62], [0, 1, 1, 0]);
+  const aboutContainerScale = useTransform(scrollYProgress, [0.08, 0.16, 0.54, 0.62], [0.9, 1, 1, 0.9]);
+  const aboutContainerRotateX = useTransform(scrollYProgress, [0.08, 0.16, 0.54, 0.62], [10, 0, 0, -10]);
 
-  // Individual section transforms
-  const section1Opacity = useTransform(scrollYProgress, [0.10, 0.13, 0.26, 0.29], [0, 1, 1, 0]);
-  const section2Opacity = useTransform(scrollYProgress, [0.27, 0.30, 0.43, 0.46], [0, 1, 1, 0]);
-  const section3Opacity = useTransform(scrollYProgress, [0.44, 0.47, 0.59, 0.62], [0, 1, 1, 0]);
+  // Individual section transforms - extended fade ranges for smoother transitions
+  const section1Opacity = useTransform(scrollYProgress, [0.08, 0.14, 0.24, 0.30], [0, 1, 1, 0]);
+  const section1Scale = useTransform(scrollYProgress, [0.08, 0.14, 0.24, 0.30], [0.95, 1, 1, 0.95]);
 
-  const philosophyContainerOpacity = useTransform(scrollYProgress, [0.60, 0.63, 0.95, 0.98], [0, 1, 1, 0]);
+  const section2Opacity = useTransform(scrollYProgress, [0.26, 0.32, 0.42, 0.48], [0, 1, 1, 0]);
+  const section2Scale = useTransform(scrollYProgress, [0.26, 0.32, 0.42, 0.48], [0.95, 1, 1, 0.95]);
+
+  const section3Opacity = useTransform(scrollYProgress, [0.44, 0.50, 0.58, 0.64], [0, 1, 1, 0]);
+  const section3Scale = useTransform(scrollYProgress, [0.44, 0.50, 0.58, 0.64], [0.95, 1, 1, 0.95]);
+
+  const philosophyContainerOpacity = useTransform(scrollYProgress, [0.60, 0.66, 0.92, 0.98], [0, 1, 1, 0]);
+  const philosophyContainerScale = useTransform(scrollYProgress, [0.60, 0.68, 0.88, 0.98], [0.9, 1, 1, 0.9]);
+  const philosophyContainerRotateX = useTransform(scrollYProgress, [0.60, 0.68, 0.88, 0.98], [10, 0, 0, -10]);
 
   const pillars = [
     {
@@ -68,9 +79,9 @@ const Hero = () => {
   ];
 
   return (
-    <section ref={ref} className="relative h-[400vh] bg-white">
+    <section ref={ref} className="relative h-[400vh] bg-white" style={{ perspective: '1200px' }}>
       {/* 8-Layer Parallax Background - Immersive Mountain Landscape */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-white">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-white" style={{ transformStyle: 'preserve-3d' }}>
         <div className="absolute inset-0 z-0 bg-white">
         {/* Layer 1 - Sky & Sunlight (Furthest back) */}
         <motion.div
@@ -229,7 +240,13 @@ const Hero = () => {
 
         {/* Hero Content */}
         <motion.div
-          style={{ opacity: contentOpacity, y: contentY }}
+          style={{
+            opacity: contentOpacity,
+            y: contentY,
+            scale: contentScale,
+            rotateX: contentRotateX,
+            transformPerspective: 1200
+          }}
           className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 text-center h-screen flex flex-col items-center justify-center"
         >
         <motion.div
@@ -290,12 +307,17 @@ const Hero = () => {
 
         {/* About Sections - Scroll Reveal */}
         <motion.div
-          style={{ opacity: aboutContainerOpacity }}
+          style={{
+            opacity: aboutContainerOpacity,
+            scale: aboutContainerScale,
+            rotateX: aboutContainerRotateX,
+            transformPerspective: 1200
+          }}
           className="absolute inset-0 z-30 flex items-center justify-center"
         >
           {/* Section 1 */}
           <motion.div
-            style={{ opacity: section1Opacity }}
+            style={{ opacity: section1Opacity, scale: section1Scale }}
             className="absolute inset-0 flex items-center justify-center px-6 md:px-12"
           >
             <div className="max-w-3xl">
@@ -326,7 +348,7 @@ const Hero = () => {
 
           {/* Section 2 */}
           <motion.div
-            style={{ opacity: section2Opacity }}
+            style={{ opacity: section2Opacity, scale: section2Scale }}
             className="absolute inset-0 flex items-center justify-center px-6 md:px-12"
           >
             <div className="max-w-3xl">
@@ -357,7 +379,7 @@ const Hero = () => {
 
           {/* Section 3 */}
           <motion.div
-            style={{ opacity: section3Opacity }}
+            style={{ opacity: section3Opacity, scale: section3Scale }}
             className="absolute inset-0 flex items-center justify-center px-6 md:px-12"
           >
             <div className="max-w-3xl">
@@ -389,7 +411,12 @@ const Hero = () => {
 
         {/* Philosophy Section - Scroll Reveal */}
         <motion.div
-          style={{ opacity: philosophyContainerOpacity }}
+          style={{
+            opacity: philosophyContainerOpacity,
+            scale: philosophyContainerScale,
+            rotateX: philosophyContainerRotateX,
+            transformPerspective: 1200
+          }}
           className="absolute inset-0 z-30 flex items-center justify-center"
         >
           <div className="max-w-6xl mx-auto px-6 md:px-12 text-center">

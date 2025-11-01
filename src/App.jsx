@@ -6,10 +6,12 @@ import Founders from './components/Founders';
 import JoinCollective from './components/JoinCollective';
 import Footer from './components/Footer';
 import SmoothScroll from './components/SmoothScroll';
+import BackgroundMusic from './components/BackgroundMusic';
 
 function App() {
   return (
     <SmoothScroll>
+      <BackgroundMusic />
       <div className="App bg-deep-calm">
         <Nav />
         <Hero />
