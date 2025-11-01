@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
-import ExperiencesHorizontal from './components/ExperiencesHorizontal';
+import Experiences from './components/Experiences';
 import Founders from './components/Founders';
 import CorporatePartners from './components/CorporatePartners';
 import JoinCollective from './components/JoinCollective';
@@ -21,7 +21,7 @@ const HomePage = () => (
     <Nav />
     <Hero />
     <AboutUs />
-    <ExperiencesHorizontal />
+    <Experiences />
     <CorporatePartners />
     <Founders />
     <JoinCollective />
