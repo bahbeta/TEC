@@ -93,7 +93,7 @@ const Hero = () => {
           className="absolute inset-0 z-[1]"
         >
           <img
-            src="/src/assets/images/hero-layer-1.png"
+            src="/images/hero-layer-1.png"
             alt="Sky and Sunlight"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.7) contrast(1.1) brightness(1.02)' }}
@@ -110,7 +110,7 @@ const Hero = () => {
           className="absolute inset-0 z-[2]"
         >
           <img
-            src="/src/assets/images/hero-layer-2.png"
+            src="/images/hero-layer-2.png"
             alt="Distant Mountain Peaks"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.65) contrast(1.05) brightness(1.08)' }}
@@ -129,7 +129,7 @@ const Hero = () => {
           className="absolute inset-0 z-[3]"
         >
           <img
-            src="/src/assets/images/hero-layer-3.png"
+            src="/images/hero-layer-3.png"
             alt="Mid Hills"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.68) contrast(1.08) brightness(1.04)' }}
@@ -148,7 +148,7 @@ const Hero = () => {
           className="absolute inset-0 z-[4]"
         >
           <img
-            src="/src/assets/images/hero-layer-4.png"
+            src="/images/hero-layer-4.png"
             alt="Forested Ridges"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.7) contrast(1.1) brightness(1.0)' }}
@@ -167,7 +167,7 @@ const Hero = () => {
           className="absolute inset-0 z-[5]"
         >
           <img
-            src="/src/assets/images/hero-layer-5.png"
+            src="/images/hero-layer-5.png"
             alt="River Source"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.72) contrast(1.12) brightness(0.98)' }}
@@ -184,7 +184,7 @@ const Hero = () => {
           className="absolute inset-0 z-[5.5] opacity-40"
         >
           <img
-            src="/src/assets/images/hero-layer-8.png"
+            src="/images/hero-layer-8.png"
             alt="Mist and Light Rays"
             className="w-full h-full object-cover object-center"
             style={{
@@ -207,7 +207,7 @@ const Hero = () => {
           className="absolute inset-0 z-[6]"
         >
           <img
-            src="/src/assets/images/hero-layer-6.png"
+            src="/images/hero-layer-6.png"
             alt="Foreground Trees"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.78) contrast(1.20) brightness(0.96) clarity(1.15)' }}
@@ -224,7 +224,7 @@ const Hero = () => {
           className="absolute inset-0 z-[7]"
         >
           <img
-            src="/src/assets/images/hero-layer-7.png"
+            src="/images/hero-layer-7.png"
             alt="River Foreground"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.75) contrast(1.16) brightness(0.95)' }}
