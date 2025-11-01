@@ -44,11 +44,12 @@ const Nav = () => {
             <img
               src="/images/tec-logo.png"
               alt="The Elevate Collective"
-              className={`w-auto object-contain transition-all duration-500 ${
+              className={`w-auto object-contain ${
                 scrolled ? 'h-24 md:h-28' : 'h-32 md:h-40'
               }`}
               style={{
-                filter: scrolled ? 'none' : 'brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(1739%) hue-rotate(173deg) brightness(95%) contrast(92%)'
+                filter: scrolled ? 'none' : 'brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(1739%) hue-rotate(173deg) brightness(95%) contrast(92%)',
+                transition: 'all 0.5s ease-out'
               }}
             />
           </motion.a>
