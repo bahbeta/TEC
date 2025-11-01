@@ -2,6 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Apple-style enhancements */
+@layer utilities {
+  /* Smooth hover transitions */
+  .apple-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .apple-hover-lift {
+    @apply apple-hover hover:-translate-y-1 hover:shadow-2xl;
+  }
+
+  /* Magnetic button effect */
+  .magnetic-button {
+    @apply relative overflow-hidden transition-all duration-300 ease-out;
+  }
+
+  .magnetic-button::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-200%] transition-transform duration-700;
+  }
+
+  .magnetic-button:hover::before {
+    @apply translate-x-[200%];
+  }
+
+  /* Glass morphism */
+  .glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/10 backdrop-blur-xl border border-black/20;
+  }
+
+  /* Smooth scale on hover */
+  .scale-hover {
+    @apply transition-transform duration-500 ease-out hover:scale-[1.02];
+  }
+
+  /* Text reveal animation */
+  .text-reveal {
+    @apply overflow-hidden;
+  }
+
+  /* Apple-style focus ring */
+  .focus-apple {
+    @apply focus:outline-none focus:ring-4 focus:ring-terracotta/20 focus:border-terracotta transition-all duration-200;
+  }
+
+  /* Smooth fade in/out */
+  .fade-smooth {
+    @apply transition-opacity duration-700 ease-in-out;
+  }
+
+  /* 3D perspective hover */
+  .hover-3d {
+    @apply transition-transform duration-500 ease-out;
+    transform-style: preserve-3d;
+  }
+
+  .hover-3d:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(10px);
+  }
+}
+
 @layer base {
   * {
     -webkit-font-smoothing: antialiased;

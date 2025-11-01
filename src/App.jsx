@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
-import Experiences from './components/Experiences';
+import ExperiencesHorizontal from './components/ExperiencesHorizontal';
 import Founders from './components/Founders';
 import CorporatePartners from './components/CorporatePartners';
 import JoinCollective from './components/JoinCollective';
@@ -17,11 +17,11 @@ import AdminPostEditor from './pages/AdminPostEditor';
 
 // Homepage component
 const HomePage = () => (
-  <div className="App bg-deep-calm">
+  <div className="App bg-deep-calm scroll-smooth">
     <Nav />
     <Hero />
     <AboutUs />
-    <Experiences />
+    <ExperiencesHorizontal />
     <CorporatePartners />
     <Founders />
     <JoinCollective />

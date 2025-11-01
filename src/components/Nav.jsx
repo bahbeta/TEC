@@ -26,8 +26,8 @@ const Nav = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-deep-calm/95 backdrop-blur-sm py-4' : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        scrolled ? 'glass-dark py-4 shadow-lg' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -35,9 +35,9 @@ const Nav = () => {
           {/* Logo */}
           <motion.a
             href="#"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-            className={`text-2xl md:text-3xl font-display font-bold tracking-tighter transition-colors duration-300 ${
+            whileHover={{ scale: 1.05, letterSpacing: "0.05em" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className={`text-2xl md:text-3xl font-display font-bold tracking-tighter transition-all duration-500 ${
               scrolled ? 'text-cloud-white' : 'text-[#1F2A3A]'
             }`}
           >
@@ -63,12 +63,19 @@ const Nav = () => {
                   href={item.href}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -2 }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
-                  className={`text-sm font-body font-medium transition-colors duration-200 ${
+                  className={`text-sm font-body font-medium apple-hover relative ${
                     scrolled ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
                   }`}
                 >
                   {item.label}
+                  <motion.span
+                    className="absolute bottom-0 left-0 h-0.5 bg-terracotta"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
                 </motion.a>
               )
             ))}

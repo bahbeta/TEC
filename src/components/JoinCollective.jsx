@@ -77,7 +77,7 @@ const JoinCollective = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 bg-cloud-white/10 backdrop-blur-sm border border-cloud-white/20 focus:border-terracotta focus:outline-none transition-all duration-300 rounded-full text-cloud-white placeholder:text-cloud-white/40"
+                  className="w-full px-6 py-4 glass border border-cloud-white/20 focus-apple rounded-full text-cloud-white placeholder:text-cloud-white/40"
                 />
                 <input
                   type="email"
@@ -86,15 +86,15 @@ const JoinCollective = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 bg-cloud-white/10 backdrop-blur-sm border border-cloud-white/20 focus:border-terracotta focus:outline-none transition-all duration-300 rounded-full text-cloud-white placeholder:text-cloud-white/40"
+                  className="w-full px-6 py-4 glass border border-cloud-white/20 focus-apple rounded-full text-cloud-white placeholder:text-cloud-white/40"
                 />
                 <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                   type="submit"
-                  className="w-full bg-terracotta text-cloud-white px-10 py-4 font-medium rounded-full hover:bg-terracotta/90 transition-all duration-300 uppercase tracking-wider text-sm"
+                  className="w-full bg-terracotta text-cloud-white px-10 py-4 font-medium rounded-full hover:bg-terracotta/90 transition-all duration-500 uppercase tracking-wider text-sm magnetic-button shadow-lg hover:shadow-2xl"
                 >
-                  Get Started
+                  <span className="relative z-10">Get Started</span>
                 </motion.button>
               </form>
             </div>
