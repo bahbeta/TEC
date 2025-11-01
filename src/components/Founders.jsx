@@ -5,7 +5,7 @@ const Founders = () => {
   const founders = [
     {
       name: 'MALAK ALSAFFAR',
-      image: '/src/assets/images/img-020.jpg',
+      image: '/images/malak.jpeg',
       bio: [
         'Malak empowers high performers with targeted mentorship for sustainable growth. She helps overcome mindset limitations while promoting well-being alongside outstanding achievements. Passionate about self-development, Malak facilitates lasting changes that establish foundations for ongoing professional success and personal fulfillment, guiding individuals towards excellence without encouraging unsustainable hustle.',
         'As a tech senior leader and entrepreneur, she walks the talk in her approach to success. She has mentored individuals globally to exceptional success and is passionate about bestowing that on TEC community.'
@@ -13,7 +13,7 @@ const Founders = () => {
     },
     {
       name: 'WESLEY DEPASS',
-      image: '/src/assets/images/img-058.jpg',
+      image: '/images/wesley.jpeg',
       bio: [
         'Known as Coach "WesDep," Wesley is a Strength and Conditioning expert and is co-founder of The Elevate Collective. With over a decade of experience coaching high achievers (the top 1%) he helps individuals reach their highest physical and mental potential.',
         'Wes\' background as a Big 4 senior consultant and serial entrepreneur equips him to understand the demands of fast-paced demanding roles and how to navigate them. He is also a qualified S&C Coach and certified MNU Nutritionist. His passion for helping people elevate themselves is evident in his work with over hundreds of clients.'
