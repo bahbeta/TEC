@@ -48,9 +48,9 @@ const Founders = () => {
               className="group"
             >
               {/* Founder Card */}
-              <div className="bg-cloud-white rounded-3xl overflow-hidden apple-shadow-lg hover:apple-shadow-xl transition-all duration-500 hover:-translate-y-1">
+              <div className="bg-cloud-white rounded-3xl overflow-hidden apple-shadow-lg hover:apple-shadow-xl transition-all duration-500 hover:-translate-y-1 h-[750px] flex flex-col">
                 {/* Image */}
-                <div className="relative h-[280px] overflow-hidden">
+                <div className="relative h-[350px] flex-shrink-0 overflow-hidden">
                   <img
                     src={founder.image}
                     alt={founder.name}
@@ -67,7 +67,7 @@ const Founders = () => {
                 </div>
 
                 {/* Bio Content */}
-                <div className="p-8 lg:p-10">
+                <div className="p-8 lg:p-10 flex-1 flex flex-col justify-center">
                   <div className="space-y-4">
                     {founder.bio.map((paragraph, idx) => (
                       <p key={idx} className="text-deep-calm/80 leading-relaxed text-base">
