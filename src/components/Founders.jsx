@@ -54,7 +54,7 @@ const Founders = () => {
                   <img
                     src={founder.image}
                     alt={founder.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover object-center grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-deep-calm/60 to-transparent"></div>
 
