@@ -10,57 +10,43 @@ const BackgroundMusic = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    // Set audio properties
-    audio.loop = true;
+    // Set volume
     audio.volume = 0.3; // Set to 30% volume for background ambience
 
-    // Attempt to play audio - start muted to bypass browser restrictions, then unmute
-    const playAudio = async () => {
-      try {
-        // Start muted to bypass autoplay restrictions
-        audio.muted = true;
-        await audio.play();
-        setIsPlaying(true);
+    // Listen for when audio starts playing
+    const handlePlay = () => {
+      setIsPlaying(true);
+      // Unmute after audio starts playing (browser allows this)
+      setTimeout(() => {
+        audio.muted = false;
+        setIsMuted(false);
+      }, 500);
+    };
 
-        // Unmute after a short delay (browsers allow this)
-        setTimeout(() => {
-          audio.muted = false;
-          setIsMuted(false);
-        }, 100);
-      } catch (error) {
-        console.log('Autoplay with mute failed, trying on user interaction...');
-        // If even muted autoplay fails, try again on first user interaction
-        const handleInteraction = async () => {
-          try {
-            audio.muted = true;
-            await audio.play();
-            setIsPlaying(true);
-            setTimeout(() => {
-              audio.muted = false;
-              setIsMuted(false);
-            }, 100);
-            document.removeEventListener('click', handleInteraction);
-            document.removeEventListener('touchstart', handleInteraction);
-            document.removeEventListener('scroll', handleInteraction);
-          } catch (err) {
-            console.error('Failed to play audio:', err);
-          }
-        };
-        document.addEventListener('click', handleInteraction, { once: true });
-        document.addEventListener('touchstart', handleInteraction, { once: true });
-        document.addEventListener('scroll', handleInteraction, { once: true });
+    // Fallback: Try to unmute on user interaction if autoplay was blocked
+    const handleInteraction = () => {
+      if (!isPlaying) {
+        audio.play().then(() => {
+          setTimeout(() => {
+            audio.muted = false;
+            setIsMuted(false);
+          }, 500);
+        }).catch(err => console.log('Playback failed:', err));
       }
     };
 
-    playAudio();
+    audio.addEventListener('play', handlePlay);
+    document.addEventListener('click', handleInteraction, { once: true });
+    document.addEventListener('touchstart', handleInteraction, { once: true });
+    document.addEventListener('scroll', handleInteraction, { once: true });
 
     return () => {
-      if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
+      audio.removeEventListener('play', handlePlay);
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+      document.removeEventListener('scroll', handleInteraction);
     };
-  }, []);
+  }, [isPlaying]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -78,6 +64,9 @@ const BackgroundMusic = () => {
       <audio
         ref={audioRef}
         src="/assets/bali-meditation.mp3"
+        autoPlay
+        loop
+        muted
         preload="auto"
       />
 
