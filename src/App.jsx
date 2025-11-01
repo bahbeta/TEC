@@ -1,30 +1,25 @@
 import Nav from './components/Nav';
 import Hero from './components/Hero';
-import About from './components/About';
-import Philosophy from './components/Philosophy';
-import WhoWeServe from './components/WhoWeServe';
+import AboutUs from './components/AboutUs';
 import Experiences from './components/Experiences';
-import Community from './components/Community';
-import Press from './components/Press';
-import UpcomingMoments from './components/UpcomingMoments';
+import Founders from './components/Founders';
 import JoinCollective from './components/JoinCollective';
 import Footer from './components/Footer';
+import SmoothScroll from './components/SmoothScroll';
 
 function App() {
   return (
-    <div className="App">
-      <Nav />
-      <Hero />
-      <About />
-      <Philosophy />
-      <WhoWeServe />
-      <Experiences />
-      <Community />
-      <Press />
-      <UpcomingMoments />
-      <JoinCollective />
-      <Footer />
-    </div>
+    <SmoothScroll>
+      <div className="App bg-deep-calm">
+        <Nav />
+        <Hero />
+        <AboutUs />
+        <Experiences />
+        <Founders />
+        <JoinCollective />
+        <Footer />
+      </div>
+    </SmoothScroll>
   );
 }
 

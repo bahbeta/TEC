@@ -9,10 +9,49 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  /* Lenis smooth scroll override */
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
+  /* Performance optimizations for smooth scrolling */
+  [data-scroll] {
+    will-change: transform, opacity;
+  }
+
+  /* Optimize layer rendering */
+  .parallax-layer {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Smooth scrolling for webkit browsers */
+  * {
+    -webkit-overflow-scrolling: touch;
   }
 
   body {
+    overscroll-behavior-y: none;
     @apply font-body text-deep-calm bg-cloud-white;
   }
 
@@ -46,32 +85,112 @@
     text-wrap: balance;
   }
 
+  /* Apple-inspired blur effects */
   .apple-blur {
     backdrop-filter: saturate(180%) blur(20px);
     background-color: rgba(250, 249, 246, 0.92);
   }
 
+  .apple-blur-dark {
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(30, 42, 58, 0.72);
+  }
+
+  /* Apple-style shadows with depth */
   .apple-shadow {
     box-shadow: 0 2px 12px rgba(30, 42, 58, 0.08);
   }
 
   .apple-shadow-lg {
-    box-shadow: 0 8px 24px rgba(30, 42, 58, 0.12);
+    box-shadow: 0 8px 32px rgba(30, 42, 58, 0.12), 0 2px 8px rgba(30, 42, 58, 0.08);
   }
 
   .apple-shadow-xl {
-    box-shadow: 0 12px 40px rgba(30, 42, 58, 0.15);
+    box-shadow: 0 20px 60px rgba(30, 42, 58, 0.18), 0 8px 24px rgba(30, 42, 58, 0.12);
   }
 
+  /* Apple-style cards */
+  .apple-card {
+    @apply bg-cloud-white rounded-3xl apple-shadow-lg transition-all duration-500;
+  }
+
+  .apple-card:hover {
+    @apply apple-shadow-xl transform -translate-y-1;
+  }
+
+  /* Gradient overlays */
   .gradient-overlay {
     background: linear-gradient(to bottom, rgba(30, 42, 58, 0.3), rgba(30, 42, 58, 0.7));
   }
 
-  .section-spacing {
-    @apply py-20 md:py-32 lg:py-40;
+  .gradient-overlay-light {
+    background: linear-gradient(to bottom, rgba(250, 249, 246, 0.1), rgba(250, 249, 246, 0.4));
   }
 
+  /* Apple-style animations */
+  .apple-transition {
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .apple-transition-slow {
+    transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  /* Section spacing - generous Apple-style white space */
+  .section-spacing {
+    @apply py-[146px] md:py-[194px] lg:py-[242px];
+  }
+
+  /* Apple-style buttons */
+  .apple-button {
+    @apply px-8 py-4 rounded-full font-medium transition-all duration-300;
+    @apply hover:scale-105 active:scale-95;
+  }
+
+  .apple-button-primary {
+    @apply apple-button bg-terracotta text-cloud-white apple-shadow-lg;
+    @apply hover:apple-shadow-xl hover:-translate-y-0.5;
+  }
+
+  .apple-button-secondary {
+    @apply apple-button bg-cloud-white/10 backdrop-blur-md border-2 border-cloud-white/30;
+    @apply hover:bg-cloud-white/20;
+  }
+
+  /* Typography enhancements */
+  .apple-heading-xl {
+    @apply text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display font-semibold;
+    @apply leading-[0.95] tracking-tight;
+  }
+
+  .apple-heading-lg {
+    @apply text-5xl md:text-6xl lg:text-7xl font-display font-semibold;
+    @apply leading-tight tracking-tight;
+  }
+
+  .apple-heading-md {
+    @apply text-4xl md:text-5xl lg:text-6xl font-display font-semibold;
+    @apply leading-tight tracking-tight;
+  }
+
+  /* Parallax effects */
   .parallax-slow {
     transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  /* Vertical text */
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  /* MNTN-style numbered sections */
+  .section-number {
+    font-size: 15rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.08;
+    user-select: none;
+    pointer-events: none;
   }
 }

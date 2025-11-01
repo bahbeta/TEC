@@ -10,7 +10,7 @@ const WhoWeServe = () => {
   ];
 
   return (
-    <Section id="who-we-serve" background="soft-white">
+    <Section id="who-we-serve" background="cloud-white">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         {/* Left: Image */}
         <div className="order-2 md:order-1">

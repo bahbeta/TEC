@@ -33,7 +33,7 @@ const Press = () => {
   };
 
   return (
-    <Section id="press" background="charcoal-black">
+    <Section id="press" background="deep-calm">
       <div className="text-center mb-12">
         <h2 className="mb-8">Press & Stories</h2>
         <div className="flex justify-center gap-8 mb-12 flex-wrap">

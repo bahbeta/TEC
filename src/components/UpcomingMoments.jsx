@@ -26,7 +26,7 @@ const UpcomingMoments = () => {
   ];
 
   return (
-    <Section id="upcoming" background="warm-beige">
+    <Section id="upcoming" background="warm-sand">
       <div className="text-center mb-12">
         <h2 className="mb-4">Upcoming Moments</h2>
       </div>

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -11,6 +11,16 @@ const Section = ({
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // Parallax scroll effects
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  // Transform values for parallax effect
+  const y = useTransform(scrollYProgress, [0, 1], [150, -150]);
+  const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
 
   const backgrounds = {
     'cloud-white': 'bg-cloud-white text-deep-calm',
@@ -27,9 +37,12 @@ const Section = ({
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
       className={`section-spacing ${backgrounds[background]} ${className}`}
     >
-      <div className={`max-w-7xl mx-auto px-6 md:px-12 ${containerClassName}`}>
+      <motion.div
+        style={{ y, opacity }}
+        className={`max-w-7xl mx-auto px-6 md:px-12 ${containerClassName}`}
+      >
         {children}
-      </div>
+      </motion.div>
     </motion.section>
   );
 };
