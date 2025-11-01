@@ -5,48 +5,88 @@ const BackgroundMusic = () => {
   const audioRef = useRef(null);
   const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const hasTriedAutoplay = useRef(false);
 
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || hasTriedAutoplay.current) return;
 
-    // Set volume
+    hasTriedAutoplay.current = true;
+
+    // Set audio properties
+    audio.loop = true;
     audio.volume = 0.3; // Set to 30% volume for background ambience
 
-    // Listen for when audio starts playing
-    const handlePlay = () => {
-      setIsPlaying(true);
-      // Unmute after audio starts playing (browser allows this)
-      setTimeout(() => {
-        audio.muted = false;
-        setIsMuted(false);
-      }, 500);
-    };
+    // Aggressively try to start playback immediately
+    const startPlayback = async () => {
+      try {
+        // First attempt: try playing muted
+        audio.muted = true;
+        const playPromise = audio.play();
 
-    // Fallback: Try to unmute on user interaction if autoplay was blocked
-    const handleInteraction = () => {
-      if (!isPlaying) {
-        audio.play().then(() => {
+        if (playPromise !== undefined) {
+          await playPromise;
+          setIsPlaying(true);
+          console.log('✅ Audio autoplay started (muted)');
+
+          // Unmute after a short delay
           setTimeout(() => {
             audio.muted = false;
             setIsMuted(false);
-          }, 500);
-        }).catch(err => console.log('Playback failed:', err));
+            console.log('✅ Audio unmuted');
+          }, 300);
+        }
+      } catch (error) {
+        console.log('⚠️ Autoplay prevented, waiting for user interaction...', error.message);
+
+        // Fallback: Play on ANY user interaction
+        const handleFirstInteraction = async () => {
+          try {
+            audio.muted = true;
+            await audio.play();
+            setIsPlaying(true);
+            console.log('✅ Audio started after user interaction');
+
+            setTimeout(() => {
+              audio.muted = false;
+              setIsMuted(false);
+              console.log('✅ Audio unmuted after interaction');
+            }, 300);
+
+            // Remove all listeners after successful playback
+            cleanup();
+          } catch (err) {
+            console.error('❌ Failed to play audio:', err);
+          }
+        };
+
+        const cleanup = () => {
+          document.removeEventListener('click', handleFirstInteraction);
+          document.removeEventListener('touchstart', handleFirstInteraction);
+          document.removeEventListener('keydown', handleFirstInteraction);
+          document.removeEventListener('scroll', handleFirstInteraction);
+          window.removeEventListener('mousemove', handleFirstInteraction);
+        };
+
+        // Add multiple event listeners to catch first interaction
+        document.addEventListener('click', handleFirstInteraction, { once: true });
+        document.addEventListener('touchstart', handleFirstInteraction, { once: true });
+        document.addEventListener('keydown', handleFirstInteraction, { once: true });
+        document.addEventListener('scroll', handleFirstInteraction, { once: true, passive: true });
+        window.addEventListener('mousemove', handleFirstInteraction, { once: true });
       }
     };
 
-    audio.addEventListener('play', handlePlay);
-    document.addEventListener('click', handleInteraction, { once: true });
-    document.addEventListener('touchstart', handleInteraction, { once: true });
-    document.addEventListener('scroll', handleInteraction, { once: true });
+    // Try to start immediately
+    startPlayback();
 
     return () => {
-      audio.removeEventListener('play', handlePlay);
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('touchstart', handleInteraction);
-      document.removeEventListener('scroll', handleInteraction);
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
     };
-  }, [isPlaying]);
+  }, []);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -64,10 +104,8 @@ const BackgroundMusic = () => {
       <audio
         ref={audioRef}
         src="/assets/bali-meditation.mp3"
-        autoPlay
-        loop
-        muted
         preload="auto"
+        playsInline
       />
 
       <motion.button
