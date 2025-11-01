@@ -40,7 +40,7 @@ const Nav = () => {
             className="transition-all duration-500"
           >
             <img
-              src="/images/tec-logo.jpg"
+              src="/images/tec-logo.png"
               alt="The Elevate Collective"
               className="h-10 md:h-12 w-auto object-contain"
             />

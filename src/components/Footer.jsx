@@ -13,7 +13,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
           >
             <img
-              src="/images/tec-logo.jpg"
+              src="/images/tec-logo.png"
               alt="The Elevate Collective"
               className="h-16 w-auto object-contain mb-4"
             />
