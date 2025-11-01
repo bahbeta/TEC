@@ -4,12 +4,35 @@ import { motion } from 'framer-motion';
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isDarkBackground, setIsDarkBackground] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      // Detect background below nav bar
+      const navHeight = 100; // Approximate nav height
+      const elementBelow = document.elementFromPoint(window.innerWidth / 2, navHeight);
+
+      if (elementBelow) {
+        const bgColor = window.getComputedStyle(elementBelow).backgroundColor;
+        const section = elementBelow.closest('section, div[class*="bg-"]');
+
+        if (section) {
+          const sectionBg = window.getComputedStyle(section).backgroundColor;
+          const sectionClasses = section.className;
+
+          // Check if background is dark (deep-calm, charcoal, etc.)
+          const hasDarkBg = sectionClasses.includes('bg-deep-calm') ||
+                           sectionClasses.includes('bg-charcoal') ||
+                           sectionClasses.includes('bg-dark');
+
+          setIsDarkBackground(hasDarkBg);
+        }
+      }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -48,7 +71,7 @@ const Nav = () => {
                 scrolled ? 'h-24 md:h-28' : 'h-32 md:h-40'
               }`}
               style={{
-                filter: scrolled ? 'none' : 'brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(1739%) hue-rotate(173deg) brightness(95%) contrast(92%)',
+                filter: isDarkBackground ? 'none' : 'brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(1739%) hue-rotate(173deg) brightness(95%) contrast(92%)',
                 transition: 'all 0.5s ease-out'
               }}
             />
