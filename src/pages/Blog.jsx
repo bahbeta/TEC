@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { supabase } from '../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -57,6 +57,49 @@ const Blog = () => {
     post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     post.excerpt?.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  // Show setup message if Supabase not configured
+  if (!isSupabaseConfigured) {
+    return (
+      <div className="min-h-screen bg-white pt-24 pb-16">
+        <div className="max-w-3xl mx-auto px-6 md:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center"
+          >
+            <h1 className="font-cormorant text-5xl md:text-7xl text-deep-calm mb-6">
+              Wellness Blog
+            </h1>
+            <div className="bg-sage-green/10 border border-sage-green/30 rounded-lg p-8 text-left">
+              <h2 className="text-2xl font-cormorant text-deep-calm mb-4">
+                🚀 Blog Setup Required
+              </h2>
+              <p className="text-charcoal/70 mb-4">
+                The blog system is ready, but needs to be connected to Supabase.
+              </p>
+              <div className="space-y-3 text-sm text-charcoal/80">
+                <p><strong>Follow these steps:</strong></p>
+                <ol className="list-decimal list-inside space-y-2 ml-4">
+                  <li>Read <code className="bg-charcoal/10 px-2 py-1 rounded">SUPABASE_SETUP.md</code> in the project root</li>
+                  <li>Create a free account at <a href="https://supabase.com" target="_blank" rel="noopener noreferrer" className="text-sage-green hover:underline">supabase.com</a></li>
+                  <li>Create a new project and get your API keys</li>
+                  <li>Create a <code className="bg-charcoal/10 px-2 py-1 rounded">.env</code> file with your credentials</li>
+                  <li>Run the database schema from <code className="bg-charcoal/10 px-2 py-1 rounded">supabase-schema.sql</code></li>
+                  <li>Restart the dev server</li>
+                </ol>
+              </div>
+              <div className="mt-6 p-4 bg-soft-sand/30 rounded">
+                <p className="text-xs text-charcoal/60">
+                  💡 <strong>Tip:</strong> Setup takes about 5 minutes. Your blog will have full CMS capabilities!
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white pt-24 pb-16">
