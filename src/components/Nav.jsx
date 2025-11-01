@@ -15,10 +15,11 @@ const Nav = () => {
   }, []);
 
   const navItems = [
-    { label: 'About', href: '#about', type: 'anchor' },
-    { label: 'Philosophy', href: '#philosophy', type: 'anchor' },
-    { label: 'Experiences', href: '#experiences', type: 'anchor' },
-    { label: 'Blog', href: '/blog', type: 'link' },
+    { label: 'About Us', href: '#about', type: 'anchor' },
+    { label: 'Events', href: '#experiences', type: 'anchor' },
+    { label: 'Corporate Partners', href: '#partners', type: 'anchor' },
+    { label: 'Blogs', href: '/blog', type: 'link' },
+    { label: 'Contact Us', href: '#contact', type: 'anchor' },
   ];
 
   return (
