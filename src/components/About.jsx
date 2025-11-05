@@ -125,9 +125,13 @@ const About = () => {
                 <img
                   src={section.image}
                   alt={section.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover opacity-60"
+                  style={{
+                    filter: 'sepia(0.6) saturate(0.4) hue-rotate(190deg) brightness(0.8) contrast(1.1)',
+                    mixBlendMode: 'normal'
+                  }}
                 />
-                <div className="absolute inset-0 bg-deep-calm/10"></div>
+                <div className="absolute inset-0 bg-[#1F2A3A]/60"></div>
               </motion.div>
             </div>
           </motion.div>
