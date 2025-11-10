@@ -152,8 +152,9 @@ const Experiences = () => {
                       <div className="relative h-[300px] lg:h-[400px] rounded-2xl overflow-hidden apple-shadow-xl hover:apple-shadow-2xl transition-all duration-500 ease-out">
                         <img
                           src={retreat.image}
-                          alt={retreat.theme}
+                          alt={`${retreat.theme} - ${retreat.title} wellness retreat experience in Dubai and UAE`}
                           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                          loading="lazy"
                         />
                         {/* Overlay with limited slots */}
                         <div className="absolute top-6 right-6">

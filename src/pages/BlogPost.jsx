@@ -481,8 +481,9 @@ Ready to train smarter, not just harder?`
             animate={{ scale: 1 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             src={post.featured_image_url}
-            alt={post.title}
+            alt={`${post.title} - The Elevate Collective wellness blog`}
             className="w-full h-full object-cover"
+            loading="eager"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-deep-calm via-deep-calm/50 to-transparent"></div>
@@ -510,8 +511,9 @@ Ready to train smarter, not just harder?`
                     {post.author.avatar_url && (
                       <img
                         src={post.author.avatar_url}
-                        alt={post.author.name}
+                        alt={`${post.author.name} - Wellness coach and author at The Elevate Collective`}
                         className="w-14 h-14 rounded-full border-2 border-white/40 shadow-lg"
+                        loading="eager"
                       />
                     )}
                     <div>
@@ -588,8 +590,9 @@ Ready to train smarter, not just harder?`
               {post.author.avatar_url && (
                 <img
                   src={post.author.avatar_url}
-                  alt={post.author.name}
+                  alt={`${post.author.name} - Wellness coach and author at The Elevate Collective`}
                   className="w-24 h-24 rounded-full ring-4 ring-white shadow-xl"
+                  loading="lazy"
                 />
               )}
               <div className="flex-1">
@@ -633,8 +636,9 @@ Ready to train smarter, not just harder?`
                       <div className="aspect-[4/3] mb-5 overflow-hidden rounded-2xl bg-soft-sand/20 shadow-lg group-hover:shadow-2xl transition-all duration-500">
                         <img
                           src={related.featured_image_url}
-                          alt={related.title}
+                          alt={`${related.title} - The Elevate Collective wellness blog`}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          loading="lazy"
                         />
                       </div>
                     )}

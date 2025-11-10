@@ -268,8 +268,9 @@ const Blog = () => {
                     <div className="aspect-[4/3] mb-6 overflow-hidden rounded-3xl bg-soft-sand/20 shadow-lg group-hover:shadow-2xl transition-all duration-500">
                       <img
                         src={post.featured_image_url}
-                        alt={post.title}
+                        alt={`${post.title} - The Elevate Collective wellness blog`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                        loading="lazy"
                       />
                     </div>
                   )}
@@ -311,8 +312,9 @@ const Blog = () => {
                           {post.author.avatar_url && (
                             <img
                               src={post.author.avatar_url}
-                              alt={post.author.name}
+                              alt={`${post.author.name} - Wellness coach and author at The Elevate Collective`}
                               className="w-12 h-12 rounded-full ring-2 ring-white shadow-md"
+                              loading="lazy"
                             />
                           )}
                           <div>

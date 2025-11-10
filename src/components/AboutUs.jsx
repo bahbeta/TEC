@@ -41,8 +41,9 @@ const AboutUs = () => {
           >
             <img
               src="/images/brand/meditation-bowl.jpg"
-              alt="Meditation and mindfulness"
+              alt="Meditation singing bowl - mindfulness and breathwork wellness retreat Dubai"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep-calm/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </motion.div>
@@ -55,8 +56,9 @@ const AboutUs = () => {
           >
             <img
               src="/images/brand/juice-bottles.jpg"
-              alt="Premium wellness products"
+              alt="Fresh organic juices - nutrition and holistic wellness Dubai UAE"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep-calm/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </motion.div>
@@ -69,8 +71,9 @@ const AboutUs = () => {
           >
             <img
               src="/images/brand/tropical-meditation.jpg"
-              alt="Tropical retreat environment"
+              alt="Tropical meditation retreat - peaceful wellness experience Bali and international destinations"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep-calm/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </motion.div>

@@ -92,7 +92,7 @@ const Nav = () => {
             >
               <img
                 src="/images/tec-logo.png"
-                alt="The Elevate Collective"
+                alt="The Elevate Collective - Premium wellness retreats and corporate wellbeing programs in Dubai UAE"
                 className="w-auto object-contain transition-all duration-500"
                 style={{
                   height: scrolled ? '160px' : '240px',
@@ -101,6 +101,7 @@ const Nav = () => {
                     : 'brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(1739%) hue-rotate(173deg) brightness(95%) contrast(92%)', // Dark brand color for light backgrounds
                   transition: 'all 0.5s ease-out'
                 }}
+                loading="eager"
               />
             </motion.div>
           </Link>

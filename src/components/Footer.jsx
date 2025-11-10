@@ -61,9 +61,10 @@ const Footer = () => {
             <Link to="/" className="inline-block hover:opacity-80 transition-opacity duration-300">
               <img
                 src="/images/tec-logo.png"
-                alt="The Elevate Collective"
+                alt="The Elevate Collective - Premium wellness retreats and corporate wellbeing programs in Dubai UAE"
                 className="h-32 md:h-40 w-auto object-contain mb-6"
                 style={{ filter: 'brightness(0) invert(1)' }}
+                loading="lazy"
               />
             </Link>
             <p className="text-cloud-white/70 leading-relaxed mb-6 text-sm md:text-base">

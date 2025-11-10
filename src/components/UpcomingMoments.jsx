@@ -169,8 +169,9 @@ const UpcomingMoments = () => {
                 <div className="relative w-full h-64 overflow-hidden">
                   <img
                     src={experience.image}
-                    alt={experience.title}
+                    alt={`${experience.title} - ${experience.description} wellness experience in ${experience.location}`}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    loading="lazy"
                   />
                 </div>
 
