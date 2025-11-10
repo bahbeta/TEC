@@ -94,7 +94,7 @@ const ScrollIndicator = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3 }}
-          className="fixed right-8 top-[35%] -translate-y-1/2 z-50 flex flex-col items-center gap-6"
+          className="hidden lg:flex fixed right-4 md:right-6 lg:right-8 top-[35%] -translate-y-1/2 z-50 flex-col items-center gap-4 md:gap-6"
         >
           {/* Upward Scroll Button */}
           {currentSection > 0 && (
@@ -112,18 +112,18 @@ const ScrollIndicator = () => {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-colors shadow-lg"
+                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-colors shadow-lg"
               >
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
                 </svg>
               </motion.div>
 
               {/* Vertical Line */}
-              <div className="w-px h-12 bg-gradient-to-t from-white/30 to-transparent"></div>
+              <div className="w-px h-8 md:h-12 bg-gradient-to-t from-white/30 to-transparent"></div>
 
               {/* Label */}
-              <span className="text-white/70 text-[10px] font-body tracking-[0.25em] uppercase group-hover:text-white transition-colors duration-300">
+              <span className="text-white/70 text-[8px] md:text-[10px] font-body tracking-[0.25em] uppercase group-hover:text-white transition-colors duration-300">
                 Up
               </span>
             </motion.button>
@@ -138,20 +138,20 @@ const ScrollIndicator = () => {
             aria-label="Scroll to next section"
           >
             {/* Label */}
-            <span className="text-white/70 text-[10px] font-body tracking-[0.25em] uppercase group-hover:text-white transition-colors duration-300">
+            <span className="text-white/70 text-[8px] md:text-[10px] font-body tracking-[0.25em] uppercase group-hover:text-white transition-colors duration-300">
               Down
             </span>
 
             {/* Vertical Line */}
-            <div className="w-px h-12 bg-gradient-to-b from-white/30 to-transparent"></div>
+            <div className="w-px h-8 md:h-12 bg-gradient-to-b from-white/30 to-transparent"></div>
 
             {/* Arrow Button - Downward */}
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-colors shadow-lg"
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-colors shadow-lg"
             >
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </motion.div>
