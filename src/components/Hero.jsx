@@ -80,9 +80,29 @@ const Hero = () => {
 
   return (
     <section ref={ref} className="relative h-[400vh] bg-white" style={{ perspective: '1200px' }}>
+      {/* SVG Pattern Definition */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <pattern id="jigsawPatternHero" patternUnits="userSpaceOnUse" width="60" height="60">
+            <path d="M 0 20 Q 5 15, 10 20 T 20 20 L 20 0 L 40 0 L 40 20 Q 45 15, 50 20 T 60 20 L 60 40 L 40 40 L 40 50 Q 35 45, 30 50 T 30 60 L 20 60 L 20 50 Q 15 45, 10 50 T 10 60 L 0 60 L 0 40 L 0 20 Z"
+                  fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.2" />
+            <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.2" />
+            <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.2" />
+            <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.2" />
+            <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.2" />
+          </pattern>
+        </defs>
+      </svg>
+
       {/* 8-Layer Parallax Background - Immersive Mountain Landscape */}
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-white" style={{ transformStyle: 'preserve-3d' }}>
         <div className="absolute inset-0 z-0 bg-white">
+        {/* Jigsaw pattern overlay */}
+        <div className="absolute inset-0 z-[100] pointer-events-none">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="url(#jigsawPatternHero)" />
+          </svg>
+        </div>
         {/* Layer 1 - Sky & Sunlight (Furthest back) */}
         <motion.div
           style={{

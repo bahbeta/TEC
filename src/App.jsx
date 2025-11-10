@@ -2,9 +2,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
+import ValuesApproachSplit from './components/ValuesApproachSplit';
 import Experiences from './components/Experiences';
 import Founders from './components/Founders';
 import CorporatePartners from './components/CorporatePartners';
+import UpcomingMoments from './components/UpcomingMoments';
 import JoinCollective from './components/JoinCollective';
 import Footer from './components/Footer';
 import SmoothScroll from './components/SmoothScroll';
@@ -21,9 +23,11 @@ const HomePage = () => (
     <Nav />
     <Hero />
     <AboutUs />
+    <ValuesApproachSplit />
     <Experiences />
-    <CorporatePartners />
     <Founders />
+    <UpcomingMoments />
+    <CorporatePartners />
     <JoinCollective />
     <Footer />
   </div>

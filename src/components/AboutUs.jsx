@@ -26,7 +26,7 @@ const AboutUs = () => {
           className="mb-16 lg:mb-20"
         >
           <h3 className="text-deep-calm !text-xl md:!text-2xl lg:!text-3xl font-display font-semibold !leading-tight tracking-tight text-center max-w-6xl mx-auto">
-            THE ELEVATE COLLECTIVE SUPPORTS HIGH ACHIEVING INDIVIDUALS AND COMMUNITIES NAVIGATING FAST PACED, PERFORMANCE DRIVEN LIVES. OFFERING SPACE TO PAUSE, REALIGN, AND RECONNECT WITH WHAT MATTERS MOST: HEALTH AND WELL BEING.
+            We are The Elevate Collective. Redefining wellbeing for high-performers across the GCC and beyond.
           </h3>
         </motion.div>
 
@@ -82,19 +82,39 @@ const AboutUs = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg md:text-xl text-deep-calm/80 leading-relaxed text-center"
           >
-            By blending science backed fitness training with elevated mindset coaching, modern wellness practices, and intentional rest, TEC helps ambitious individuals sustain their drive without compromising their well being. Offering inclusive, accessible experiences that combine purposeful challenge, grounded reflection, and restorative energy in premium settings.
+            The Elevate Collective exists to help ambitious individuals sustain long-term performance without sacrificing their wellbeing. We create experiences that combine science-backed fitness, mindful coaching, and intentional recovery, designed to strengthen focus, resilience, and connection.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="text-lg md:text-xl text-deep-calm/80 leading-relaxed text-center"
+          >
+            Our approach blends cultural understanding with global expertise. Each program is thoughtfully curated to align with the fast-paced, high-performance environments of the corporate world, while maintaining the depth and quality of world-class wellbeing experiences.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="text-lg md:text-xl text-deep-calm/80 leading-relaxed text-center"
+          >
+            We believe wellbeing is not a benefit but a strategy — for individuals seeking balance, and for organisations striving to build cultures that are healthier, more engaged, and ready to lead.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
             className="pt-6"
           >
             <div className="w-16 h-0.5 bg-terracotta mx-auto mb-8"></div>
             <p className="text-lg md:text-xl text-deep-calm/80 leading-relaxed text-center italic">
-              The goal is simple: to challenge the mind and body in ways that expand the sense of self, leaving each participant inspired, grounded, and aligned with renewed clarity, energy, and purpose to carry into both personal goals and professional life.
+              Find your power. Discover your peace.
             </p>
           </motion.div>
         </div>

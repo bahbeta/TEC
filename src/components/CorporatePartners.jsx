@@ -1,105 +1,135 @@
 import { motion } from 'framer-motion';
 
 const CorporatePartners = () => {
-  const benefits = [
+  const programs = [
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      ),
       title: 'Employee Wellness Programs',
-      description: 'Customized wellness initiatives to boost productivity and reduce stress in your workplace.'
+      description: 'Customized wellness initiatives to boost productivity and reduce stress in your workplace.',
+      image: '/images/brand/fitness-workout.jpg',
+      details: ['Stress Management', 'Team Building', 'Health Assessments'],
+      duration: 'Ongoing',
+      format: 'Customized Programs'
     },
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
       title: 'Flexible Packages',
-      description: 'Choose from monthly workshops, quarterly retreats, or annual wellness programs.'
+      description: 'Choose from monthly workshops, quarterly retreats, or annual wellness programs.',
+      image: '/images/brand/fitness-workout.jpg',
+      details: ['Monthly Workshops', 'Quarterly Retreats', 'Annual Programs'],
+      duration: 'Flexible Schedule',
+      format: 'Multiple Options'
     },
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-      ),
       title: 'Measurable Results',
-      description: 'Track employee satisfaction, stress levels, and overall wellness improvements.'
+      description: 'Track employee satisfaction, stress levels, and overall wellness improvements.',
+      image: '/images/brand/fitness-workout.jpg',
+      details: ['Analytics Dashboard', 'Progress Tracking', 'Impact Reports'],
+      duration: 'Continuous Monitoring',
+      format: 'Data-Driven Insights'
     },
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
       title: 'On-Site & Virtual Options',
-      description: 'We bring wellness to you - whether in-person at your location or through virtual sessions.'
+      description: 'We bring wellness to you - whether in-person at your location or through virtual sessions.',
+      image: '/images/brand/fitness-workout.jpg',
+      details: ['On-Site Sessions', 'Virtual Programs', 'Hybrid Solutions'],
+      duration: 'Year Round',
+      format: 'Flexible Delivery'
     },
   ];
 
   return (
-    <section id="partners" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section
+      id="partners"
+      className="py-24 bg-[#EDF0ED] relative"
+    >
+      {/* SVG Pattern Definition */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <pattern id="jigsawPatternPartners" patternUnits="userSpaceOnUse" width="60" height="60">
+            <path d="M 0 20 Q 5 15, 10 20 T 20 20 L 20 0 L 40 0 L 40 20 Q 45 15, 50 20 T 60 20 L 60 40 L 40 40 L 40 50 Q 35 45, 30 50 T 30 60 L 20 60 L 20 50 Q 15 45, 10 50 T 10 60 L 0 60 L 0 40 L 0 20 Z"
+                  fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+          </pattern>
+        </defs>
+      </svg>
+
+      {/* Jigsaw pattern overlay */}
+      <div className="absolute inset-0 pointer-events-none">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="url(#jigsawPatternPartners)" />
+        </svg>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="font-cormorant text-5xl md:text-6xl text-deep-calm mb-6">
-            Corporate Wellness Programs
+          <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl text-deep-calm mb-6 whitespace-nowrap">
+            Corporate Wellbeing Programs
           </h2>
-          <p className="text-lg text-charcoal/70 leading-relaxed">
-            Invest in your team's well-being. Our corporate wellness programs help create
-            a healthier, more productive, and more engaged workforce.
+          <div className="w-16 h-0.5 bg-terracotta mx-auto mb-6"></div>
+          <p className="text-lg text-charcoal/70 leading-relaxed mb-4">
+            Redefining Workplace Wellbeing Across the GCC and beyond
+          </p>
+          <p className="text-base md:text-lg text-charcoal/70 leading-relaxed">
+            At The Elevate Collective, we help ambitious organisations sustain high performance without burnout. Our bespoke corporate wellbeing programs combine science-backed training, mindfulness, and modern wellbeing practices to create a measurable impact that lasts.
           </p>
         </motion.div>
 
-        {/* Hero Image */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative h-96 rounded-2xl overflow-hidden shadow-2xl mb-20"
-        >
-          <img
-            src="/images/brand/fitness-workout.jpg"
-            alt="Corporate wellness training"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-deep-calm/60 to-transparent flex items-end justify-center pb-8">
-            <p className="text-white text-xl md:text-2xl font-cormorant font-medium">
-              Empowering teams through holistic wellness
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {benefits.map((benefit, index) => (
+        {/* Programs Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {programs.map((program, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-sage-green/5 rounded-xl p-8 hover:shadow-lg transition-shadow"
+              className="bg-white rounded-2xl overflow-hidden group shadow-md hover:shadow-lg transition-shadow"
             >
-              <div className="w-16 h-16 bg-sage-green/10 rounded-full flex items-center justify-center text-sage-green mb-6">
-                {benefit.icon}
+              {/* Content */}
+              <div className="p-6">
+                {/* Title */}
+                <h3 className="font-cormorant text-xl lg:text-2xl text-deep-calm mb-3 leading-tight text-justify">
+                  {program.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-deep-calm/70 leading-relaxed mb-4 text-sm">
+                  {program.description}
+                </p>
+
+                {/* Divider */}
+                <div className="w-full h-px bg-deep-calm/10 mb-4"></div>
+
+                {/* Details Section */}
+                <div className="mb-4">
+                  <p className="text-xs tracking-[0.2em] uppercase text-deep-calm/50 mb-2 font-medium">
+                    FEATURES
+                  </p>
+                  <ul className="space-y-1">
+                    {program.details.map((detail, idx) => (
+                      <li key={idx} className="text-deep-calm/70 text-sm flex items-center gap-2">
+                        <span className="w-1 h-1 rounded-full bg-sage-green"></span>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Format & Duration */}
+                <div className="text-xs text-deep-calm/60 space-y-1">
+                  <p><span className="font-medium">Duration:</span> {program.duration}</p>
+                  <p><span className="font-medium">Format:</span> {program.format}</p>
+                </div>
               </div>
-              <h3 className="font-cormorant text-2xl text-deep-calm mb-3">
-                {benefit.title}
-              </h3>
-              <p className="text-charcoal/70 leading-relaxed">
-                {benefit.description}
-              </p>
             </motion.div>
           ))}
         </div>
@@ -110,12 +140,12 @@ const CorporatePartners = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-gradient-to-r from-sage-green to-deep-calm rounded-2xl p-12 text-center text-white"
+          className="bg-gradient-to-r from-sage-green to-deep-calm rounded-2xl p-12 text-center text-white mb-16"
         >
-          <h3 className="font-cormorant text-4xl mb-4">
+          <h3 className="font-cormorant text-3xl md:text-4xl mb-4">
             Partner With Us
           </h3>
-          <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg mb-8 opacity-90 max-w-2xl mx-auto">
             Join leading companies in prioritizing employee wellness.
             Schedule a consultation to discuss a custom program for your organization.
           </p>
@@ -136,7 +166,7 @@ const CorporatePartners = () => {
         </motion.div>
 
         {/* Stats */}
-        <div className="grid md:grid-cols-3 gap-8 mt-16">
+        <div className="grid md:grid-cols-3 gap-8">
           {[
             { number: '50+', label: 'Corporate Partners' },
             { number: '10,000+', label: 'Employees Served' },

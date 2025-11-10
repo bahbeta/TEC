@@ -33,11 +33,32 @@ const JoinCollective = () => {
     <section
       ref={ref}
       id="join"
-      className="relative bg-deep-calm py-[146px] md:py-[194px] lg:py-[242px] overflow-hidden border-t border-cloud-white/10"
+      className="relative py-[146px] md:py-[194px] lg:py-[242px] overflow-hidden border-t border-cloud-white/10 bg-[#1E2A3A]"
     >
+      {/* SVG Pattern Definition */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <pattern id="jigsawPatternJoin" patternUnits="userSpaceOnUse" width="60" height="60">
+            <path d="M 0 20 Q 5 15, 10 20 T 20 20 L 20 0 L 40 0 L 40 20 Q 45 15, 50 20 T 60 20 L 60 40 L 40 40 L 40 50 Q 35 45, 30 50 T 30 60 L 20 60 L 20 50 Q 15 45, 10 50 T 10 60 L 0 60 L 0 40 L 0 20 Z"
+                  fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
+            <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
+            <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
+            <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
+            <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
+          </pattern>
+        </defs>
+      </svg>
+
+      {/* Jigsaw pattern overlay */}
+      <div className="absolute inset-0 pointer-events-none">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="url(#jigsawPatternJoin)" />
+        </svg>
+      </div>
+
       <motion.div
         style={{ y, opacity }}
-        className="max-w-6xl mx-auto px-6 md:px-12"
+        className="max-w-6xl mx-auto px-6 md:px-12 relative z-10"
       >
         <motion.div
           initial={{ opacity: 0, y: 40 }}

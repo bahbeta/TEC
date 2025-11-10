@@ -1,4 +1,3 @@
-import Section from './Section';
 import { motion } from 'framer-motion';
 
 const Founders = () => {
@@ -7,23 +6,47 @@ const Founders = () => {
       name: 'MALAK ALSAFFAR',
       image: '/images/malak.jpeg',
       bio: [
-        'Malak empowers high performers with targeted mentorship for sustainable growth. She helps overcome mindset limitations while promoting well-being alongside outstanding achievements. Passionate about self-development, Malak facilitates lasting changes that establish foundations for ongoing professional success and personal fulfillment, guiding individuals towards excellence without encouraging unsustainable hustle.',
-        'As a tech senior leader and entrepreneur, she walks the talk in her approach to success. She has mentored individuals globally to exceptional success and is passionate about bestowing that on TEC community.'
+        'A former corporate strategist turned wellbeing guide, Malak specializes in helping leaders reconnect with clarity, purpose, and resilience. Her work focuses on mindfulness, emotional intelligence, and intentional living, offering a counterbalance to the demands of high-stakes environments.',
+        'Malak\'s approach is grounded in empathy and insight, creating space for reflection, growth, and sustainable success. She believes that real leadership begins with self-awareness and the courage to lead from a place of alignment.'
       ]
     },
     {
       name: 'WESLEY DEPASS',
       image: '/images/wesley.jpeg',
       bio: [
-        'Known as Coach "WesDep," Wesley is a Strength and Conditioning expert and is co-founder of The Elevate Collective. With over a decade of experience coaching high achievers (the top 1%) he helps individuals reach their highest physical and mental potential.',
-        'Wes\' background as a Big 4 senior consultant and serial entrepreneur equips him to understand the demands of fast-paced demanding roles and how to navigate them. He is also a qualified S&C Coach and certified MNU Nutritionist. His passion for helping people elevate themselves is evident in his work with over hundreds of clients.'
+        'With a background in strength and conditioning and years spent navigating the corporate world, Wesley brings a unique perspective to modern wellbeing. His work bridges the gap between elite performance and sustainable living, combining physical training, mindful practices, and strategic recovery to help individuals thrive under pressure.',
+        'Having worked with high performers across industries, Wesley understands the cost of ambition and the value of balance. His approach is rooted in results, but never at the expense of long-term wellbeing.'
       ]
     }
   ];
 
   return (
-    <Section id="founders" background="cloud-white">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="founders"
+      className="py-24 bg-[#EDF0ED] relative"
+    >
+      {/* SVG Pattern Definition */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <pattern id="jigsawPatternFounders" patternUnits="userSpaceOnUse" width="60" height="60">
+            <path d="M 0 20 Q 5 15, 10 20 T 20 20 L 20 0 L 40 0 L 40 20 Q 45 15, 50 20 T 60 20 L 60 40 L 40 40 L 40 50 Q 35 45, 30 50 T 30 60 L 20 60 L 20 50 Q 15 45, 10 50 T 10 60 L 0 60 L 0 40 L 0 20 Z"
+                  fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+          </pattern>
+        </defs>
+      </svg>
+
+      {/* Jigsaw pattern overlay */}
+      <div className="absolute inset-0 pointer-events-none">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="url(#jigsawPatternFounders)" />
+        </svg>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +55,7 @@ const Founders = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-8"
         >
-          <h2 className="!mb-3 text-deep-calm !text-3xl md:!text-4xl lg:!text-5xl">The Founders</h2>
+          <h2 className="!mb-3 text-deep-calm !text-3xl md:!text-4xl lg:!text-5xl">The Visionaries Behind The Elevate Collective</h2>
           <div className="w-16 h-0.5 bg-terracotta mx-auto mb-4"></div>
         </motion.div>
 
@@ -48,7 +71,7 @@ const Founders = () => {
               className="group"
             >
               {/* Founder Card */}
-              <div className="bg-cloud-white rounded-3xl overflow-hidden apple-shadow-lg hover:apple-shadow-xl transition-all duration-500 hover:-translate-y-1 h-[750px] flex flex-col">
+              <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 h-[750px] flex flex-col">
                 {/* Image */}
                 <div className="relative h-[350px] flex-shrink-0 overflow-hidden">
                   <img
@@ -81,7 +104,7 @@ const Founders = () => {
           ))}
         </div>
       </div>
-    </Section>
+    </section>
   );
 };
 

@@ -15,19 +15,43 @@ const Nav = () => {
       const elementBelow = document.elementFromPoint(window.innerWidth / 2, navHeight);
 
       if (elementBelow) {
-        const bgColor = window.getComputedStyle(elementBelow).backgroundColor;
-        const section = elementBelow.closest('section, div[class*="bg-"]');
+        // Traverse up the DOM tree to find an element with a valid background color
+        let currentElement = elementBelow;
+        let maxDepth = 10; // Prevent infinite loops
+        let foundBackground = false;
 
-        if (section) {
-          const sectionBg = window.getComputedStyle(section).backgroundColor;
-          const sectionClasses = section.className;
+        while (currentElement && maxDepth > 0) {
+          const computedStyle = window.getComputedStyle(currentElement);
+          const bgColor = computedStyle.backgroundColor;
 
-          // Check if background is dark (deep-calm, charcoal, etc.)
-          const hasDarkBg = sectionClasses.includes('bg-deep-calm') ||
-                           sectionClasses.includes('bg-charcoal') ||
-                           sectionClasses.includes('bg-dark');
+          // Parse RGB values from background color
+          const rgbMatch = bgColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)/);
 
-          setIsDarkBackground(hasDarkBg);
+          if (rgbMatch) {
+            const r = parseInt(rgbMatch[1]);
+            const g = parseInt(rgbMatch[2]);
+            const b = parseInt(rgbMatch[3]);
+            const a = rgbMatch[4] ? parseFloat(rgbMatch[4]) : 1;
+
+            // Only use this background if it's not transparent
+            if (a > 0.1 && !(r === 0 && g === 0 && b === 0)) {
+              // Calculate relative luminance (perceived brightness)
+              const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+
+              // If luminance is less than 0.5, it's a dark background
+              setIsDarkBackground(luminance < 0.5);
+              foundBackground = true;
+              break;
+            }
+          }
+
+          currentElement = currentElement.parentElement;
+          maxDepth--;
+        }
+
+        // If no background found, default to light
+        if (!foundBackground) {
+          setIsDarkBackground(false);
         }
       }
     };
@@ -72,7 +96,9 @@ const Nav = () => {
                 className="w-auto object-contain transition-all duration-500"
                 style={{
                   height: scrolled ? '160px' : '240px',
-                  filter: isDarkBackground ? 'none' : 'brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(1739%) hue-rotate(173deg) brightness(95%) contrast(92%)',
+                  filter: isDarkBackground
+                    ? 'brightness(0) invert(1)' // White logo for dark backgrounds
+                    : 'brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(1739%) hue-rotate(173deg) brightness(95%) contrast(92%)', // Dark brand color for light backgrounds
                   transition: 'all 0.5s ease-out'
                 }}
               />
@@ -92,7 +118,7 @@ const Nav = () => {
                   key={item.href}
                   to={item.href}
                   className={`text-sm font-body font-medium transition-colors duration-200 ${
-                    scrolled ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
+                    isDarkBackground ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
                   }`}
                 >
                   {item.label}
@@ -106,7 +132,7 @@ const Nav = () => {
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
                   className={`text-sm font-body font-medium apple-hover relative ${
-                    scrolled ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
+                    isDarkBackground ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
                   }`}
                 >
                   {item.label}
@@ -126,7 +152,7 @@ const Nav = () => {
             href="#join"
             whileHover={{ scale: 1.05 }}
             className={`hidden lg:flex items-center gap-2 text-sm font-body font-medium transition-colors duration-200 ${
-              scrolled ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
+              isDarkBackground ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
             }`}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,13 +165,13 @@ const Nav = () => {
           <button className="lg:hidden p-2">
             <div className="w-6 h-5 flex flex-col justify-between">
               <span className={`w-full h-0.5 rounded-full transition-colors duration-300 ${
-                scrolled ? 'bg-cloud-white' : 'bg-[#1F2A3A]'
+                isDarkBackground ? 'bg-cloud-white' : 'bg-[#1F2A3A]'
               }`}></span>
               <span className={`w-full h-0.5 rounded-full transition-colors duration-300 ${
-                scrolled ? 'bg-cloud-white' : 'bg-[#1F2A3A]'
+                isDarkBackground ? 'bg-cloud-white' : 'bg-[#1F2A3A]'
               }`}></span>
               <span className={`w-full h-0.5 rounded-full transition-colors duration-300 ${
-                scrolled ? 'bg-cloud-white' : 'bg-[#1F2A3A]'
+                isDarkBackground ? 'bg-cloud-white' : 'bg-[#1F2A3A]'
               }`}></span>
             </div>
           </button>
