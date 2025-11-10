@@ -69,7 +69,7 @@ const UpcomingMoments = () => {
   };
 
   return (
-    <Section id="upcoming" background="deep-calm">
+    <Section id="upcoming" background="deep-calm" spacing="reduced">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -158,7 +158,7 @@ const UpcomingMoments = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="bg-white rounded-2xl flex-shrink-0 overflow-hidden group"
+                className="bg-white rounded-2xl flex-shrink-0 overflow-hidden group apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2"
                 style={{
                   width: 'calc(33.333% - 22px)',
                   minWidth: '320px',
@@ -170,7 +170,7 @@ const UpcomingMoments = () => {
                   <img
                     src={experience.image}
                     alt={experience.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
                 </div>
 

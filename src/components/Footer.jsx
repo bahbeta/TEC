@@ -11,28 +11,33 @@ const Footer = () => {
             {/* Puzzle piece outline */}
             <path d="M 0 20 Q 5 15, 10 20 T 20 20 L 20 0 L 40 0 L 40 20 Q 45 15, 50 20 T 60 20 L 60 40 L 40 40 L 40 50 Q 35 45, 30 50 T 30 60 L 20 60 L 20 50 Q 15 45, 10 50 T 10 60 L 0 60 L 0 40 L 0 20 Z"
                   fill="none"
-                  stroke="rgba(255, 255, 255, 0.04)"
-                  strokeWidth="0.5" />
+                  stroke="#8A987D"
+                  strokeWidth="0.5"
+                  strokeOpacity="0.3" />
             {/* Tab on top */}
             <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0"
                   fill="none"
-                  stroke="rgba(255, 255, 255, 0.04)"
-                  strokeWidth="0.5" />
+                  stroke="#8A987D"
+                  strokeWidth="0.5"
+                  strokeOpacity="0.3" />
             {/* Tab on right */}
             <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35"
                   fill="none"
-                  stroke="rgba(255, 255, 255, 0.04)"
-                  strokeWidth="0.5" />
+                  stroke="#8A987D"
+                  strokeWidth="0.5"
+                  strokeOpacity="0.3" />
             {/* Indent on bottom */}
             <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60"
                   fill="none"
-                  stroke="rgba(255, 255, 255, 0.04)"
-                  strokeWidth="0.5" />
+                  stroke="#8A987D"
+                  strokeWidth="0.5"
+                  strokeOpacity="0.3" />
             {/* Indent on left */}
             <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35"
                   fill="none"
-                  stroke="rgba(255, 255, 255, 0.04)"
-                  strokeWidth="0.5" />
+                  stroke="#8A987D"
+                  strokeWidth="0.5"
+                  strokeOpacity="0.3" />
           </pattern>
         </defs>
       </svg>

@@ -51,16 +51,16 @@ const ValuesApproachSplit = () => {
 
   return (
     <section id="values" className="relative overflow-hidden">
-      {/* SVG Pattern Definition */}
+      {/* SVG Pattern and Clip Path Definitions */}
       <svg width="0" height="0" className="absolute">
         <defs>
           <pattern id="jigsawPatternValues" patternUnits="userSpaceOnUse" width="60" height="60">
             <path d="M 0 20 Q 5 15, 10 20 T 20 20 L 20 0 L 40 0 L 40 20 Q 45 15, 50 20 T 60 20 L 60 40 L 40 40 L 40 50 Q 35 45, 30 50 T 30 60 L 20 60 L 20 50 Q 15 45, 10 50 T 10 60 L 0 60 L 0 40 L 0 20 Z"
-                  fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
+                  fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
           </pattern>
           <pattern id="jigsawPatternApproach" patternUnits="userSpaceOnUse" width="60" height="60">
             <path d="M 0 20 Q 5 15, 10 20 T 20 20 L 20 0 L 40 0 L 40 20 Q 45 15, 50 20 T 60 20 L 60 40 L 40 40 L 40 50 Q 35 45, 30 50 T 30 60 L 20 60 L 20 50 Q 15 45, 10 50 T 10 60 L 0 60 L 0 40 L 0 20 Z"
@@ -70,6 +70,13 @@ const ValuesApproachSplit = () => {
             <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
             <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
           </pattern>
+          {/* Rounded diagonal clip paths */}
+          <clipPath id="roundedDiagonalLeft" clipPathUnits="objectBoundingBox">
+            <path d="M 0,0 L 0.54,0 Q 0.52,0.25 0.50,0.5 Q 0.48,0.75 0.46,1 L 0,1 Z" />
+          </clipPath>
+          <clipPath id="roundedDiagonalRight" clipPathUnits="objectBoundingBox">
+            <path d="M 0.54,0 L 1,0 L 1,1 L 0.46,1 Q 0.48,0.75 0.50,0.5 Q 0.52,0.25 0.54,0 Z" />
+          </clipPath>
         </defs>
       </svg>
 
@@ -79,7 +86,7 @@ const ValuesApproachSplit = () => {
         <div
           className="absolute inset-0 bg-[#1E2A3A]"
           style={{
-            clipPath: 'polygon(0 0, 54% 0, 46% 100%, 0 100%)'
+            clipPath: 'url(#roundedDiagonalLeft)'
           }}
         >
           {/* Jigsaw pattern overlay */}
@@ -154,7 +161,7 @@ const ValuesApproachSplit = () => {
         <div
           className="absolute inset-0 bg-[#E7D9C4]"
           style={{
-            clipPath: 'polygon(54% 0, 100% 0, 100% 100%, 46% 100%)'
+            clipPath: 'url(#roundedDiagonalRight)'
           }}
         >
           {/* Jigsaw pattern overlay */}
@@ -170,7 +177,7 @@ const ValuesApproachSplit = () => {
             </svg>
           </div>
           <div className="max-w-7xl mx-auto px-6 md:px-12 py-24 h-full flex items-center justify-end relative z-10">
-            <div className="w-full pl-16 xl:pl-24" style={{ maxWidth: '50%' }}>
+            <div className="w-full pl-24 xl:pl-32" style={{ maxWidth: '50%' }}>
               {/* Section Header */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

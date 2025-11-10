@@ -11,6 +11,7 @@ import JoinCollective from './components/JoinCollective';
 import Footer from './components/Footer';
 import SmoothScroll from './components/SmoothScroll';
 import BackgroundMusic from './components/BackgroundMusic';
+import ScrollIndicator from './components/ScrollIndicator';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import AdminLogin from './pages/AdminLogin';
@@ -21,6 +22,7 @@ import AdminPostEditor from './pages/AdminPostEditor';
 const HomePage = () => (
   <div className="App bg-deep-calm scroll-smooth">
     <Nav />
+    <ScrollIndicator />
     <Hero />
     <AboutUs />
     <ValuesApproachSplit />

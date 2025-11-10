@@ -40,11 +40,11 @@ const JoinCollective = () => {
         <defs>
           <pattern id="jigsawPatternJoin" patternUnits="userSpaceOnUse" width="60" height="60">
             <path d="M 0 20 Q 5 15, 10 20 T 20 20 L 20 0 L 40 0 L 40 20 Q 45 15, 50 20 T 60 20 L 60 40 L 40 40 L 40 50 Q 35 45, 30 50 T 30 60 L 20 60 L 20 50 Q 15 45, 10 50 T 10 60 L 0 60 L 0 40 L 0 20 Z"
-                  fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
+                  fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
           </pattern>
         </defs>
       </svg>
@@ -98,7 +98,7 @@ const JoinCollective = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 glass border border-cloud-white/20 focus-apple rounded-full text-cloud-white placeholder:text-cloud-white/40"
+                  className="w-full px-6 py-4 bg-cloud-white/5 backdrop-blur-xl border border-cloud-white/20 focus-apple rounded-full text-cloud-white placeholder:text-cloud-white/50 transition-all duration-300 hover:bg-cloud-white/10 hover:border-cloud-white/30"
                 />
                 <input
                   type="email"
@@ -107,13 +107,13 @@ const JoinCollective = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 glass border border-cloud-white/20 focus-apple rounded-full text-cloud-white placeholder:text-cloud-white/40"
+                  className="w-full px-6 py-4 bg-cloud-white/5 backdrop-blur-xl border border-cloud-white/20 focus-apple rounded-full text-cloud-white placeholder:text-cloud-white/50 transition-all duration-300 hover:bg-cloud-white/10 hover:border-cloud-white/30"
                 />
                 <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full bg-terracotta text-cloud-white px-10 py-4 font-medium rounded-full hover:bg-terracotta/90 transition-all duration-500 uppercase tracking-wider text-sm magnetic-button shadow-lg hover:shadow-2xl"
+                  className="w-full bg-terracotta text-cloud-white px-10 py-4 font-medium rounded-full hover:bg-terracotta/90 transition-all duration-400 ease-out uppercase tracking-wider text-sm apple-shadow-lg hover:apple-shadow-xl"
                 >
                   <span className="relative z-10">Get Started</span>
                 </motion.button>

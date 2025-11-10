@@ -110,7 +110,7 @@ const Experiences = () => {
   };
 
   return (
-    <Section id="experiences" background="deep-calm">
+    <Section id="experiences" background="deep-calm" spacing="reduced">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -148,12 +148,12 @@ const Experiences = () => {
                 return (
                   <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
                     {/* Image */}
-                    <div className="relative lg:order-1">
-                      <div className="relative h-[300px] lg:h-[400px] rounded-2xl overflow-hidden apple-shadow-xl">
+                    <div className="relative lg:order-1 group">
+                      <div className="relative h-[300px] lg:h-[400px] rounded-2xl overflow-hidden apple-shadow-xl hover:apple-shadow-2xl transition-all duration-500 ease-out">
                         <img
                           src={retreat.image}
                           alt={retreat.theme}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         />
                         {/* Overlay with limited slots */}
                         <div className="absolute top-6 right-6">
@@ -228,9 +228,9 @@ const Experiences = () => {
                         </div>
                         <motion.a
                           href="#join"
-                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileHover={{ scale: 1.02, y: -4 }}
                           whileTap={{ scale: 0.98 }}
-                          className="px-6 py-2 bg-terracotta text-cloud-white text-sm font-medium rounded-full apple-shadow-lg hover:apple-shadow-xl transition-all duration-300"
+                          className="px-6 py-3 bg-terracotta text-cloud-white text-sm font-medium rounded-full apple-shadow-lg hover:apple-shadow-xl transition-all duration-400 ease-out"
                         >
                           {retreat.cta}
                         </motion.a>

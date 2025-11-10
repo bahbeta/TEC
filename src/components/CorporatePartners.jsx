@@ -92,7 +92,7 @@ const CorporatePartners = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden group shadow-md hover:shadow-lg transition-shadow"
+              className="bg-white rounded-2xl overflow-hidden group apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2"
             >
               {/* Content */}
               <div className="p-6">
@@ -152,13 +152,13 @@ const CorporatePartners = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#contact"
-              className="px-8 py-4 bg-white text-sage-green rounded-lg font-medium hover:bg-soft-sand transition-colors"
+              className="px-8 py-4 bg-white text-sage-green rounded-full font-medium hover:bg-white/90 transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1 apple-shadow-lg hover:apple-shadow-xl"
             >
               Schedule Consultation
             </a>
             <a
               href="mailto:partnerships@elevatecollective.com"
-              className="px-8 py-4 border-2 border-white text-white rounded-lg font-medium hover:bg-white/10 transition-colors"
+              className="px-8 py-4 border border-white/30 text-white rounded-full font-medium hover:bg-white/15 hover:border-white/50 transition-all duration-300 ease-out hover:scale-[1.02] backdrop-blur-xl"
             >
               partnerships@elevatecollective.com
             </a>

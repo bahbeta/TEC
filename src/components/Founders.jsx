@@ -71,13 +71,13 @@ const Founders = () => {
               className="group"
             >
               {/* Founder Card */}
-              <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 h-[750px] flex flex-col">
+              <div className="bg-white rounded-2xl overflow-hidden apple-shadow-lg hover:apple-shadow-2xl transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.01] h-[750px] flex flex-col">
                 {/* Image */}
                 <div className="relative h-[350px] flex-shrink-0 overflow-hidden">
                   <img
                     src={founder.image}
                     alt={founder.name}
-                    className="w-full h-full object-cover object-top grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                    className="w-full h-full object-cover object-top grayscale transition-all duration-1000 ease-out group-hover:scale-110 group-hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-deep-calm/60 to-transparent pointer-events-none"></div>
 
@@ -103,6 +103,20 @@ const Founders = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Closing Statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-16 text-center max-w-4xl mx-auto"
+        >
+          <div className="w-16 h-0.5 bg-terracotta mx-auto mb-8"></div>
+          <p className="text-lg md:text-xl text-deep-calm/80 leading-relaxed">
+            Together, Wesley Depass and Malak Alsaffar lead The Elevate Collective with a shared purpose: to redefine what wellbeing means for modern professionals and create spaces where clarity, performance, and peace can coexist.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

@@ -7,7 +7,8 @@ const Section = ({
   children,
   className = '',
   background = 'cloud-white',
-  containerClassName = ''
+  containerClassName = '',
+  spacing = 'default'
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -43,6 +44,12 @@ const Section = ({
   // Determine which hatch pattern to use based on background
   const hatchPatternId = background === 'deep-calm' ? 'hatchPatternDark' : 'hatchPatternLight';
 
+  // Spacing options
+  const spacingClasses = {
+    'default': 'section-spacing',
+    'reduced': 'py-20 md:py-24 lg:py-32'
+  };
+
   return (
     <motion.section
       id={id}
@@ -51,18 +58,18 @@ const Section = ({
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
       style={backgroundStyles[background]}
-      className={`section-spacing ${backgroundClasses[background]} ${className} relative`}
+      className={`${spacingClasses[spacing]} ${backgroundClasses[background]} ${className} relative`}
     >
       {/* SVG Pattern Definition */}
       <svg width="0" height="0" className="absolute">
         <defs>
           <pattern id="jigsawPatternDark" patternUnits="userSpaceOnUse" width="60" height="60">
             <path d="M 0 20 Q 5 15, 10 20 T 20 20 L 20 0 L 40 0 L 40 20 Q 45 15, 50 20 T 60 20 L 60 40 L 40 40 L 40 50 Q 35 45, 30 50 T 30 60 L 20 60 L 20 50 Q 15 45, 10 50 T 10 60 L 0 60 L 0 40 L 0 20 Z"
-                  fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
-            <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="0.5" />
+                  fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
+            <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.3" />
           </pattern>
           <pattern id="jigsawPatternLight" patternUnits="userSpaceOnUse" width="60" height="60">
             <path d="M 0 20 Q 5 15, 10 20 T 20 20 L 20 0 L 40 0 L 40 20 Q 45 15, 50 20 T 60 20 L 60 40 L 40 40 L 40 50 Q 35 45, 30 50 T 30 60 L 20 60 L 20 50 Q 15 45, 10 50 T 10 60 L 0 60 L 0 40 L 0 20 Z"

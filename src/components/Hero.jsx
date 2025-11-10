@@ -79,7 +79,7 @@ const Hero = () => {
   ];
 
   return (
-    <section ref={ref} className="relative h-[400vh] bg-white" style={{ perspective: '1200px' }}>
+    <section id="hero" ref={ref} className="relative h-[400vh] bg-white" style={{ perspective: '1200px' }}>
       {/* SVG Pattern Definition */}
       <svg width="0" height="0" className="absolute">
         <defs>
@@ -267,7 +267,7 @@ const Hero = () => {
             rotateX: contentRotateX,
             transformPerspective: 1200
           }}
-          className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 text-center h-screen flex flex-col items-center justify-center"
+          className="relative z-40 max-w-5xl mx-auto px-6 md:px-12 text-center h-screen flex flex-col items-center justify-center"
         >
         <motion.div
           initial={{ opacity: 0, y: 60 }}
@@ -290,40 +290,18 @@ const Hero = () => {
 
           {/* CTA Button */}
           <motion.a
-            href="#about"
+            href="#join"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            whileHover={{ scale: 1.05 }}
-            className="inline-block px-10 py-4 bg-terracotta text-cloud-white font-medium rounded-full hover:bg-terracotta/90 transition-all duration-300 uppercase tracking-wider text-sm"
+            whileHover={{ scale: 1.02, y: -4 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-block px-10 py-4 bg-terracotta text-cloud-white font-medium rounded-full hover:bg-terracotta/90 transition-all duration-400 ease-out uppercase tracking-wider text-sm apple-shadow-lg hover:apple-shadow-xl"
           >
             Get Started
           </motion.a>
         </motion.div>
       </motion.div>
-
-        {/* Scroll Down Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20"
-          style={{ opacity: contentOpacity }}
-        >
-          <motion.a
-            href="#about"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-2 cursor-pointer group"
-          >
-            <span className="text-[#1F2A3A]/70 text-sm font-body tracking-wide group-hover:text-[#1F2A3A] transition-colors">
-              scroll down
-            </span>
-            <svg className="w-5 h-5 text-[#1F2A3A]/70 group-hover:text-[#1F2A3A] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </motion.a>
-        </motion.div>
 
         {/* About Sections - Scroll Reveal */}
         <motion.div
@@ -333,7 +311,7 @@ const Hero = () => {
             rotateX: aboutContainerRotateX,
             transformPerspective: 1200
           }}
-          className="absolute inset-0 z-30 flex items-center justify-center"
+          className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none"
         >
           {/* Section 1 */}
           <motion.div
@@ -353,15 +331,9 @@ const Hero = () => {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-[#1F2A3A] mb-6 leading-tight drop-shadow-xl">
                   What level of wellness are you seeking?
                 </h2>
-                <p className="text-base md:text-lg text-[#1F2A3A] leading-relaxed mb-8 drop-shadow-lg">
+                <p className="text-base md:text-lg text-[#1F2A3A] leading-relaxed drop-shadow-lg">
                   Determining your wellness goals can be an important tool when planning your journey. The Elevate Collective helps you plan experiences according to your current state and desired outcomes. What type of experience are you seeking – mindful movement, strength training, recovery, or complete transformation?
                 </p>
-                <motion.a href="#experiences" whileHover={{ x: 5 }} className="inline-flex items-center gap-2 text-[#1F2A3A] font-medium text-sm tracking-wide uppercase group drop-shadow-lg">
-                  read more
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </motion.a>
               </div>
             </div>
           </motion.div>
@@ -384,15 +356,9 @@ const Hero = () => {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-[#1F2A3A] mb-6 leading-tight drop-shadow-xl">
                   Picking the right approach for you!
                 </h2>
-                <p className="text-base md:text-lg text-[#1F2A3A] leading-relaxed mb-8 drop-shadow-lg">
+                <p className="text-base md:text-lg text-[#1F2A3A] leading-relaxed drop-shadow-lg">
                   The nice thing about beginning your wellness journey is finding what resonates with you. At TEC, we blend science-backed training with mindset coaching and restorative practices. Our approach combines purposeful challenge with intentional rest, helping you sustain your drive without compromising your wellbeing.
                 </p>
-                <motion.a href="#experiences" whileHover={{ x: 5 }} className="inline-flex items-center gap-2 text-[#1F2A3A] font-medium text-sm tracking-wide uppercase group drop-shadow-lg">
-                  read more
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </motion.a>
               </div>
             </div>
           </motion.div>
@@ -415,15 +381,9 @@ const Hero = () => {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-[#1F2A3A] mb-6 leading-tight drop-shadow-xl">
                   Understand your journey & timing
                 </h2>
-                <p className="text-base md:text-lg text-[#1F2A3A] leading-relaxed mb-8 drop-shadow-lg">
+                <p className="text-base md:text-lg text-[#1F2A3A] leading-relaxed drop-shadow-lg">
                   To start, we'll assess your current state and goals. Through our curated experiences, you'll discover the right balance of movement, mindset, and connection. We'll guide you through each step, whether it's a morning clarity session, full-day intensive, or multi-day retreat designed for sustainable transformation.
                 </p>
-                <motion.a href="#experiences" whileHover={{ x: 5 }} className="inline-flex items-center gap-2 text-[#1F2A3A] font-medium text-sm tracking-wide uppercase group drop-shadow-lg">
-                  read more
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </motion.a>
               </div>
             </div>
           </motion.div>
@@ -437,7 +397,7 @@ const Hero = () => {
             rotateX: philosophyContainerRotateX,
             transformPerspective: 1200
           }}
-          className="absolute inset-0 z-30 flex items-center justify-center"
+          className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none"
         >
           <div className="max-w-6xl mx-auto px-6 md:px-12 text-center">
             {/* Mission Statement */}
