@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import SmoothScroll from './components/SmoothScroll';
 import BackgroundMusic from './components/BackgroundMusic';
 import ScrollIndicator from './components/ScrollIndicator';
+import SEO from './components/SEO';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import AdminLogin from './pages/AdminLogin';
@@ -21,6 +22,13 @@ import AdminPostEditor from './pages/AdminPostEditor';
 // Homepage component
 const HomePage = () => (
   <div className="App bg-deep-calm scroll-smooth">
+    <SEO
+      title="The Elevate Collective - Premium Wellness Retreats in Dubai & UAE"
+      description="Experience transformative wellness retreats in Dubai and UAE. The Elevate Collective offers premium programs blending strength training, mindfulness, and recovery for high performers seeking clarity and renewal."
+      keywords="wellness retreats UAE, Dubai wellness programs, mindfulness retreats, strength training Dubai, corporate wellness UAE, meditation retreats, fitness retreats Dubai, holistic wellness, mental health retreats, performance coaching"
+      image="https://theelevatecolective.com/images/brand/og-image.jpg"
+      type="website"
+    />
     <Nav />
     <ScrollIndicator />
     <Hero />

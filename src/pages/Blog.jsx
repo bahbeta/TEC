@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
+import SEO from '../components/SEO';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -156,7 +157,15 @@ const Blog = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-soft-sand/10 to-white pt-32 pb-24">
+    <>
+      <SEO
+        title="Wellness Blog - The Elevate Collective | Mindfulness, Fitness & Mental Health"
+        description="Explore our wellness blog featuring insights on mindfulness, strength training, mental health, and holistic living. Expert advice for high performers in Dubai and UAE."
+        keywords="wellness blog, mindfulness tips, fitness advice, mental health, Dubai wellness, holistic living, meditation guides, strength training tips"
+        image="https://theelevatecolective.com/images/brand/blog-og-image.jpg"
+        type="website"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-white via-soft-sand/10 to-white pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         {/* Header */}
         <motion.div
@@ -334,6 +343,7 @@ const Blog = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
