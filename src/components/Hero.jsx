@@ -9,36 +9,10 @@ const Hero = () => {
     offset: ["start start", "end start"]
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.6, 0.4]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.06, 0.12], [1, 1, 0]);
   const contentY = useTransform(scrollYProgress, [0, 0.12], [0, -100]);
   const contentScale = useTransform(scrollYProgress, [0, 0.12], [1, 0.85]);
   const contentRotateX = useTransform(scrollYProgress, [0, 0.12], [0, -15]);
-
-  // 8-layer parallax system - progressive depth
-  const layer1Y = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const layer1Scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-
-  const layer2Y = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const layer2Scale = useTransform(scrollYProgress, [0, 1], [1, 1.10]);
-
-  const layer3Y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const layer3Scale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-
-  const layer4Y = useTransform(scrollYProgress, [0, 1], [0, 280]);
-  const layer4Scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-
-  const layer5Y = useTransform(scrollYProgress, [0, 1], [0, 350]);
-  const layer5Scale = useTransform(scrollYProgress, [0, 1], [1, 1.18]);
-
-  const layer6Y = useTransform(scrollYProgress, [0, 1], [0, 450]);
-  const layer6Scale = useTransform(scrollYProgress, [0, 1], [1, 1.22]);
-
-  const layer7Y = useTransform(scrollYProgress, [0, 1], [65, 615]); // Offset by 65px down
-  const layer7Scale = useTransform(scrollYProgress, [0, 1], [1.03, 1.28]); // Slight scale increase for alignment
-
-  const layer8Y = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const layer8Scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   // About sections scroll transforms - smoother timing with 3D
   const aboutContainerOpacity = useTransform(scrollYProgress, [0.08, 0.12, 0.68, 0.72], [0, 1, 1, 0]);
@@ -92,176 +66,15 @@ const Hero = () => {
         </defs>
       </svg>
 
-      {/* 8-Layer Parallax Background - Immersive Mountain Landscape */}
+      {/* Hero Background */}
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-white" style={{ transformStyle: 'preserve-3d' }}>
         <div className="absolute inset-0 z-0 bg-white">
-        {/* Hatch pattern overlay */}
-        <div className="absolute inset-0 z-[100] pointer-events-none">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100%" height="100%" fill="url(#hatchPatternHero)" />
-          </svg>
-        </div>
-        {/* Layer 1 - Sky & Sunlight (Furthest back) */}
-        <motion.div
-          style={{
-            y: layer1Y,
-            scale: layer1Scale,
-            opacity
-          }}
-          className="absolute inset-0 z-[1]"
-        >
-          <img
-            src="/images/hero-layer-1.png"
-            alt="Serene mountain landscape sky and sunlight - wellbeing retreat background"
-            className="w-full h-full object-cover object-center"
-            style={{ filter: 'saturate(0.7) contrast(1.1) brightness(1.02)' }}
-            loading="lazy"
-          />
-        </motion.div>
-
-        {/* Layer 2 - Distant Mountain Peaks */}
-        <motion.div
-          style={{
-            y: layer2Y,
-            scale: layer2Scale,
-            opacity
-          }}
-          className="absolute inset-0 z-[2]"
-        >
-          <img
-            src="/images/hero-layer-2.png"
-            alt="Distant mountain peaks - nature wellbeing retreat scenery"
-            className="w-full h-full object-cover object-center"
-            style={{ filter: 'saturate(0.65) contrast(1.05) brightness(1.08)' }}
-            loading="lazy"
-          />
-          {/* Atmospheric haze overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/20 to-transparent pointer-events-none"></div>
-        </motion.div>
-
-        {/* Layer 3 - Mid Hills */}
-        <motion.div
-          style={{
-            y: layer3Y,
-            scale: layer3Scale,
-            opacity
-          }}
-          className="absolute inset-0 z-[3]"
-        >
-          <img
-            src="/images/hero-layer-3.png"
-            alt="Mid hills landscape - tranquil Dubai wellbeing retreat environment"
-            className="w-full h-full object-cover object-center"
-            style={{ filter: 'saturate(0.68) contrast(1.08) brightness(1.04)' }}
-            loading="lazy"
-          />
-          {/* Atmospheric haze overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-white/12 to-transparent pointer-events-none"></div>
-        </motion.div>
-
-        {/* Layer 4 - Forested Ridges */}
-        <motion.div
-          style={{
-            y: layer4Y,
-            scale: layer4Scale,
-            opacity
-          }}
-          className="absolute inset-0 z-[4]"
-        >
-          <img
-            src="/images/hero-layer-4.png"
-            alt="Forested ridges - natural meditation and mindfulness retreat setting"
-            className="w-full h-full object-cover object-center"
-            style={{ filter: 'saturate(0.7) contrast(1.1) brightness(1.0)' }}
-            loading="lazy"
-          />
-          {/* Atmospheric haze overlay - lighter than layer 3 */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-white/7 to-transparent pointer-events-none"></div>
-        </motion.div>
-
-        {/* Layer 5 - River Source */}
-        <motion.div
-          style={{
-            y: layer5Y,
-            scale: layer5Scale,
-            opacity
-          }}
-          className="absolute inset-0 z-[5]"
-        >
-          <img
-            src="/images/hero-layer-5.png"
-            alt="Mountain river source - peaceful wellbeing journey metaphor"
-            className="w-full h-full object-cover object-center"
-            style={{ filter: 'saturate(0.72) contrast(1.12) brightness(0.98)' }}
-            loading="lazy"
-          />
-        </motion.div>
-
-        {/* Layer 8 - Mist & Light Rays Overlay (Mid-depth) */}
-        <motion.div
-          style={{
-            y: layer8Y,
-            scale: layer8Scale,
-            opacity
-          }}
-          className="absolute inset-0 z-[5.5] opacity-40"
-        >
-          <img
-            src="/images/hero-layer-8.png"
-            alt="Ethereal mist and light rays - spiritual wellbeing atmosphere"
-            className="w-full h-full object-cover object-center"
-            style={{
-              filter: 'saturate(0.7) contrast(1.1)',
-              transform: 'rotate(-35deg) scale(1.5)',
-              transformOrigin: 'top left'
-            }}
-            loading="lazy"
-          />
-          {/* Gradient mask to reduce mist in upper areas where trees are */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent mix-blend-multiply pointer-events-none"></div>
-        </motion.div>
-
-        {/* Layer 6 - Foreground Trees */}
-        <motion.div
-          style={{
-            y: layer6Y,
-            scale: layer6Scale,
-            opacity
-          }}
-          className="absolute inset-0 z-[6]"
-        >
-          <img
-            src="/images/hero-layer-6.png"
-            alt="Foreground trees in nature - outdoor wellbeing retreat Dubai"
-            className="w-full h-full object-cover object-center"
-            style={{ filter: 'saturate(0.78) contrast(1.20) brightness(0.96) clarity(1.15)' }}
-            loading="lazy"
-          />
-        </motion.div>
-
-        {/* Layer 7 - River Foreground */}
-        <motion.div
-          style={{
-            y: layer7Y,
-            scale: layer7Scale,
-            opacity
-          }}
-          className="absolute inset-0 z-[7]"
-        >
-          <img
-            src="/images/hero-layer-7.png"
-            alt="Flowing river foreground - wellbeing journey and transformation"
-            className="w-full h-full object-cover object-center"
-            style={{ filter: 'saturate(0.75) contrast(1.16) brightness(0.95)' }}
-            loading="lazy"
-          />
-        </motion.div>
-
-        {/* Cool blue shadow overlay for depth */}
-        <div className="absolute inset-0 z-[9] pointer-events-none bg-gradient-to-b from-blue-900/5 via-transparent to-blue-950/8"></div>
-
-        {/* 20% transparency overlay */}
-        <div className="absolute inset-0 z-[10] pointer-events-none bg-white opacity-20"></div>
+          {/* Hatch pattern overlay */}
+          <div className="absolute inset-0 z-[100] pointer-events-none">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="url(#hatchPatternHero)" />
+            </svg>
+          </div>
         </div>
 
         {/* Hero Content */}
