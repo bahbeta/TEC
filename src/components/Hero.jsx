@@ -68,9 +68,19 @@ const Hero = () => {
 
       {/* Hero Background */}
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-white" style={{ transformStyle: 'preserve-3d' }}>
-        <div className="absolute inset-0 z-0 bg-white">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/hero-bg.jpg"
+            alt="Luxury wellbeing retreat with infinity pool overlooking mountains and tropical landscape"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          {/* Subtle dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/30"></div>
+
           {/* Hatch pattern overlay */}
-          <div className="absolute inset-0 z-[100] pointer-events-none">
+          <div className="absolute inset-0 z-[100] pointer-events-none opacity-30">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <rect width="100%" height="100%" fill="url(#hatchPatternHero)" />
             </svg>
@@ -94,12 +104,12 @@ const Hero = () => {
           transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
         >
           {/* Main Headline - MNTN Style */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-medium text-[#1F2A3A] mb-6 leading-tight tracking-tight" style={{ textShadow: '2px 2px 4px rgba(250, 249, 246, 0.5)' }}>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-medium text-white mb-6 leading-tight tracking-tight" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
             Step Into the Experience
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-[#1F2A3A] mb-8 font-body" style={{ textShadow: '1px 1px 3px rgba(250, 249, 246, 0.5)' }}>
+          <p className="text-xl md:text-2xl text-white/90 mb-8 font-body" style={{ textShadow: '1px 1px 4px rgba(0, 0, 0, 0.5)' }}>
             Your wellbeing journey begins here.
           </p>
 
