@@ -146,8 +146,8 @@ const CorporatePartners = () => {
             Partner With Us
           </h3>
           <p className="text-base md:text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-            Join leading companies in prioritizing employee wellbeing.
-            Schedule a consultation to discuss a custom program for your organization.
+            Join leading companies in prioritising employee wellbeing.
+            Schedule a consultation to discuss a custom program for your organisation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

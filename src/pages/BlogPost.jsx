@@ -23,7 +23,7 @@ const BlogPost = () => {
       author: {
         name: 'Malak Alsaffar',
         avatar_url: '/images/malak.jpeg',
-        bio: 'Wellbeing advocate and mindfulness coach specializing in holistic health and sustainable lifestyle transformations.'
+        bio: 'Wellbeing advocate and mindfulness coach specialising in holistic health and sustainable lifestyle transformations.'
       },
       category: { name: 'Wellbeing', slug: 'wellbeing' },
       tags: [

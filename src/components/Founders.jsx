@@ -6,7 +6,7 @@ const Founders = () => {
       name: 'MALAK ALSAFFAR',
       image: '/images/malak.jpeg',
       bio: [
-        'A former corporate strategist turned wellbeing guide, Malak specializes in helping leaders reconnect with clarity, purpose, and resilience. Her work focuses on mindfulness, emotional intelligence, and intentional living, offering a counterbalance to the demands of high-stakes environments.',
+        'A former corporate strategist turned wellbeing guide, Malak specialises in helping leaders reconnect with clarity, purpose, and resilience. Her work focuses on mindfulness, emotional intelligence, and intentional living, offering a counterbalance to the demands of high-stakes environments.',
         'Malak\'s approach is grounded in empathy and insight, creating space for reflection, growth, and sustainable success. She believes that real leadership begins with self-awareness and the courage to lead from a place of alignment.'
       ]
     },
