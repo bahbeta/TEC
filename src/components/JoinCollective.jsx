@@ -83,7 +83,7 @@ const JoinCollective = () => {
             </h2>
 
             <p className="text-lg md:text-xl text-cloud-white/70 leading-relaxed">
-              Be the first to know about upcoming retreats, exclusive insights, and transformative wellness experience
+              Be the first to know about upcoming retreats, exclusive insights, and transformative wellbeing experience
             </p>
           </div>
 

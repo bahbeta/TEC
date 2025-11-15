@@ -41,23 +41,26 @@ const Hero = () => {
   const layer8Scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   // About sections scroll transforms - smoother timing with 3D
-  const aboutContainerOpacity = useTransform(scrollYProgress, [0.08, 0.12, 0.58, 0.62], [0, 1, 1, 0]);
-  const aboutContainerScale = useTransform(scrollYProgress, [0.08, 0.16, 0.54, 0.62], [0.9, 1, 1, 0.9]);
-  const aboutContainerRotateX = useTransform(scrollYProgress, [0.08, 0.16, 0.54, 0.62], [10, 0, 0, -10]);
+  const aboutContainerOpacity = useTransform(scrollYProgress, [0.08, 0.12, 0.68, 0.72], [0, 1, 1, 0]);
+  const aboutContainerScale = useTransform(scrollYProgress, [0.08, 0.16, 0.64, 0.72], [0.9, 1, 1, 0.9]);
+  const aboutContainerRotateX = useTransform(scrollYProgress, [0.08, 0.16, 0.64, 0.72], [10, 0, 0, -10]);
 
   // Individual section transforms - extended fade ranges for smoother transitions
-  const section1Opacity = useTransform(scrollYProgress, [0.08, 0.14, 0.24, 0.30], [0, 1, 1, 0]);
-  const section1Scale = useTransform(scrollYProgress, [0.08, 0.14, 0.24, 0.30], [0.95, 1, 1, 0.95]);
+  const section1Opacity = useTransform(scrollYProgress, [0.08, 0.14, 0.20, 0.26], [0, 1, 1, 0]);
+  const section1Scale = useTransform(scrollYProgress, [0.08, 0.14, 0.20, 0.26], [0.95, 1, 1, 0.95]);
 
-  const section2Opacity = useTransform(scrollYProgress, [0.26, 0.32, 0.42, 0.48], [0, 1, 1, 0]);
-  const section2Scale = useTransform(scrollYProgress, [0.26, 0.32, 0.42, 0.48], [0.95, 1, 1, 0.95]);
+  const section2Opacity = useTransform(scrollYProgress, [0.22, 0.28, 0.34, 0.40], [0, 1, 1, 0]);
+  const section2Scale = useTransform(scrollYProgress, [0.22, 0.28, 0.34, 0.40], [0.95, 1, 1, 0.95]);
 
-  const section3Opacity = useTransform(scrollYProgress, [0.44, 0.50, 0.58, 0.64], [0, 1, 1, 0]);
-  const section3Scale = useTransform(scrollYProgress, [0.44, 0.50, 0.58, 0.64], [0.95, 1, 1, 0.95]);
+  const section3Opacity = useTransform(scrollYProgress, [0.36, 0.42, 0.48, 0.54], [0, 1, 1, 0]);
+  const section3Scale = useTransform(scrollYProgress, [0.36, 0.42, 0.48, 0.54], [0.95, 1, 1, 0.95]);
 
-  const philosophyContainerOpacity = useTransform(scrollYProgress, [0.60, 0.66, 0.92, 0.98], [0, 1, 1, 0]);
-  const philosophyContainerScale = useTransform(scrollYProgress, [0.60, 0.68, 0.88, 0.98], [0.9, 1, 1, 0.9]);
-  const philosophyContainerRotateX = useTransform(scrollYProgress, [0.60, 0.68, 0.88, 0.98], [10, 0, 0, -10]);
+  const section4Opacity = useTransform(scrollYProgress, [0.50, 0.56, 0.62, 0.68], [0, 1, 1, 0]);
+  const section4Scale = useTransform(scrollYProgress, [0.50, 0.56, 0.62, 0.68], [0.95, 1, 1, 0.95]);
+
+  const philosophyContainerOpacity = useTransform(scrollYProgress, [0.70, 0.76, 0.92, 0.98], [0, 1, 1, 0]);
+  const philosophyContainerScale = useTransform(scrollYProgress, [0.70, 0.78, 0.88, 0.98], [0.9, 1, 1, 0.9]);
+  const philosophyContainerRotateX = useTransform(scrollYProgress, [0.70, 0.78, 0.88, 0.98], [10, 0, 0, -10]);
 
   const pillars = [
     {
@@ -83,13 +86,8 @@ const Hero = () => {
       {/* SVG Pattern Definition */}
       <svg width="0" height="0" className="absolute">
         <defs>
-          <pattern id="jigsawPatternHero" patternUnits="userSpaceOnUse" width="60" height="60">
-            <path d="M 0 20 Q 5 15, 10 20 T 20 20 L 20 0 L 40 0 L 40 20 Q 45 15, 50 20 T 60 20 L 60 40 L 40 40 L 40 50 Q 35 45, 30 50 T 30 60 L 20 60 L 20 50 Q 15 45, 10 50 T 10 60 L 0 60 L 0 40 L 0 20 Z"
-                  fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.2" />
-            <path d="M 25 0 Q 25 -5, 30 -5 Q 35 -5, 35 0" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.2" />
-            <path d="M 60 25 Q 65 25, 65 30 Q 65 35, 60 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.2" />
-            <path d="M 25 60 Q 25 55, 30 55 Q 35 55, 35 60" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.2" />
-            <path d="M 0 25 Q -5 25, -5 30 Q -5 35, 0 35" fill="none" stroke="#8A987D" strokeWidth="0.5" strokeOpacity="0.2" />
+          <pattern id="hatchPatternHero" patternUnits="userSpaceOnUse" width="6" height="6">
+            <path d="M 0 6 L 6 0" stroke="#1F2A3A" strokeWidth="0.2" strokeOpacity="0.15" />
           </pattern>
         </defs>
       </svg>
@@ -97,10 +95,10 @@ const Hero = () => {
       {/* 8-Layer Parallax Background - Immersive Mountain Landscape */}
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-white" style={{ transformStyle: 'preserve-3d' }}>
         <div className="absolute inset-0 z-0 bg-white">
-        {/* Jigsaw pattern overlay */}
+        {/* Hatch pattern overlay */}
         <div className="absolute inset-0 z-[100] pointer-events-none">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100%" height="100%" fill="url(#jigsawPatternHero)" />
+            <rect width="100%" height="100%" fill="url(#hatchPatternHero)" />
           </svg>
         </div>
         {/* Layer 1 - Sky & Sunlight (Furthest back) */}
@@ -114,7 +112,7 @@ const Hero = () => {
         >
           <img
             src="/images/hero-layer-1.png"
-            alt="Serene mountain landscape sky and sunlight - wellness retreat background"
+            alt="Serene mountain landscape sky and sunlight - wellbeing retreat background"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.7) contrast(1.1) brightness(1.02)' }}
             loading="lazy"
@@ -132,7 +130,7 @@ const Hero = () => {
         >
           <img
             src="/images/hero-layer-2.png"
-            alt="Distant mountain peaks - nature wellness retreat scenery"
+            alt="Distant mountain peaks - nature wellbeing retreat scenery"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.65) contrast(1.05) brightness(1.08)' }}
             loading="lazy"
@@ -152,7 +150,7 @@ const Hero = () => {
         >
           <img
             src="/images/hero-layer-3.png"
-            alt="Mid hills landscape - tranquil Dubai wellness retreat environment"
+            alt="Mid hills landscape - tranquil Dubai wellbeing retreat environment"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.68) contrast(1.08) brightness(1.04)' }}
             loading="lazy"
@@ -192,7 +190,7 @@ const Hero = () => {
         >
           <img
             src="/images/hero-layer-5.png"
-            alt="Mountain river source - peaceful wellness journey metaphor"
+            alt="Mountain river source - peaceful wellbeing journey metaphor"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.72) contrast(1.12) brightness(0.98)' }}
             loading="lazy"
@@ -210,7 +208,7 @@ const Hero = () => {
         >
           <img
             src="/images/hero-layer-8.png"
-            alt="Ethereal mist and light rays - spiritual wellness atmosphere"
+            alt="Ethereal mist and light rays - spiritual wellbeing atmosphere"
             className="w-full h-full object-cover object-center"
             style={{
               filter: 'saturate(0.7) contrast(1.1)',
@@ -234,7 +232,7 @@ const Hero = () => {
         >
           <img
             src="/images/hero-layer-6.png"
-            alt="Foreground trees in nature - outdoor wellness retreat Dubai"
+            alt="Foreground trees in nature - outdoor wellbeing retreat Dubai"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.78) contrast(1.20) brightness(0.96) clarity(1.15)' }}
             loading="lazy"
@@ -252,7 +250,7 @@ const Hero = () => {
         >
           <img
             src="/images/hero-layer-7.png"
-            alt="Flowing river foreground - wellness journey and transformation"
+            alt="Flowing river foreground - wellbeing journey and transformation"
             className="w-full h-full object-cover object-center"
             style={{ filter: 'saturate(0.75) contrast(1.16) brightness(0.95)' }}
             loading="lazy"
@@ -282,19 +280,15 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          {/* Category Label with Line */}
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="w-16 h-px bg-[#1F2A3A]"></div>
-            <span className="text-[#1F2A3A] text-sm tracking-[0.3em] uppercase font-body" style={{ textShadow: '1px 1px 3px rgba(250, 249, 246, 0.5)' }}>
-              A Wellness Collective
-            </span>
-          </div>
-
           {/* Main Headline - MNTN Style */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-medium text-[#1F2A3A] mb-8 leading-tight tracking-tight" style={{ textShadow: '2px 2px 4px rgba(250, 249, 246, 0.5)' }}>
-            Be Prepared For The<br />
-            Mind & Body Journey!
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-medium text-[#1F2A3A] mb-6 leading-tight tracking-tight" style={{ textShadow: '2px 2px 4px rgba(250, 249, 246, 0.5)' }}>
+            Step Into the Experience
           </h1>
+
+          {/* Subheadline */}
+          <p className="text-xl md:text-2xl text-[#1F2A3A] mb-8 font-body" style={{ textShadow: '1px 1px 3px rgba(250, 249, 246, 0.5)' }}>
+            Your wellbeing journey begins here.
+          </p>
 
           {/* CTA Button */}
           <motion.a
@@ -333,14 +327,14 @@ const Hero = () => {
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-4 mb-6">
                   <div className="w-16 h-px bg-[#1F2A3A] shadow-lg"></div>
-                  <span className="text-[#1F2A3A] text-xs tracking-[0.3em] uppercase font-body drop-shadow-lg">Get Started</span>
+                  <span className="text-[#1F2A3A] text-xs tracking-[0.3em] uppercase font-body drop-shadow-lg">Pause. Breathe. Arrive.</span>
                   <div className="w-16 h-px bg-[#1F2A3A] shadow-lg"></div>
                 </div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-[#1F2A3A] mb-6 leading-tight drop-shadow-xl">
-                  What level of wellness are you seeking?
+                  Reconnect with yourself - and with the world around you.
                 </h2>
                 <p className="text-base md:text-lg text-[#1F2A3A] leading-relaxed drop-shadow-lg">
-                  Determining your wellness goals can be an important tool when planning your journey. The Elevate Collective helps you plan experiences according to your current state and desired outcomes. What type of experience are you seeking – mindful movement, strength training, recovery, or complete transformation?
+                  At The Elevate Collective, we bring people together through movement, mindfulness, and shared culture. Every journey is unique, but every individual belongs.
                 </p>
               </div>
             </div>
@@ -358,14 +352,14 @@ const Hero = () => {
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-4 mb-6">
                   <div className="w-16 h-px bg-[#1F2A3A] shadow-lg"></div>
-                  <span className="text-[#1F2A3A] text-xs tracking-[0.3em] uppercase font-body drop-shadow-lg">Wellness Essentials</span>
+                  <span className="text-[#1F2A3A] text-xs tracking-[0.3em] uppercase font-body drop-shadow-lg">Set Your Intention</span>
                   <div className="w-16 h-px bg-[#1F2A3A] shadow-lg"></div>
                 </div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-[#1F2A3A] mb-6 leading-tight drop-shadow-xl">
-                  Picking the right approach for you!
+                  Every journey starts with purpose.
                 </h2>
                 <p className="text-base md:text-lg text-[#1F2A3A] leading-relaxed drop-shadow-lg">
-                  The nice thing about beginning your wellness journey is finding what resonates with you. At TEC, we blend science-backed training with mindset coaching and restorative practices. Our approach combines purposeful challenge with intentional rest, helping you sustain your drive without compromising your wellbeing.
+                  What does wellbeing mean to you - balance, clarity, strength, or renewal? We help you define what you need most right now. Inclusive wellbeing experiences designed to reflect who you are, where you've come from, and where you're ready to go next.
                 </p>
               </div>
             </div>
@@ -383,14 +377,39 @@ const Hero = () => {
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-4 mb-6">
                   <div className="w-16 h-px bg-[#1F2A3A] shadow-lg"></div>
-                  <span className="text-[#1F2A3A] text-xs tracking-[0.3em] uppercase font-body drop-shadow-lg">Where You Go Is The Key</span>
+                  <span className="text-[#1F2A3A] text-xs tracking-[0.3em] uppercase font-body drop-shadow-lg">Discover Your Rhythm</span>
                   <div className="w-16 h-px bg-[#1F2A3A] shadow-lg"></div>
                 </div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-[#1F2A3A] mb-6 leading-tight drop-shadow-xl">
-                  Understand your journey & timing
+                  Wellbeing isn't one-size-fits-all.
                 </h2>
                 <p className="text-base md:text-lg text-[#1F2A3A] leading-relaxed drop-shadow-lg">
-                  To start, we'll assess your current state and goals. Through our curated experiences, you'll discover the right balance of movement, mindset, and connection. We'll guide you through each step, whether it's a morning clarity session, full-day intensive, or multi-day retreat designed for sustainable transformation.
+                  It's the rhythm between challenge and rest, discipline and flow. Our science-backed approach blends strength, mindset, and cultural practices from around the world. Each experience celebrates individuality - and the power of community.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Section 4 */}
+          <motion.div
+            style={{ opacity: section4Opacity, scale: section4Scale }}
+            className="absolute inset-0 flex items-center justify-center px-6 md:px-12"
+          >
+            <div className="max-w-3xl">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                <span className="text-[20rem] font-display font-bold leading-none" style={{ color: 'rgba(31, 42, 58, 0.1)' }}>04</span>
+              </div>
+              <div className="relative z-10">
+                <div className="flex items-center justify-center gap-4 mb-6">
+                  <div className="w-16 h-px bg-[#1F2A3A] shadow-lg"></div>
+                  <span className="text-[#1F2A3A] text-xs tracking-[0.3em] uppercase font-body drop-shadow-lg">Evolve With Intention</span>
+                  <div className="w-16 h-px bg-[#1F2A3A] shadow-lg"></div>
+                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-[#1F2A3A] mb-6 leading-tight drop-shadow-xl">
+                  Wellbeing is not a destination.
+                </h2>
+                <p className="text-base md:text-lg text-[#1F2A3A] leading-relaxed drop-shadow-lg">
+                  It's a rhythm you learn to live by. Through curated sessions and immersive retreats, we help you align mind, body, and connection. You leave grounded. Strong. Part of something bigger - The Elevate Collective.
                 </p>
               </div>
             </div>
@@ -416,7 +435,7 @@ const Hero = () => {
                 <div className="w-16 h-px bg-[#1F2A3A] shadow-lg"></div>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#1F2A3A] mb-6 leading-tight max-w-4xl mx-auto drop-shadow-xl">
-                Empowering high-performing individuals through purposeful, inclusive wellness experiences.
+                Empowering high-performing individuals through purposeful, inclusive wellbeing experiences.
               </h2>
               <p className="text-xl md:text-2xl text-[#1F2A3A] italic font-light drop-shadow-lg">
                 Intention over urgency. Substance over trend. Depth over noise.

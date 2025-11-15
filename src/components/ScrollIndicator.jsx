@@ -10,9 +10,8 @@ const ScrollIndicator = () => {
     { id: 'hero', element: null },
     { id: 'about', element: null },
     { id: 'values', element: null },
-    { id: 'experiences', element: null },
-    { id: 'founders', element: null },
     { id: 'upcoming', element: null },
+    { id: 'founders', element: null },
     { id: 'partners', element: null },
     { id: 'join', element: null },
     { id: 'contact', element: null }

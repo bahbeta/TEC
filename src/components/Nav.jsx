@@ -92,7 +92,7 @@ const Nav = () => {
             >
               <img
                 src="/images/tec-logo.png"
-                alt="The Elevate Collective - Premium wellness retreats and corporate wellbeing programs in Dubai UAE"
+                alt="The Elevate Collective - Premium wellbeing retreats and corporate wellbeing programs in Dubai UAE"
                 className="w-auto object-contain transition-all duration-500"
                 style={{
                   height: scrolled ? '160px' : '240px',

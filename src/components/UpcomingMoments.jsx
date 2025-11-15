@@ -14,20 +14,20 @@ const UpcomingMoments = () => {
       image: '/images/brand/luxury-pool.jpg',
       dateRange: 'Summer 2026',
       location: 'Mykonos, Greece',
-      venue: 'Luxury Wellness Resort',
+      venue: 'Luxury Wellbeing Resort',
       href: '#join',
     },
     {
       title: 'Nia Morning - Dubai',
-      description: 'One-day wellness immersion open to all members of The Elevate Collective.',
+      description: 'One-day wellbeing immersion open to all members of The Elevate Collective.',
       image: '/images/brand/yoga-meditation.jpg',
       dateRange: 'Nov 29, 2024',
       location: 'Dubai, UAE',
-      venue: 'Wellness Studio',
+      venue: 'Wellbeing Studio',
       href: '#join',
     },
     {
-      title: 'Corporate Wellness Activation',
+      title: 'Corporate Wellbeing Activation',
       description: 'Bring wellbeing to your workplace with on-site or virtual sessions tailored to your team.',
       image: '/images/brand/fitness-workout.jpg',
       dateRange: 'Year Round',
@@ -36,7 +36,7 @@ const UpcomingMoments = () => {
       href: '#partners',
     },
     {
-      title: 'Digital Wellness Programs',
+      title: 'Digital Wellbeing Programs',
       description: 'Access curated wellbeing content, guided sessions, and exclusive training programs.',
       image: '/images/brand/fitness-workout.jpg',
       dateRange: 'Ongoing',
@@ -169,7 +169,7 @@ const UpcomingMoments = () => {
                 <div className="relative w-full h-64 overflow-hidden">
                   <img
                     src={experience.image}
-                    alt={`${experience.title} - ${experience.description} wellness experience in ${experience.location}`}
+                    alt={`${experience.title} - ${experience.description} wellbeing experience in ${experience.location}`}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     loading="lazy"
                   />

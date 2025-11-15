@@ -102,7 +102,7 @@ Controls search engine crawling:
 - [x] Semantic HTML
 
 ### ✅ Content SEO
-- [x] Relevant keywords: "wellness retreats UAE", "Dubai wellness", etc.
+- [x] Relevant keywords: "wellbeing retreats UAE", "Dubai wellbeing", etc.
 - [x] Geographic targeting: Dubai, UAE
 - [x] Quality content structure
 - [x] Clear value proposition
@@ -128,7 +128,7 @@ Add alt tags to all images:
 ```jsx
 <img
   src="/image.jpg"
-  alt="Wellness retreat in Dubai desert"
+  alt="Wellbeing retreat in Dubai desert"
   loading="lazy"
 />
 ```
@@ -202,7 +202,7 @@ Add more structured data types:
 ### 8. Link Building
 **Priority: Ongoing**
 
-- Partner with wellness blogs
+- Partner with wellbeing blogs
 - Guest posting
 - Local business directories
 - Social media engagement
@@ -233,22 +233,22 @@ curl https://theelevatecolective.com | grep -A 20 "application/ld+json"
 ## Keywords Strategy
 
 ### Primary Keywords:
-- Wellness retreats UAE
-- Dubai wellness programs
+- Wellbeing retreats UAE
+- Dubai wellbeing programs
 - Mindfulness retreats Dubai
-- Corporate wellness UAE
+- Corporate wellbeing UAE
 - Fitness retreats Dubai
 
 ### Secondary Keywords:
 - Strength training Dubai
 - Meditation retreats
-- Holistic wellness UAE
+- Holistic wellbeing UAE
 - Mental health retreats
 - Performance coaching Dubai
 
 ### Long-tail Keywords:
-- "Best wellness retreats in Dubai for professionals"
-- "Corporate wellness programs in UAE"
+- "Best wellbeing retreats in Dubai for professionals"
+- "Corporate wellbeing programs in UAE"
 - "Mindfulness and meditation retreats near Dubai"
 
 ## Monitoring & Maintenance

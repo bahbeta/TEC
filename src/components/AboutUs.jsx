@@ -41,7 +41,7 @@ const AboutUs = () => {
           >
             <img
               src="/images/brand/meditation-bowl.jpg"
-              alt="Meditation singing bowl - mindfulness and breathwork wellness retreat Dubai"
+              alt="Meditation singing bowl - mindfulness and breathwork wellbeing retreat Dubai"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
@@ -56,7 +56,7 @@ const AboutUs = () => {
           >
             <img
               src="/images/brand/juice-bottles.jpg"
-              alt="Fresh organic juices - nutrition and holistic wellness Dubai UAE"
+              alt="Fresh organic juices - nutrition and holistic wellbeing Dubai UAE"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
@@ -71,7 +71,7 @@ const AboutUs = () => {
           >
             <img
               src="/images/brand/tropical-meditation.jpg"
-              alt="Tropical meditation retreat - peaceful wellness experience Bali and international destinations"
+              alt="Tropical meditation retreat - peaceful wellbeing experience Bali and international destinations"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />

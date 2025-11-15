@@ -76,7 +76,7 @@ const Founders = () => {
                 <div className="relative h-[350px] flex-shrink-0 overflow-hidden">
                   <img
                     src={founder.image}
-                    alt={`${founder.name} - Co-founder of The Elevate Collective wellness retreat Dubai UAE`}
+                    alt={`${founder.name} - Co-founder of The Elevate Collective wellbeing retreat Dubai UAE`}
                     className="w-full h-full object-cover object-top grayscale transition-all duration-1000 ease-out group-hover:scale-110 group-hover:grayscale-0"
                     loading="lazy"
                   />

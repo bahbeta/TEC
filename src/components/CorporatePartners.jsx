@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 const CorporatePartners = () => {
   const programs = [
     {
-      title: 'Employee Wellness Programs',
-      description: 'Customized wellness initiatives to boost productivity and reduce stress in your workplace.',
+      title: 'Employee Wellbeing Programs',
+      description: 'Customized wellbeing initiatives to boost productivity and reduce stress in your workplace.',
       image: '/images/brand/fitness-workout.jpg',
       details: ['Stress Management', 'Team Building', 'Health Assessments'],
       duration: 'Ongoing',
@@ -12,7 +12,7 @@ const CorporatePartners = () => {
     },
     {
       title: 'Flexible Packages',
-      description: 'Choose from monthly workshops, quarterly retreats, or annual wellness programs.',
+      description: 'Choose from monthly workshops, quarterly retreats, or annual wellbeing programs.',
       image: '/images/brand/fitness-workout.jpg',
       details: ['Monthly Workshops', 'Quarterly Retreats', 'Annual Programs'],
       duration: 'Flexible Schedule',
@@ -20,7 +20,7 @@ const CorporatePartners = () => {
     },
     {
       title: 'Measurable Results',
-      description: 'Track employee satisfaction, stress levels, and overall wellness improvements.',
+      description: 'Track employee satisfaction, stress levels, and overall wellbeing improvements.',
       image: '/images/brand/fitness-workout.jpg',
       details: ['Analytics Dashboard', 'Progress Tracking', 'Impact Reports'],
       duration: 'Continuous Monitoring',
@@ -28,7 +28,7 @@ const CorporatePartners = () => {
     },
     {
       title: 'On-Site & Virtual Options',
-      description: 'We bring wellness to you - whether in-person at your location or through virtual sessions.',
+      description: 'We bring wellbeing to you - whether in-person at your location or through virtual sessions.',
       image: '/images/brand/fitness-workout.jpg',
       details: ['On-Site Sessions', 'Virtual Programs', 'Hybrid Solutions'],
       duration: 'Year Round',
@@ -146,7 +146,7 @@ const CorporatePartners = () => {
             Partner With Us
           </h3>
           <p className="text-base md:text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-            Join leading companies in prioritizing employee wellness.
+            Join leading companies in prioritizing employee wellbeing.
             Schedule a consultation to discuss a custom program for your organization.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -164,31 +164,6 @@ const CorporatePartners = () => {
             </a>
           </div>
         </motion.div>
-
-        {/* Stats */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { number: '50+', label: 'Corporate Partners' },
-            { number: '10,000+', label: 'Employees Served' },
-            { number: '95%', label: 'Satisfaction Rate' },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center"
-            >
-              <div className="font-cormorant text-5xl md:text-6xl text-sage-green mb-2">
-                {stat.number}
-              </div>
-              <div className="text-charcoal/70">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

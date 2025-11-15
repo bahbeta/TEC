@@ -152,7 +152,7 @@ const Experiences = () => {
                       <div className="relative h-[300px] lg:h-[400px] rounded-2xl overflow-hidden apple-shadow-xl hover:apple-shadow-2xl transition-all duration-500 ease-out">
                         <img
                           src={retreat.image}
-                          alt={`${retreat.theme} - ${retreat.title} wellness retreat experience in Dubai and UAE`}
+                          alt={`${retreat.theme} - ${retreat.title} wellbeing retreat experience in Dubai and UAE`}
                           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                           loading="lazy"
                         />

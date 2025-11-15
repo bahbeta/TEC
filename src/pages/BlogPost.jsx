@@ -12,27 +12,27 @@ const BlogPost = () => {
 
   // Dummy blog posts data
   const dummyPosts = {
-    'start-your-wellness-journey': {
+    'start-your-wellbeing-journey': {
       id: 1,
-      slug: 'start-your-wellness-journey',
-      title: '5 Ways to Start Your Wellness Journey Today',
+      slug: 'start-your-wellbeing-journey',
+      title: '5 Ways to Start Your Wellbeing Journey Today',
       excerpt: 'Discover simple, science-backed strategies to begin your transformation toward a healthier, more balanced life.',
-      featured_image_url: '/images/blog-wellness-journey.jpg',
+      featured_image_url: '/images/blog-wellbeing-journey.jpg',
       published_at: '2025-01-15',
       read_time: 5,
       author: {
         name: 'Malak Alsaffar',
         avatar_url: '/images/malak.jpeg',
-        bio: 'Wellness advocate and mindfulness coach specializing in holistic health and sustainable lifestyle transformations.'
+        bio: 'Wellbeing advocate and mindfulness coach specializing in holistic health and sustainable lifestyle transformations.'
       },
-      category: { name: 'Wellness', slug: 'wellness' },
+      category: { name: 'Wellbeing', slug: 'wellbeing' },
       tags: [
         { tag: { name: 'Mindfulness', slug: 'mindfulness' } },
         { tag: { name: 'Health', slug: 'health' } }
       ],
-      content: `# Starting Your Wellness Journey
+      content: `# Starting Your Wellbeing Journey
 
-Embarking on a wellness journey doesn't require a complete life overhaul. The most sustainable transformations begin with small, intentional steps that compound over time. Here are five evidence-based strategies to help you begin today.
+Embarking on a wellbeing journey doesn't require a complete life overhaul. The most sustainable transformations begin with small, intentional steps that compound over time. Here are five evidence-based strategies to help you begin today.
 
 ## 1. Establish a Morning Ritual
 
@@ -58,7 +58,7 @@ The key is finding movement that feels enjoyable rather than obligatory. When ex
 
 ## 3. Nourish Yourself Mindfully
 
-Wellness isn't about restrictive diets—it's about developing a healthy relationship with food. Practice mindful eating by:
+Wellbeing isn't about restrictive diets—it's about developing a healthy relationship with food. Practice mindful eating by:
 
 - Eating without distractions (no screens)
 - Chewing slowly and savoring each bite
@@ -69,7 +69,7 @@ Small improvements in your eating habits create significant long-term benefits.
 
 ## 4. Prioritize Quality Sleep
 
-Sleep is the foundation of wellness. Without adequate rest, every other aspect of health suffers. Improve your sleep by:
+Sleep is the foundation of wellbeing. Without adequate rest, every other aspect of health suffers. Improve your sleep by:
 
 - Maintaining consistent sleep and wake times
 - Creating a cool, dark sleeping environment
@@ -80,18 +80,18 @@ Most adults need 7-9 hours of sleep per night. Make this a non-negotiable priori
 
 ## 5. Connect with Community
 
-Wellness flourishes in community. Social connection is as vital to health as nutrition and exercise. Foster meaningful relationships by:
+Wellbeing flourishes in community. Social connection is as vital to health as nutrition and exercise. Foster meaningful relationships by:
 
 - Scheduling regular time with loved ones
-- Joining a wellness-focused group or class
+- Joining a wellbeing-focused group or class
 - Volunteering for causes you care about
 - Being vulnerable and authentic in your connections
 
-The Elevate Collective provides a supportive community for those committed to sustainable wellness practices.
+The Elevate Collective provides a supportive community for those committed to sustainable wellbeing practices.
 
 ## Taking the First Step
 
-Remember, your wellness journey is uniquely yours. Start with one or two practices that resonate most deeply, then gradually build from there. Progress isn't linear, and every small step forward matters.
+Remember, your wellbeing journey is uniquely yours. Start with one or two practices that resonate most deeply, then gradually build from there. Progress isn't linear, and every small step forward matters.
 
 What will your first step be today?`
     },
@@ -481,7 +481,7 @@ Ready to train smarter, not just harder?`
             animate={{ scale: 1 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             src={post.featured_image_url}
-            alt={`${post.title} - The Elevate Collective wellness blog`}
+            alt={`${post.title} - The Elevate Collective wellbeing blog`}
             className="w-full h-full object-cover"
             loading="eager"
           />
@@ -511,7 +511,7 @@ Ready to train smarter, not just harder?`
                     {post.author.avatar_url && (
                       <img
                         src={post.author.avatar_url}
-                        alt={`${post.author.name} - Wellness coach and author at The Elevate Collective`}
+                        alt={`${post.author.name} - Wellbeing coach and author at The Elevate Collective`}
                         className="w-14 h-14 rounded-full border-2 border-white/40 shadow-lg"
                         loading="eager"
                       />
@@ -590,7 +590,7 @@ Ready to train smarter, not just harder?`
               {post.author.avatar_url && (
                 <img
                   src={post.author.avatar_url}
-                  alt={`${post.author.name} - Wellness coach and author at The Elevate Collective`}
+                  alt={`${post.author.name} - Wellbeing coach and author at The Elevate Collective`}
                   className="w-24 h-24 rounded-full ring-4 ring-white shadow-xl"
                   loading="lazy"
                 />
@@ -636,7 +636,7 @@ Ready to train smarter, not just harder?`
                       <div className="aspect-[4/3] mb-5 overflow-hidden rounded-2xl bg-soft-sand/20 shadow-lg group-hover:shadow-2xl transition-all duration-500">
                         <img
                           src={related.featured_image_url}
-                          alt={`${related.title} - The Elevate Collective wellness blog`}
+                          alt={`${related.title} - The Elevate Collective wellbeing blog`}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                           loading="lazy"
                         />

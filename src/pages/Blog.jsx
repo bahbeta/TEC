@@ -65,14 +65,14 @@ const Blog = () => {
       setPosts([
         {
           id: 1,
-          slug: 'start-your-wellness-journey',
-          title: '5 Ways to Start Your Wellness Journey Today',
+          slug: 'start-your-wellbeing-journey',
+          title: '5 Ways to Start Your Wellbeing Journey Today',
           excerpt: 'Discover simple, science-backed strategies to begin your transformation toward a healthier, more balanced life.',
-          featured_image_url: '/images/blog-wellness-journey.jpg',
+          featured_image_url: '/images/blog-wellbeing-journey.jpg',
           published_at: '2025-01-15',
           read_time: 5,
           author: { name: 'Malak Alsaffar', avatar_url: '/images/malak.jpeg' },
-          category: { name: 'Wellness', slug: 'wellness' },
+          category: { name: 'Wellbeing', slug: 'wellbeing' },
           tags: [
             { tag: { name: 'Mindfulness', slug: 'mindfulness' } },
             { tag: { name: 'Health', slug: 'health' } }
@@ -124,7 +124,7 @@ const Blog = () => {
             className="text-center"
           >
             <h1 className="font-cormorant text-5xl md:text-7xl text-deep-calm mb-6">
-              Wellness Blog
+              Wellbeing Blog
             </h1>
             <div className="bg-sage-green/10 border border-sage-green/30 rounded-lg p-8 text-left">
               <h2 className="text-2xl font-cormorant text-deep-calm mb-4">
@@ -159,9 +159,9 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title="Wellness Blog - The Elevate Collective | Mindfulness, Fitness & Mental Health"
-        description="Explore our wellness blog featuring insights on mindfulness, strength training, mental health, and holistic living. Expert advice for high performers in Dubai and UAE."
-        keywords="wellness blog, mindfulness tips, fitness advice, mental health, Dubai wellness, holistic living, meditation guides, strength training tips"
+        title="Wellbeing Blog - The Elevate Collective | Mindfulness, Fitness & Mental Health"
+        description="Explore our wellbeing blog featuring insights on mindfulness, strength training, mental health, and holistic living. Expert advice for high performers in Dubai and UAE."
+        keywords="wellbeing blog, mindfulness tips, fitness advice, mental health, Dubai wellbeing, holistic living, meditation guides, strength training tips"
         image="https://theelevatecolective.com/images/brand/blog-og-image.jpg"
         type="website"
       />
@@ -175,10 +175,10 @@ const Blog = () => {
           className="text-center mb-20"
         >
           <h1 className="font-cormorant text-6xl md:text-8xl text-deep-calm mb-8 tracking-tight">
-            Wellness Journal
+            Wellbeing Journal
           </h1>
           <p className="text-xl md:text-2xl text-charcoal/60 max-w-3xl mx-auto leading-relaxed font-light">
-            Insights, guidance, and inspiration for your wellness journey
+            Insights, guidance, and inspiration for your wellbeing journey
           </p>
         </motion.div>
 
@@ -268,7 +268,7 @@ const Blog = () => {
                     <div className="aspect-[4/3] mb-6 overflow-hidden rounded-3xl bg-soft-sand/20 shadow-lg group-hover:shadow-2xl transition-all duration-500">
                       <img
                         src={post.featured_image_url}
-                        alt={`${post.title} - The Elevate Collective wellness blog`}
+                        alt={`${post.title} - The Elevate Collective wellbeing blog`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                         loading="lazy"
                       />
@@ -312,7 +312,7 @@ const Blog = () => {
                           {post.author.avatar_url && (
                             <img
                               src={post.author.avatar_url}
-                              alt={`${post.author.name} - Wellness coach and author at The Elevate Collective`}
+                              alt={`${post.author.name} - Wellbeing coach and author at The Elevate Collective`}
                               className="w-12 h-12 rounded-full ring-2 ring-white shadow-md"
                               loading="lazy"
                             />

@@ -18,7 +18,7 @@ const Collective = () => {
     {
       name: 'Layla Farooq',
       role: 'Tech Executive',
-      quote: 'Finally, a wellness space that respects my time and challenges my body and mind in equal measure.',
+      quote: 'Finally, a wellbeing space that respects my time and challenges my body and mind in equal measure.',
       image: '/src/assets/images/img-079.jpg',
     },
   ];
@@ -37,7 +37,7 @@ const Collective = () => {
     {
       name: 'Brown Sugar',
       handle: '@brownsugar.dxb',
-      description: 'Wellness cafe',
+      description: 'Wellbeing cafe',
     },
   ];
 
@@ -128,7 +128,7 @@ const Collective = () => {
           >
             <h3 className="text-terracotta !mb-4">Trusted Partners</h3>
             <p className="text-lg text-deep-calm/70 max-w-2xl mx-auto">
-              Collaborating with Dubai's finest wellness and lifestyle brands
+              Collaborating with Dubai's finest wellbeing and lifestyle brands
             </p>
           </motion.div>
 

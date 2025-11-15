@@ -5,7 +5,7 @@ const WhoWeServe = () => {
   const highlights = [
     'Age 35–45+',
     'UAE-based, culturally diverse',
-    'Wellness-conscious professionals',
+    'Wellbeing-conscious professionals',
     'Seeking premium, purposeful experiences',
   ];
 
@@ -27,7 +27,7 @@ const WhoWeServe = () => {
         <div className="order-1 md:order-2">
           <h2 className="mb-8">Who We Serve</h2>
           <p className="text-lg text-slate-gray mb-8 leading-relaxed">
-            High-achieving professionals navigating fast-paced lives — from entrepreneurs to executives — seeking sustainable wellness, connection, and clarity.
+            High-achieving professionals navigating fast-paced lives — from entrepreneurs to executives — seeking sustainable wellbeing, connection, and clarity.
           </p>
 
           <div className="space-y-4">

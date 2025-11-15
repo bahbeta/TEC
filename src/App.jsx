@@ -3,7 +3,6 @@ import Nav from './components/Nav';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import ValuesApproachSplit from './components/ValuesApproachSplit';
-import Experiences from './components/Experiences';
 import Founders from './components/Founders';
 import CorporatePartners from './components/CorporatePartners';
 import UpcomingMoments from './components/UpcomingMoments';
@@ -23,9 +22,9 @@ import AdminPostEditor from './pages/AdminPostEditor';
 const HomePage = () => (
   <div className="App bg-deep-calm scroll-smooth">
     <SEO
-      title="The Elevate Collective - Premium Wellness Retreats in Dubai & UAE"
-      description="Experience transformative wellness retreats in Dubai and UAE. The Elevate Collective offers premium programs blending strength training, mindfulness, and recovery for high performers seeking clarity and renewal."
-      keywords="wellness retreats UAE, Dubai wellness programs, mindfulness retreats, strength training Dubai, corporate wellness UAE, meditation retreats, fitness retreats Dubai, holistic wellness, mental health retreats, performance coaching"
+      title="The Elevate Collective - Premium Wellbeing Retreats in Dubai & UAE"
+      description="Experience transformative wellbeing retreats in Dubai and UAE. The Elevate Collective offers premium programs blending strength training, mindfulness, and recovery for high performers seeking clarity and renewal."
+      keywords="wellbeing retreats UAE, Dubai wellbeing programs, mindfulness retreats, strength training Dubai, corporate wellbeing UAE, meditation retreats, fitness retreats Dubai, holistic wellbeing, mental health retreats, performance coaching"
       image="https://theelevatecolective.com/images/brand/og-image.jpg"
       type="website"
     />
@@ -34,9 +33,8 @@ const HomePage = () => (
     <Hero />
     <AboutUs />
     <ValuesApproachSplit />
-    <Experiences />
-    <Founders />
     <UpcomingMoments />
+    <Founders />
     <CorporatePartners />
     <JoinCollective />
     <Footer />

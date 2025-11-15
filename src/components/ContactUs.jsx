@@ -38,7 +38,7 @@ const ContactUs = () => {
               Get in Touch
             </h2>
             <p className="text-lg text-charcoal/70 mb-12 leading-relaxed">
-              Have questions about our wellness programs? Interested in partnering with us?
+              Have questions about our wellbeing programs? Interested in partnering with us?
               We'd love to hear from you.
             </p>
 

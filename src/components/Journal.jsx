@@ -22,7 +22,7 @@ const Journal = () => {
     {
       title: 'Mind in Motion',
       subtitle: 'The Philosophy Behind Our Practice',
-      excerpt: 'Movement without mindfulness is exercise. Movement with intention is transformation. Explore our approach to integrated wellness.',
+      excerpt: 'Movement without mindfulness is exercise. Movement with intention is transformation. Explore our approach to integrated wellbeing.',
       image: '/src/assets/images/img-092.jpg',
       readTime: '10 min read',
       category: 'Philosophy',

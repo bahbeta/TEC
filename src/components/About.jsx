@@ -18,16 +18,16 @@ const About = () => {
     {
       number: "01",
       category: "Get Started",
-      title: "What level of wellness are you seeking?",
-      description: "Determining your wellness goals can be an important tool when planning your journey. The Elevate Collective helps you plan experiences according to your current state and desired outcomes. What type of experience are you seeking – mindful movement, strength training, recovery, or complete transformation?",
+      title: "What level of wellbeing are you seeking?",
+      description: "Determining your wellbeing goals can be an important tool when planning your journey. The Elevate Collective helps you plan experiences according to your current state and desired outcomes. What type of experience are you seeking – mindful movement, strength training, recovery, or complete transformation?",
       image: "/src/assets/images/img-057.jpg",
       imagePosition: "right"
     },
     {
       number: "02",
-      category: "Wellness Essentials",
+      category: "Wellbeing Essentials",
       title: "Picking the right approach for you!",
-      description: "The nice thing about beginning your wellness journey is finding what resonates with you. At TEC, we blend science-backed training with mindset coaching and restorative practices. Our approach combines purposeful challenge with intentional rest, helping you sustain your drive without compromising your wellbeing.",
+      description: "The nice thing about beginning your wellbeing journey is finding what resonates with you. At TEC, we blend science-backed training with mindset coaching and restorative practices. Our approach combines purposeful challenge with intentional rest, helping you sustain your drive without compromising your wellbeing.",
       image: "/src/assets/images/img-058.jpg",
       imagePosition: "left"
     },

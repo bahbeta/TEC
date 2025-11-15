@@ -16,7 +16,7 @@ const Community = () => {
       <div className="text-center">
         <h2 className="mb-6">Community & Collaborations</h2>
         <p className="text-lg text-slate-gray max-w-3xl mx-auto mb-12">
-          We grow through meaningful connection — collaborating with people, brands, and spaces shaping modern wellness culture.
+          We grow through meaningful connection — collaborating with people, brands, and spaces shaping modern wellbeing culture.
         </p>
 
         {/* Featured Partners */}

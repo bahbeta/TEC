@@ -10,17 +10,17 @@ const Press = () => {
     {
       title: 'The Retreat Redefining Balance in the Middle East',
       source: 'GQ Middle East',
-      quote: 'The Elevate Collective brings a fresh perspective to wellness travel in the UAE.',
+      quote: 'The Elevate Collective brings a fresh perspective to wellbeing travel in the UAE.',
     },
     {
-      title: 'From Strength to Stillness: The Evolution of Wellness Travel',
+      title: 'From Strength to Stillness: The Evolution of Wellbeing Travel',
       source: 'Sandy Times',
       quote: 'A transformative experience that challenges both body and mind.',
     },
     {
       title: 'The New Cure for Burnout: Train, Breathe, Reset',
       source: 'Dubai Pike',
-      quote: 'Premium wellness experiences designed for high-achieving professionals.',
+      quote: 'Premium wellbeing experiences designed for high-achieving professionals.',
     },
   ];
 

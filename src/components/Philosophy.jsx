@@ -40,7 +40,7 @@ const Philosophy = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-cloud-white mb-12 leading-tight max-w-5xl mx-auto">
-            Empowering high-performing individuals through purposeful, inclusive wellness experiences.
+            Empowering high-performing individuals through purposeful, inclusive wellbeing experiences.
           </h2>
 
           <p className="text-xl md:text-2xl text-terracotta/90 leading-relaxed max-w-3xl mx-auto">
