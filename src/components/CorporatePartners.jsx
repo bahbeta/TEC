@@ -39,7 +39,7 @@ const CorporatePartners = () => {
   return (
     <section
       id="partners"
-      className="py-24 bg-[#EDF0ED] relative"
+      className="py-24 bg-[#E7D9C3] relative"
     >
       {/* SVG Pattern Definition */}
       <svg width="0" height="0" className="absolute">
@@ -92,31 +92,31 @@ const CorporatePartners = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden group apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2"
+              className="bg-[#1F2A3A] rounded-2xl overflow-hidden group apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2"
             >
               {/* Content */}
               <div className="p-6">
                 {/* Title */}
-                <h3 className="font-cormorant text-xl lg:text-2xl text-deep-calm mb-3 leading-tight text-justify">
+                <h3 className="font-cormorant text-xl lg:text-2xl text-white mb-3 leading-tight text-justify">
                   {program.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-deep-calm/70 leading-relaxed mb-4 text-sm">
+                <p className="text-white/70 leading-relaxed mb-4 text-sm">
                   {program.description}
                 </p>
 
                 {/* Divider */}
-                <div className="w-full h-px bg-deep-calm/10 mb-4"></div>
+                <div className="w-full h-px bg-white/10 mb-4"></div>
 
                 {/* Details Section */}
                 <div className="mb-4">
-                  <p className="text-xs tracking-[0.2em] uppercase text-deep-calm/50 mb-2 font-medium">
+                  <p className="text-xs tracking-[0.2em] uppercase text-white/50 mb-2 font-medium">
                     FEATURES
                   </p>
                   <ul className="space-y-1">
                     {program.details.map((detail, idx) => (
-                      <li key={idx} className="text-deep-calm/70 text-sm flex items-center gap-2">
+                      <li key={idx} className="text-white/70 text-sm flex items-center gap-2">
                         <span className="w-1 h-1 rounded-full bg-sage-green"></span>
                         {detail}
                       </li>
@@ -125,7 +125,7 @@ const CorporatePartners = () => {
                 </div>
 
                 {/* Format & Duration */}
-                <div className="text-xs text-deep-calm/60 space-y-1">
+                <div className="text-xs text-white/60 space-y-1">
                   <p><span className="font-medium">Duration:</span> {program.duration}</p>
                   <p><span className="font-medium">Format:</span> {program.format}</p>
                 </div>
@@ -140,7 +140,7 @@ const CorporatePartners = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-gradient-to-r from-sage-green to-deep-calm rounded-2xl p-12 text-center text-white mb-16"
+          className="bg-[#1F2A3A] rounded-2xl p-12 text-center text-white mb-16"
         >
           <h3 className="font-cormorant text-3xl md:text-4xl mb-4">
             Partner With Us

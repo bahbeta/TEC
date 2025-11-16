@@ -4,11 +4,18 @@ import { motion } from 'framer-motion';
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [isDarkBackground, setIsDarkBackground] = useState(false);
+  const [isDarkBackground, setIsDarkBackground] = useState(true); // Start with white logo for hero section
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      // Hero section is dark, so show white logo/text at the top
+      // After scrolling past hero, detect background dynamically
+      if (window.scrollY < 100) {
+        setIsDarkBackground(true);
+        return;
+      }
 
       // Detect background below nav bar
       const navHeight = 100; // Approximate nav height
