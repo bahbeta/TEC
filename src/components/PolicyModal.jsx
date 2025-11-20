@@ -5,25 +5,33 @@ import { createPortal } from 'react-dom';
 const PolicyModal = ({ isOpen, onClose, title, children }) => {
   const contentRef = useRef(null);
 
-  // Prevent body scroll when modal is open
+  // Prevent body scroll and disable Lenis when modal is open
   useEffect(() => {
     if (isOpen) {
+      // Lock body scroll
       document.body.style.overflow = 'hidden';
       document.body.style.paddingRight = '0px';
-      // Also try to stop Lenis smooth scrolling
       const htmlElement = document.documentElement;
       htmlElement.style.overflow = 'hidden';
+
+      // Disable Lenis by setting attribute
+      document.documentElement.setAttribute('data-lenis-prevent', '');
     } else {
+      // Unlock body scroll
       document.body.style.overflow = '';
       document.body.style.paddingRight = '';
       const htmlElement = document.documentElement;
       htmlElement.style.overflow = '';
+
+      // Re-enable Lenis
+      document.documentElement.removeAttribute('data-lenis-prevent');
     }
     return () => {
       document.body.style.overflow = '';
       document.body.style.paddingRight = '';
       const htmlElement = document.documentElement;
       htmlElement.style.overflow = '';
+      document.documentElement.removeAttribute('data-lenis-prevent');
     };
   }, [isOpen]);
 
@@ -92,15 +100,34 @@ const PolicyModal = ({ isOpen, onClose, title, children }) => {
               {/* Content - Simplified with direct height and overflow */}
               <div
                 ref={contentRef}
-                className="px-6 md:px-8 py-6 bg-cloud-white md:rounded-b-2xl"
+                className="px-6 md:px-8 py-6 bg-cloud-white md:rounded-b-2xl modal-scrollable-content"
+                data-lenis-prevent
                 style={{
                   flex: 1,
-                  overflowY: 'auto',
+                  overflowY: 'scroll',
                   overflowX: 'hidden',
                   WebkitOverflowScrolling: 'touch',
-                  minHeight: 0
+                  minHeight: 0,
+                  scrollbarWidth: 'auto', // Firefox
+                  scrollbarColor: '#C4A57B #f5f5f5' // Firefox: thumb track
                 }}
               >
+                <style>{`
+                  .modal-scrollable-content::-webkit-scrollbar {
+                    width: 12px;
+                    display: block !important;
+                  }
+                  .modal-scrollable-content::-webkit-scrollbar-track {
+                    background: #f5f5f5;
+                  }
+                  .modal-scrollable-content::-webkit-scrollbar-thumb {
+                    background: #C4A57B;
+                    border-radius: 6px;
+                  }
+                  .modal-scrollable-content::-webkit-scrollbar-thumb:hover {
+                    background: #B39568;
+                  }
+                `}</style>
                 <div className="prose prose-lg max-w-none">
                   {children}
                 </div>
