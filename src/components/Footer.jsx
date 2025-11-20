@@ -50,7 +50,7 @@ const Footer = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20 relative z-10">
-        <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -150,6 +150,35 @@ const Footer = () => {
               </li>
             </ul>
           </motion.div>
+
+          {/* Legal */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h4 className="text-sm font-semibold text-cloud-white uppercase tracking-wider mb-6">
+              Legal
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/privacy-policy" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/cookie-policy" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                  Cookie Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/refund-policy" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                  Refund Policy
+                </Link>
+              </li>
+            </ul>
+          </motion.div>
         </div>
 
         {/* Copyright */}
@@ -157,7 +186,7 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 pt-8 border-t border-cloud-white/10"
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">

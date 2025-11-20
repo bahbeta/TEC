@@ -17,6 +17,9 @@ import BlogPost from './pages/BlogPost';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminPostEditor from './pages/AdminPostEditor';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import CookiePolicy from './pages/CookiePolicy';
+import RefundPolicy from './pages/RefundPolicy';
 
 // Homepage component
 const HomePage = () => (
@@ -52,6 +55,11 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/blog" element={<><Nav /><Blog /><Footer /></>} />
             <Route path="/blog/:slug" element={<><Nav /><BlogPost /><Footer /></>} />
+
+            {/* Legal policy routes */}
+            <Route path="/privacy-policy" element={<><Nav /><PrivacyPolicy /><Footer /></>} />
+            <Route path="/cookie-policy" element={<><Nav /><CookiePolicy /><Footer /></>} />
+            <Route path="/refund-policy" element={<><Nav /><RefundPolicy /><Footer /></>} />
 
             {/* Admin routes */}
             <Route path="/admin" element={<AdminLogin />} />

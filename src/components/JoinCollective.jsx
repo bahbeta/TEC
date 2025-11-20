@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const JoinCollective = () => {
   const [formData, setFormData] = useState({ name: '', email: '' });
@@ -109,6 +110,20 @@ const JoinCollective = () => {
                   required
                   className="w-full px-6 py-4 bg-cloud-white/5 backdrop-blur-xl border border-cloud-white/20 focus-apple rounded-full text-cloud-white placeholder:text-cloud-white/50 transition-all duration-300 hover:bg-cloud-white/10 hover:border-cloud-white/30"
                 />
+
+                {/* Email Subscription Disclaimer */}
+                <p className="text-xs text-cloud-white/50 leading-relaxed px-2">
+                  By subscribing, you consent to receive marketing emails from The Elevate Collective. We respect your privacy and will never share your information with third parties. You can unsubscribe at any time. View our{' '}
+                  <Link to="/privacy-policy" className="text-terracotta hover:text-terracotta/80 underline transition-colors">
+                    Privacy Policy
+                  </Link>
+                  {' '}and{' '}
+                  <Link to="/cookie-policy" className="text-terracotta hover:text-terracotta/80 underline transition-colors">
+                    Cookie Policy
+                  </Link>
+                  {' '}for more details.
+                </p>
+
                 <motion.button
                   whileHover={{ scale: 1.02, y: -4 }}
                   whileTap={{ scale: 0.98 }}
