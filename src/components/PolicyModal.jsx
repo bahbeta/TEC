@@ -1,16 +1,29 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 
 const PolicyModal = ({ isOpen, onClose, title, children }) => {
+  const contentRef = useRef(null);
+
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '0px';
+      // Also try to stop Lenis smooth scrolling
+      const htmlElement = document.documentElement;
+      htmlElement.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      const htmlElement = document.documentElement;
+      htmlElement.style.overflow = '';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      const htmlElement = document.documentElement;
+      htmlElement.style.overflow = '';
     };
   }, [isOpen]);
 
@@ -25,7 +38,7 @@ const PolicyModal = ({ isOpen, onClose, title, children }) => {
     return () => window.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose]);
 
-  return (
+  const modalContent = (
     <AnimatePresence>
       {isOpen && (
         <>
@@ -76,7 +89,11 @@ const PolicyModal = ({ isOpen, onClose, title, children }) => {
               </div>
 
               {/* Content */}
-              <div className="flex-1 overflow-y-auto px-6 md:px-8 py-6">
+              <div
+                ref={contentRef}
+                className="flex-1 overflow-y-scroll overscroll-contain px-6 md:px-8 py-6"
+                style={{ WebkitOverflowScrolling: 'touch' }}
+              >
                 <div className="prose prose-lg max-w-none">
                   {children}
                 </div>
@@ -87,6 +104,11 @@ const PolicyModal = ({ isOpen, onClose, title, children }) => {
       )}
     </AnimatePresence>
   );
+
+  // Render modal in a portal outside the main app structure
+  return typeof document !== 'undefined'
+    ? createPortal(modalContent, document.body)
+    : null;
 };
 
 export default PolicyModal;
