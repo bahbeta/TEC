@@ -33,7 +33,7 @@ const JoinCollective = () => {
     <section
       ref={ref}
       id="join"
-      className="relative py-[146px] md:py-[194px] lg:py-[242px] overflow-hidden border-t border-cloud-white/10 bg-[#1E2A3A]"
+      className="relative py-20 md:py-32 lg:py-40 overflow-hidden border-t border-cloud-white/10 bg-[#1E2A3A]"
     >
       {/* SVG Pattern Definition */}
       <svg width="0" height="0" className="absolute">

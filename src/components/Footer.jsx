@@ -62,7 +62,7 @@ const Footer = () => {
               <img
                 src="/images/tec-logo.png"
                 alt="The Elevate Collective - Premium wellbeing retreats and corporate wellbeing programs in Dubai UAE"
-                className="h-32 md:h-40 w-auto object-contain mb-6"
+                className="h-24 md:h-32 lg:h-40 w-auto object-contain mb-6"
                 style={{ filter: 'brightness(0) invert(1)' }}
                 loading="lazy"
               />

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isDarkBackground, setIsDarkBackground] = useState(true); // Start with white logo for hero section
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,7 +103,9 @@ const Nav = () => {
                 alt="The Elevate Collective - Premium wellbeing retreats and corporate wellbeing programs in Dubai UAE"
                 className="w-auto object-contain transition-all duration-500"
                 style={{
-                  height: scrolled ? '160px' : '240px',
+                  height: scrolled
+                    ? (window.innerWidth < 768 ? '100px' : '160px')
+                    : (window.innerWidth < 768 ? '140px' : '240px'),
                   filter: isDarkBackground
                     ? 'brightness(0) invert(1)' // White logo for dark backgrounds
                     : 'brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(1739%) hue-rotate(173deg) brightness(95%) contrast(92%)', // Dark brand color for light backgrounds
@@ -155,36 +158,77 @@ const Nav = () => {
             ))}
           </div>
 
-          {/* Account Link */}
-          <motion.a
-            href="#join"
-            whileHover={{ scale: 1.05 }}
-            className={`hidden lg:flex items-center gap-2 text-sm font-body font-medium transition-colors duration-200 ${
-              isDarkBackground ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
-            }`}
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-            Account
-          </motion.a>
-
           {/* Mobile menu button */}
-          <button className="lg:hidden p-2">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 z-50 relative"
+            aria-label="Toggle mobile menu"
+          >
             <div className="w-6 h-5 flex flex-col justify-between">
-              <span className={`w-full h-0.5 rounded-full transition-colors duration-300 ${
+              <span className={`w-full h-0.5 rounded-full transition-all duration-300 ${
                 isDarkBackground ? 'bg-cloud-white' : 'bg-[#1F2A3A]'
-              }`}></span>
-              <span className={`w-full h-0.5 rounded-full transition-colors duration-300 ${
+              } ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+              <span className={`w-full h-0.5 rounded-full transition-all duration-300 ${
                 isDarkBackground ? 'bg-cloud-white' : 'bg-[#1F2A3A]'
-              }`}></span>
-              <span className={`w-full h-0.5 rounded-full transition-colors duration-300 ${
+              } ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`w-full h-0.5 rounded-full transition-all duration-300 ${
                 isDarkBackground ? 'bg-cloud-white' : 'bg-[#1F2A3A]'
-              }`}></span>
+              } ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
             </div>
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Drawer */}
+      <motion.div
+        initial={{ opacity: 0, x: '100%' }}
+        animate={{
+          opacity: mobileMenuOpen ? 1 : 0,
+          x: mobileMenuOpen ? 0 : '100%'
+        }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        className={`fixed inset-0 z-40 lg:hidden ${mobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+      >
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+
+        {/* Menu Panel */}
+        <div className="absolute right-0 top-0 h-full w-[80%] max-w-sm bg-deep-calm/95 backdrop-blur-xl shadow-2xl">
+          <div className="flex flex-col h-full pt-32 px-8 pb-8">
+            {/* Nav Items */}
+            <div className="flex flex-col space-y-6">
+              {navItems.map((item, index) => (
+                item.type === 'link' ? (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-2xl font-display font-medium text-cloud-white/90 hover:text-cloud-white transition-colors duration-200 py-2"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <motion.a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 * index }}
+                    className="text-2xl font-display font-medium text-cloud-white/90 hover:text-cloud-white transition-colors duration-200 py-2 relative group"
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-terracotta group-hover:w-full transition-all duration-300" />
+                  </motion.a>
+                )
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
     </motion.nav>
   );
 };

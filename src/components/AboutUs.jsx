@@ -37,7 +37,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="group relative h-72 md:h-80 rounded-2xl overflow-hidden apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 hover:-translate-y-2"
+            className="group relative h-64 md:h-72 lg:h-80 rounded-2xl overflow-hidden apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 hover:-translate-y-2"
           >
             <img
               src="/images/brand/meditation-bowl.jpg"
@@ -52,7 +52,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="group relative h-72 md:h-80 rounded-2xl overflow-hidden apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 hover:-translate-y-2"
+            className="group relative h-64 md:h-72 lg:h-80 rounded-2xl overflow-hidden apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 hover:-translate-y-2"
           >
             <img
               src="/images/brand/juice-bottles.jpg"
@@ -67,7 +67,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="group relative h-72 md:h-80 rounded-2xl overflow-hidden apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 hover:-translate-y-2"
+            className="group relative h-64 md:h-72 lg:h-80 rounded-2xl overflow-hidden apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 hover:-translate-y-2"
           >
             <img
               src="/images/brand/tropical-meditation.jpg"

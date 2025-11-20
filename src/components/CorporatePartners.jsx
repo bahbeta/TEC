@@ -71,7 +71,7 @@ const CorporatePartners = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl text-deep-calm mb-6 whitespace-nowrap">
+          <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl text-deep-calm mb-6">
             Corporate Wellbeing Programs
           </h2>
           <div className="w-16 h-0.5 bg-terracotta mx-auto mb-6"></div>
@@ -97,7 +97,7 @@ const CorporatePartners = () => {
               {/* Content */}
               <div className="p-6">
                 {/* Title */}
-                <h3 className="font-cormorant text-xl lg:text-2xl text-white mb-3 leading-tight text-justify">
+                <h3 className="font-cormorant text-xl lg:text-2xl text-white mb-3 leading-tight">
                   {program.title}
                 </h3>
 
@@ -158,7 +158,7 @@ const CorporatePartners = () => {
             </a>
             <a
               href="mailto:partnerships@elevatecollective.com"
-              className="px-8 py-4 border border-white/30 text-white rounded-full font-medium hover:bg-white/15 hover:border-white/50 transition-all duration-300 ease-out hover:scale-[1.02] backdrop-blur-xl"
+              className="px-4 sm:px-6 md:px-8 py-4 border border-white/30 text-white rounded-full font-medium hover:bg-white/15 hover:border-white/50 transition-all duration-300 ease-out hover:scale-[1.02] backdrop-blur-xl text-xs sm:text-sm md:text-base break-all sm:break-normal"
             >
               partnerships@elevatecollective.com
             </a>

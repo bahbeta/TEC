@@ -145,7 +145,7 @@ const Hero = () => {
           >
             <div className="max-w-3xl">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                <span className="text-[20rem] font-display font-bold leading-none" style={{ color: 'rgba(31, 42, 58, 0.1)' }}>01</span>
+                <span className="text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-display font-bold leading-none" style={{ color: 'rgba(31, 42, 58, 0.1)' }}>01</span>
               </div>
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-4 mb-6">
@@ -170,7 +170,7 @@ const Hero = () => {
           >
             <div className="max-w-3xl">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                <span className="text-[20rem] font-display font-bold leading-none" style={{ color: 'rgba(31, 42, 58, 0.1)' }}>02</span>
+                <span className="text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-display font-bold leading-none" style={{ color: 'rgba(31, 42, 58, 0.1)' }}>02</span>
               </div>
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-4 mb-6">
@@ -195,7 +195,7 @@ const Hero = () => {
           >
             <div className="max-w-3xl">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                <span className="text-[20rem] font-display font-bold leading-none" style={{ color: 'rgba(31, 42, 58, 0.1)' }}>03</span>
+                <span className="text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-display font-bold leading-none" style={{ color: 'rgba(31, 42, 58, 0.1)' }}>03</span>
               </div>
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-4 mb-6">
@@ -220,7 +220,7 @@ const Hero = () => {
           >
             <div className="max-w-3xl">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                <span className="text-[20rem] font-display font-bold leading-none" style={{ color: 'rgba(31, 42, 58, 0.1)' }}>04</span>
+                <span className="text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-display font-bold leading-none" style={{ color: 'rgba(31, 42, 58, 0.1)' }}>04</span>
               </div>
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-4 mb-6">

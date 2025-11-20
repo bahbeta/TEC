@@ -63,7 +63,7 @@ const Philosophy = () => {
               <div className="w-12 h-px bg-terracotta mb-6 group-hover:w-20 transition-all duration-300"></div>
 
               {/* Title */}
-              <h3 className="text-xl md:text-2xl font-display font-medium text-cloud-white mb-4 leading-tight whitespace-nowrap">
+              <h3 className="text-xl md:text-2xl font-display font-medium text-cloud-white mb-4 leading-tight">
                 {pillar.title}
               </h3>
 

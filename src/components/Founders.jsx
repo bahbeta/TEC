@@ -71,9 +71,9 @@ const Founders = () => {
               className="group"
             >
               {/* Founder Card */}
-              <div className="bg-white rounded-2xl overflow-hidden apple-shadow-lg hover:apple-shadow-2xl transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.01] h-[750px] flex flex-col">
+              <div className="bg-white rounded-2xl overflow-hidden apple-shadow-lg hover:apple-shadow-2xl transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.01] min-h-[600px] md:min-h-[650px] lg:h-[750px] flex flex-col">
                 {/* Image */}
-                <div className="relative h-[350px] flex-shrink-0 overflow-hidden">
+                <div className="relative h-[280px] md:h-[320px] lg:h-[350px] flex-shrink-0 overflow-hidden">
                   <img
                     src={founder.image}
                     alt={`${founder.name} - Co-founder of The Elevate Collective wellbeing retreat Dubai UAE`}
@@ -91,7 +91,7 @@ const Founders = () => {
                 </div>
 
                 {/* Bio Content */}
-                <div className="p-8 lg:p-10 flex-1 flex flex-col justify-center">
+                <div className="p-6 md:p-8 lg:p-10 flex-1 flex flex-col justify-center">
                   <div className="space-y-4">
                     {founder.bio.map((paragraph, idx) => (
                       <p key={idx} className="text-deep-calm/80 leading-relaxed text-base">

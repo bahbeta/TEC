@@ -230,7 +230,7 @@ const ValuesApproachSplit = () => {
         </div>
 
         {/* Spacer div to give the section proper height */}
-        <div className="relative" style={{ minHeight: '750px' }}>
+        <div className="relative min-h-[600px] lg:min-h-[700px] xl:min-h-[750px]">
           {/* This empty div ensures the section has the right height */}
         </div>
       </div>
