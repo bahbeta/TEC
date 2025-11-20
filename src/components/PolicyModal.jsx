@@ -53,23 +53,24 @@ const PolicyModal = ({ isOpen, onClose, title, children }) => {
           />
 
           {/* Modal */}
-          <div className="fixed inset-0 z-[101] flex items-center justify-center p-4 pointer-events-none overflow-y-auto">
+          <div className="fixed inset-0 z-[101] flex items-start justify-center p-0 md:p-4 md:pt-8 pointer-events-none">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="bg-cloud-white rounded-2xl shadow-2xl w-full max-w-4xl my-8 pointer-events-auto flex flex-col max-h-[calc(100vh-4rem)]"
+              className="relative bg-cloud-white rounded-none md:rounded-2xl shadow-2xl w-full max-w-4xl h-screen md:h-auto md:max-h-[90vh] pointer-events-auto"
               onClick={(e) => e.stopPropagation()}
+              style={{ display: 'flex', flexDirection: 'column' }}
             >
               {/* Header */}
-              <div className="flex-shrink-0 bg-cloud-white border-b border-deep-calm/10 px-6 md:px-8 py-6 flex items-center justify-between rounded-t-2xl">
+              <div className="bg-cloud-white border-b border-deep-calm/10 px-6 md:px-8 py-6 flex items-center justify-between md:rounded-t-2xl" style={{ flexShrink: 0 }}>
                 <h2 className="text-2xl md:text-3xl font-display font-semibold text-deep-calm">
                   {title}
                 </h2>
                 <button
                   onClick={onClose}
-                  className="p-2 hover:bg-deep-calm/5 rounded-full transition-colors flex-shrink-0"
+                  className="p-2 hover:bg-deep-calm/5 rounded-full transition-colors"
                   aria-label="Close modal"
                 >
                   <svg
@@ -88,11 +89,17 @@ const PolicyModal = ({ isOpen, onClose, title, children }) => {
                 </button>
               </div>
 
-              {/* Content */}
+              {/* Content - Simplified with direct height and overflow */}
               <div
                 ref={contentRef}
-                className="flex-1 overflow-y-scroll overscroll-contain px-6 md:px-8 py-6"
-                style={{ WebkitOverflowScrolling: 'touch' }}
+                className="px-6 md:px-8 py-6 bg-cloud-white md:rounded-b-2xl"
+                style={{
+                  flex: 1,
+                  overflowY: 'auto',
+                  overflowX: 'hidden',
+                  WebkitOverflowScrolling: 'touch',
+                  minHeight: 0
+                }}
               >
                 <div className="prose prose-lg max-w-none">
                   {children}
