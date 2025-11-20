@@ -40,22 +40,23 @@ const PolicyModal = ({ isOpen, onClose, title, children }) => {
           />
 
           {/* Modal */}
-          <div className="fixed inset-0 z-[101] flex items-center justify-center p-4 pointer-events-none">
+          <div className="fixed inset-0 z-[101] flex items-center justify-center p-4 pointer-events-none overflow-y-auto">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="bg-cloud-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden pointer-events-auto"
+              className="bg-cloud-white rounded-2xl shadow-2xl w-full max-w-4xl my-8 pointer-events-auto flex flex-col max-h-[calc(100vh-4rem)]"
+              onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="sticky top-0 bg-cloud-white border-b border-deep-calm/10 px-6 md:px-8 py-6 flex items-center justify-between z-10">
+              <div className="flex-shrink-0 bg-cloud-white border-b border-deep-calm/10 px-6 md:px-8 py-6 flex items-center justify-between rounded-t-2xl">
                 <h2 className="text-2xl md:text-3xl font-display font-semibold text-deep-calm">
                   {title}
                 </h2>
                 <button
                   onClick={onClose}
-                  className="p-2 hover:bg-deep-calm/5 rounded-full transition-colors"
+                  className="p-2 hover:bg-deep-calm/5 rounded-full transition-colors flex-shrink-0"
                   aria-label="Close modal"
                 >
                   <svg
@@ -75,7 +76,7 @@ const PolicyModal = ({ isOpen, onClose, title, children }) => {
               </div>
 
               {/* Content */}
-              <div className="overflow-y-auto max-h-[calc(85vh-88px)] px-6 md:px-8 py-6">
+              <div className="flex-1 overflow-y-auto px-6 md:px-8 py-6">
                 <div className="prose prose-lg max-w-none">
                   {children}
                 </div>
