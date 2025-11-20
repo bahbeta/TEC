@@ -1,7 +1,22 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import PolicyModal from './PolicyModal';
+import PrivacyPolicyContent from './PrivacyPolicyContent';
+import CookiePolicyContent from './CookiePolicyContent';
+import RefundPolicyContent from './RefundPolicyContent';
 
 const Footer = () => {
+  const [activePolicy, setActivePolicy] = useState(null);
+
+  const openModal = (policyType) => {
+    setActivePolicy(policyType);
+  };
+
+  const closeModal = () => {
+    setActivePolicy(null);
+  };
+
   return (
     <footer id="contact" className="bg-deep-calm text-cloud-white border-t border-cloud-white/10 relative">
       {/* SVG Pattern Definition */}
@@ -163,19 +178,28 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/privacy-policy" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                <button
+                  onClick={() => openModal('privacy')}
+                  className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm text-left"
+                >
                   Privacy Policy
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/cookie-policy" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                <button
+                  onClick={() => openModal('cookie')}
+                  className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm text-left"
+                >
                   Cookie Policy
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/refund-policy" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                <button
+                  onClick={() => openModal('refund')}
+                  className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm text-left"
+                >
                   Refund Policy
-                </Link>
+                </button>
               </li>
             </ul>
           </motion.div>
@@ -199,6 +223,31 @@ const Footer = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Policy Modals */}
+      <PolicyModal
+        isOpen={activePolicy === 'privacy'}
+        onClose={closeModal}
+        title="Privacy Policy"
+      >
+        <PrivacyPolicyContent />
+      </PolicyModal>
+
+      <PolicyModal
+        isOpen={activePolicy === 'cookie'}
+        onClose={closeModal}
+        title="Cookie Policy"
+      >
+        <CookiePolicyContent />
+      </PolicyModal>
+
+      <PolicyModal
+        isOpen={activePolicy === 'refund'}
+        onClose={closeModal}
+        title="Refund & Cancellation Policy"
+      >
+        <RefundPolicyContent />
+      </PolicyModal>
     </footer>
   );
 };

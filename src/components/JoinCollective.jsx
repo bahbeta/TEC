@@ -1,10 +1,13 @@
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import PolicyModal from './PolicyModal';
+import PrivacyPolicyContent from './PrivacyPolicyContent';
+import CookiePolicyContent from './CookiePolicyContent';
 
 const JoinCollective = () => {
   const [formData, setFormData] = useState({ name: '', email: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [activePolicy, setActivePolicy] = useState(null);
   const ref = useRef(null);
 
   // Parallax scroll effects
@@ -28,6 +31,14 @@ const JoinCollective = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const openModal = (policyType) => {
+    setActivePolicy(policyType);
+  };
+
+  const closeModal = () => {
+    setActivePolicy(null);
   };
 
   return (
@@ -114,13 +125,21 @@ const JoinCollective = () => {
                 {/* Email Subscription Disclaimer */}
                 <p className="text-xs text-cloud-white/50 leading-relaxed px-2">
                   By subscribing, you consent to receive marketing emails from The Elevate Collective. We respect your privacy and will never share your information with third parties. You can unsubscribe at any time. View our{' '}
-                  <Link to="/privacy-policy" className="text-terracotta hover:text-terracotta/80 underline transition-colors">
+                  <button
+                    type="button"
+                    onClick={() => openModal('privacy')}
+                    className="text-terracotta hover:text-terracotta/80 underline transition-colors"
+                  >
                     Privacy Policy
-                  </Link>
+                  </button>
                   {' '}and{' '}
-                  <Link to="/cookie-policy" className="text-terracotta hover:text-terracotta/80 underline transition-colors">
+                  <button
+                    type="button"
+                    onClick={() => openModal('cookie')}
+                    className="text-terracotta hover:text-terracotta/80 underline transition-colors"
+                  >
                     Cookie Policy
-                  </Link>
+                  </button>
                   {' '}for more details.
                 </p>
 
@@ -155,6 +174,23 @@ const JoinCollective = () => {
           )}
         </motion.div>
       </motion.div>
+
+      {/* Policy Modals */}
+      <PolicyModal
+        isOpen={activePolicy === 'privacy'}
+        onClose={closeModal}
+        title="Privacy Policy"
+      >
+        <PrivacyPolicyContent />
+      </PolicyModal>
+
+      <PolicyModal
+        isOpen={activePolicy === 'cookie'}
+        onClose={closeModal}
+        title="Cookie Policy"
+      >
+        <CookiePolicyContent />
+      </PolicyModal>
     </section>
   );
 };
