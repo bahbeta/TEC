@@ -86,7 +86,7 @@ const Blog = () => {
           featured_image_url: '/images/blog-meditation.jpg',
           published_at: '2025-01-10',
           read_time: 7,
-          author: { name: 'Wesley DePass', avatar_url: '/images/wesley.jpeg' },
+          author: { name: 'Wesley Depass', avatar_url: '/images/wesley.jpeg' },
           category: { name: 'Mindfulness', slug: 'mindfulness' },
           tags: [
             { tag: { name: 'Meditation', slug: 'meditation' } },
@@ -101,7 +101,7 @@ const Blog = () => {
           featured_image_url: '/images/blog-fitness.jpg',
           published_at: '2025-01-05',
           read_time: 8,
-          author: { name: 'Wesley DePass', avatar_url: '/images/wesley.jpeg' },
+          author: { name: 'Wesley Depass', avatar_url: '/images/wesley.jpeg' },
           category: { name: 'Fitness', slug: 'fitness' },
           tags: [
             { tag: { name: 'Training', slug: 'training' } },

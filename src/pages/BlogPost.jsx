@@ -104,7 +104,7 @@ What will your first step be today?`
       published_at: '2025-01-10',
       read_time: 7,
       author: {
-        name: 'Wesley DePass',
+        name: 'Wesley Depass',
         avatar_url: '/images/wesley.jpeg',
         bio: 'Performance coach and meditation teacher helping high achievers integrate mindfulness practices into demanding lifestyles.'
       },
@@ -219,7 +219,7 @@ Ready to elevate your practice?`
       published_at: '2025-01-05',
       read_time: 8,
       author: {
-        name: 'Wesley DePass',
+        name: 'Wesley Depass',
         avatar_url: '/images/wesley.jpeg',
         bio: 'Performance coach and meditation teacher helping high achievers integrate mindfulness practices into demanding lifestyles.'
       },
