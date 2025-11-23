@@ -17,7 +17,7 @@ const BlogPost = () => {
       slug: 'start-your-wellbeing-journey',
       title: '5 Ways to Start Your Wellbeing Journey Today',
       excerpt: 'Discover simple, science-backed strategies to begin your transformation toward a healthier, more balanced life.',
-      featured_image_url: '/images/blog-wellbeing-journey.jpg',
+      featured_image_url: '/images/malak-vision-board.jpg',
       published_at: '2025-01-15',
       read_time: 5,
       author: {
