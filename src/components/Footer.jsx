@@ -86,10 +86,10 @@ const Footer = () => {
               Get out there & discover your next wellbeing experience, retreat & destination!
             </p>
             <a
-              href="mailto:hello@theelevate.co"
+              href="mailto:reach@theelevatecollective.me"
               className="text-terracotta hover:text-terracotta/80 transition-colors text-sm md:text-base"
             >
-              hello@theelevate.co
+              reach@theelevatecollective.me
             </a>
           </motion.div>
 

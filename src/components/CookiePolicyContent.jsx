@@ -152,7 +152,7 @@ const CookiePolicyContent = () => {
         </p>
         <div className="bg-warm-sand/30 p-6 rounded-lg">
           <p className="text-deep-calm/80 mb-2"><strong>The Elevate Collective</strong></p>
-          <p className="text-deep-calm/80 mb-2">Email: <a href="mailto:hello@theelevate.co" className="text-terracotta hover:underline">hello@theelevate.co</a></p>
+          <p className="text-deep-calm/80 mb-2">Email: <a href="mailto:reach@theelevatecollective.me" className="text-terracotta hover:underline">reach@theelevatecollective.me</a></p>
           <p className="text-deep-calm/80">Location: Dubai, United Arab Emirates</p>
         </div>
       </section>

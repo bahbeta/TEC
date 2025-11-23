@@ -45,7 +45,7 @@ const RefundPolicyContent = () => {
 
         <h3 className="text-xl font-semibold text-deep-calm mb-3">2.3 Corporate Programmes</h3>
         <p className="text-deep-calm/80 leading-relaxed mb-4">
-          Corporate wellbeing programmes have customised cancellation terms based on the specific agreement. Please refer to your corporate contract or contact us at <a href="mailto:partnerships@elevatecollective.com" className="text-terracotta hover:underline">partnerships@elevatecollective.com</a> for details.
+          Corporate wellbeing programmes have customised cancellation terms based on the specific agreement. Please refer to your corporate contract or contact us at <a href="mailto:reach@theelevatecollective.me" className="text-terracotta hover:underline">reach@theelevatecollective.me</a> for details.
         </p>
       </section>
 
@@ -55,7 +55,7 @@ const RefundPolicyContent = () => {
           To cancel your booking, please:
         </p>
         <ol className="list-decimal pl-6 mb-4 text-deep-calm/80 space-y-2">
-          <li>Email us at <a href="mailto:hello@theelevate.co" className="text-terracotta hover:underline">hello@theelevate.co</a> with your booking reference and full name</li>
+          <li>Email us at <a href="mailto:reach@theelevatecollective.me" className="text-terracotta hover:underline">reach@theelevatecollective.me</a> with your booking reference and full name</li>
           <li>Include "CANCELLATION REQUEST" in the subject line</li>
           <li>Provide the reason for cancellation (optional but appreciated)</li>
           <li>Wait for confirmation from our team (usually within 48 hours)</li>
@@ -131,7 +131,7 @@ const RefundPolicyContent = () => {
           <li>Emergency circumstances beyond your control</li>
         </ul>
         <p className="text-deep-calm/80 leading-relaxed mb-4">
-          Please contact us immediately at <a href="mailto:hello@theelevate.co" className="text-terracotta hover:underline">hello@theelevate.co</a>. We will review your situation on a case-by-case basis and may offer more flexible options. Medical documentation or other proof may be required.
+          Please contact us immediately at <a href="mailto:reach@theelevatecollective.me" className="text-terracotta hover:underline">reach@theelevatecollective.me</a>. We will review your situation on a case-by-case basis and may offer more flexible options. Medical documentation or other proof may be required.
         </p>
       </section>
 
@@ -169,7 +169,7 @@ const RefundPolicyContent = () => {
           If you have concerns about a cancellation or refund decision:
         </p>
         <ol className="list-decimal pl-6 mb-4 text-deep-calm/80 space-y-2">
-          <li>Contact us at <a href="mailto:hello@theelevate.co" className="text-terracotta hover:underline">hello@theelevate.co</a> with details of your concern</li>
+          <li>Contact us at <a href="mailto:reach@theelevatecollective.me" className="text-terracotta hover:underline">reach@theelevatecollective.me</a> with details of your concern</li>
           <li>We will review your case and respond within 5 business days</li>
           <li>If you're not satisfied with our response, you may escalate to our senior management</li>
         </ol>
@@ -192,8 +192,7 @@ const RefundPolicyContent = () => {
         </p>
         <div className="bg-warm-sand/30 p-6 rounded-lg">
           <p className="text-deep-calm/80 mb-2"><strong>The Elevate Collective</strong></p>
-          <p className="text-deep-calm/80 mb-2">General Enquiries: <a href="mailto:hello@theelevate.co" className="text-terracotta hover:underline">hello@theelevate.co</a></p>
-          <p className="text-deep-calm/80 mb-2">Corporate Programmes: <a href="mailto:partnerships@elevatecollective.com" className="text-terracotta hover:underline">partnerships@elevatecollective.com</a></p>
+          <p className="text-deep-calm/80 mb-2">Email: <a href="mailto:reach@theelevatecollective.me" className="text-terracotta hover:underline">reach@theelevatecollective.me</a></p>
           <p className="text-deep-calm/80">Location: Dubai, United Arab Emirates</p>
         </div>
       </section>

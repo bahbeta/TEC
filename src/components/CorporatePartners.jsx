@@ -157,10 +157,10 @@ const CorporatePartners = () => {
               Schedule Consultation
             </a>
             <a
-              href="mailto:partnerships@elevatecollective.com"
+              href="mailto:reach@theelevatecollective.me"
               className="px-4 sm:px-6 md:px-8 py-4 border border-white/30 text-white rounded-full font-medium hover:bg-white/15 hover:border-white/50 transition-all duration-300 ease-out hover:scale-[1.02] backdrop-blur-xl text-xs sm:text-sm md:text-base break-all sm:break-normal"
             >
-              partnerships@elevatecollective.com
+              reach@theelevatecollective.me
             </a>
           </div>
         </motion.div>
