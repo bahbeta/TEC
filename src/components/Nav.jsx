@@ -71,7 +71,7 @@ const Nav = () => {
 
   const navItems = [
     { label: 'About Us', href: '#about', type: 'anchor' },
-    { label: 'Events', href: '#experiences', type: 'anchor' },
+    { label: 'Events', href: '#upcoming', type: 'anchor' },
     { label: 'Corporate Partners', href: '#partners', type: 'anchor' },
     { label: 'Blogs', href: '/blog', type: 'link' },
   ];
