@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isDarkBackground, setIsDarkBackground] = useState(true); // Start with white logo for hero section
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,11 +72,58 @@ const Nav = () => {
   }, []);
 
   const navItems = [
-    { label: 'About Us', href: '#about', type: 'anchor' },
+    { label: 'About Us', href: '#founders', type: 'anchor' },
     { label: 'Events', href: '#upcoming', type: 'anchor' },
     { label: 'Corporate Partners', href: '#partners', type: 'anchor' },
     { label: 'Blogs', href: '/blog', type: 'link' },
   ];
+
+  const handleNavClick = (e, item) => {
+    if (item.type === 'anchor') {
+      e.preventDefault();
+      const sectionId = item.href.replace('#', '');
+
+      // If we're not on the homepage, navigate there first
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation to complete, then scroll
+        setTimeout(() => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      } else {
+        // We're already on homepage, just scroll
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      // Close mobile menu if open
+      setMobileMenuOpen(false);
+    }
+  };
+
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+
+    // If we're not on the homepage, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete, then scroll to top
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+    } else {
+      // We're already on homepage, just scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Close mobile menu if open
+    setMobileMenuOpen(false);
+  };
 
   return (
     <motion.nav
@@ -88,7 +137,7 @@ const Nav = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between relative">
           {/* Logo - Positioned to overlap (half above navbar, half inside) */}
-          <Link to="/">
+          <Link to="/" onClick={handleLogoClick}>
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
@@ -124,37 +173,16 @@ const Nav = () => {
           {/* Nav Items - Centered */}
           <div className="hidden lg:flex items-center space-x-10">
             {navItems.map((item, index) => (
-              item.type === 'link' ? (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className={`text-sm font-body font-medium transition-colors duration-200 ${
-                    isDarkBackground ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -2 }}
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
-                  className={`text-sm font-body font-medium apple-hover relative ${
-                    isDarkBackground ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
-                  }`}
-                >
-                  {item.label}
-                  <motion.span
-                    className="absolute bottom-0 left-0 h-0.5 bg-terracotta"
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.a>
-              )
+              <Link
+                key={item.href}
+                to={item.type === 'link' ? item.href : '/'}
+                onClick={(e) => handleNavClick(e, item)}
+                className={`text-sm font-body font-medium transition-colors duration-200 ${
+                  isDarkBackground ? 'text-cloud-white/80 hover:text-cloud-white' : 'text-[#1F2A3A]/80 hover:text-[#1F2A3A]'
+                }`}
+              >
+                {item.label}
+              </Link>
             ))}
           </div>
 
@@ -201,29 +229,14 @@ const Nav = () => {
             {/* Nav Items */}
             <div className="flex flex-col space-y-6">
               {navItems.map((item, index) => (
-                item.type === 'link' ? (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-2xl font-display font-medium text-cloud-white/90 hover:text-cloud-white transition-colors duration-200 py-2"
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <motion.a
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 * index }}
-                    className="text-2xl font-display font-medium text-cloud-white/90 hover:text-cloud-white transition-colors duration-200 py-2 relative group"
-                  >
-                    {item.label}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-terracotta group-hover:w-full transition-all duration-300" />
-                  </motion.a>
-                )
+                <Link
+                  key={item.href}
+                  to={item.type === 'link' ? item.href : '/'}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className="text-2xl font-display font-medium text-cloud-white/90 hover:text-cloud-white transition-colors duration-200 py-2"
+                >
+                  {item.label}
+                </Link>
               ))}
             </div>
           </div>
