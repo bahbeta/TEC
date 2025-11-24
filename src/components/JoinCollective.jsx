@@ -5,9 +5,10 @@ import PrivacyPolicyContent from './PrivacyPolicyContent';
 import CookiePolicyContent from './CookiePolicyContent';
 
 const JoinCollective = () => {
-  const [formData, setFormData] = useState({ name: '', email: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', enquiry: '' });
   const [submitted, setSubmitted] = useState(false);
   const [activePolicy, setActivePolicy] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const ref = useRef(null);
 
   // Parallax scroll effects
@@ -19,14 +20,46 @@ const JoinCollective = () => {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 1]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '' });
-    }, 3000);
+    setIsSubmitting(true);
+
+    try {
+      // Submit to Web3Forms API
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: 'f992d788-670d-4619-9b5a-959909961f18',
+          subject: 'New Enquiry from The Elevate Collective Website',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || 'Not provided',
+          message: `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}\n\nEnquiry:\n${formData.enquiry || 'Newsletter subscription'}`
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Show success message
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: '', email: '', phone: '', enquiry: '' });
+        }, 3000);
+      } else {
+        throw new Error(result.message || 'Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting the form. Please try again or email us directly at reach@theelevatecollective.me');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -121,6 +154,22 @@ const JoinCollective = () => {
                   required
                   className="w-full px-6 py-4 bg-cloud-white/5 backdrop-blur-xl border border-cloud-white/20 focus-apple rounded-full text-cloud-white placeholder:text-cloud-white/50 transition-all duration-300 hover:bg-cloud-white/10 hover:border-cloud-white/30"
                 />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Your phone number (optional)"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-6 py-4 bg-cloud-white/5 backdrop-blur-xl border border-cloud-white/20 focus-apple rounded-full text-cloud-white placeholder:text-cloud-white/50 transition-all duration-300 hover:bg-cloud-white/10 hover:border-cloud-white/30"
+                />
+                <textarea
+                  name="enquiry"
+                  placeholder="Your enquiry (optional)"
+                  value={formData.enquiry}
+                  onChange={handleChange}
+                  rows="4"
+                  className="w-full px-6 py-4 bg-cloud-white/5 backdrop-blur-xl border border-cloud-white/20 focus-apple rounded-3xl text-cloud-white placeholder:text-cloud-white/50 transition-all duration-300 hover:bg-cloud-white/10 hover:border-cloud-white/30 resize-none"
+                />
 
                 {/* Email Subscription Disclaimer */}
                 <p className="text-xs text-cloud-white/50 leading-relaxed px-2">
@@ -147,9 +196,12 @@ const JoinCollective = () => {
                   whileHover={{ scale: 1.02, y: -4 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full bg-terracotta text-cloud-white px-10 py-4 font-medium rounded-full hover:bg-terracotta/90 transition-all duration-400 ease-out uppercase tracking-wider text-sm apple-shadow-lg hover:apple-shadow-xl"
+                  disabled={isSubmitting}
+                  className="w-full bg-terracotta text-cloud-white px-10 py-4 font-medium rounded-full hover:bg-terracotta/90 transition-all duration-400 ease-out uppercase tracking-wider text-sm apple-shadow-lg hover:apple-shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="relative z-10">Get Started</span>
+                  <span className="relative z-10">
+                    {isSubmitting ? 'Sending...' : 'Get Started'}
+                  </span>
                 </motion.button>
               </form>
             </div>

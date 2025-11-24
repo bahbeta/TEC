@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import PolicyModal from './PolicyModal';
 import PrivacyPolicyContent from './PrivacyPolicyContent';
@@ -8,6 +8,8 @@ import RefundPolicyContent from './RefundPolicyContent';
 
 const Footer = () => {
   const [activePolicy, setActivePolicy] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const openModal = (policyType) => {
     setActivePolicy(policyType);
@@ -15,6 +17,28 @@ const Footer = () => {
 
   const closeModal = () => {
     setActivePolicy(null);
+  };
+
+  const handleSectionClick = (e, sectionId) => {
+    e.preventDefault();
+
+    // If we're not on the homepage, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      // We're already on homepage, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
   };
 
   return (
@@ -105,12 +129,12 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="#founders" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                <a href="#founders" onClick={(e) => handleSectionClick(e, 'founders')} className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm cursor-pointer">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#values" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                <a href="#values" onClick={(e) => handleSectionClick(e, 'values')} className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm cursor-pointer">
                   Our Values
                 </a>
               </li>
@@ -120,7 +144,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#contact" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                <a href="#contact" onClick={(e) => handleSectionClick(e, 'contact')} className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm cursor-pointer">
                   Contact Us
                 </a>
               </li>
@@ -139,17 +163,17 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="#upcoming" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                <a href="#upcoming" onClick={(e) => handleSectionClick(e, 'upcoming')} className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm cursor-pointer">
                   Our Experiences
                 </a>
               </li>
               <li>
-                <a href="#partners" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                <a href="#partners" onClick={(e) => handleSectionClick(e, 'partners')} className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm cursor-pointer">
                   Corporate Programs
                 </a>
               </li>
               <li>
-                <a href="#join" className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm">
+                <a href="#join" onClick={(e) => handleSectionClick(e, 'join')} className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm cursor-pointer">
                   Join The Collective
                 </a>
               </li>
