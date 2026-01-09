@@ -22,22 +22,26 @@ const Footer = () => {
   const handleSectionClick = (e, sectionId) => {
     e.preventDefault();
 
+    const scrollToSection = () => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        // Use Lenis scrollTo if available, otherwise fallback to native
+        if (window.lenis) {
+          window.lenis.scrollTo(element, { offset: 0 });
+        } else {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    };
+
     // If we're not on the homepage, navigate there first
     if (location.pathname !== '/') {
       navigate('/');
       // Wait for navigation to complete, then scroll
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
+      setTimeout(scrollToSection, 100);
     } else {
       // We're already on homepage, just scroll
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      scrollToSection();
     }
   };
 
@@ -144,7 +148,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#contact" onClick={(e) => handleSectionClick(e, 'contact')} className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm cursor-pointer">
+                <a href="#join" onClick={(e) => handleSectionClick(e, 'join')} className="text-cloud-white/70 hover:text-terracotta transition-colors text-sm cursor-pointer">
                   Contact Us
                 </a>
               </li>

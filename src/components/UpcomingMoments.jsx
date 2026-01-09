@@ -9,18 +9,6 @@ const UpcomingMoments = () => {
 
   const experiences = [
     {
-      title: 'Nia Morning',
-      description: 'Start 2026 with mobility & body movement, strength & conditioning with Coach WesDep, networking with breakfast & coffee. You bring the energy, we bring the vibes!',
-      image: '/images/nia-morning.jpg',
-      dateRange: '10 Jan 2026',
-      timing: '8.30am - 10.30am',
-      location: 'Dubai, UAE',
-      venue: 'Lana Functional Fitness',
-      address: 'Warehouse 12, 4th St - Al Quoz Industrial Area 3',
-      price: 'AED 375',
-      href: 'https://luma.com/mcg54mle',
-    },
-    {
       title: 'The Elevate Vision Board with Malak',
       description: 'A serene, intimate experience designed to help you slow down and reconnect with what truly matters. Guided by Malak\'s mindful practices, reflect, reset, and design a vision board with clarity and purpose.',
       image: '/images/malak-vision-board.jpg',
@@ -136,7 +124,7 @@ const UpcomingMoments = () => {
           <div
             ref={scrollRef}
             onScroll={checkScroll}
-            className="flex gap-5 md:gap-6 overflow-x-auto scroll-smooth pb-4"
+            className="flex justify-center gap-5 md:gap-6 overflow-x-auto scroll-smooth pb-4"
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',

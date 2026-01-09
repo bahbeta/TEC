@@ -21,6 +21,9 @@ const SmoothScroll = ({ children }) => {
 
     lenisRef.current = lenis;
 
+    // Expose lenis globally for anchor navigation
+    window.lenis = lenis;
+
     // Animation loop
     function raf(time) {
       lenis.raf(time);
