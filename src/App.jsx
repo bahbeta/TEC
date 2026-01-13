@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import SmoothScroll from './components/SmoothScroll';
 import BackgroundMusic from './components/BackgroundMusic';
 import ScrollIndicator from './components/ScrollIndicator';
+import FloatingSocials from './components/FloatingSocials';
 import SEO from './components/SEO';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -50,6 +51,7 @@ function App() {
       <div className="relative">
         <SmoothScroll>
           <BackgroundMusic />
+          <FloatingSocials />
           <Routes>
             {/* Main website routes */}
             <Route path="/" element={<HomePage />} />

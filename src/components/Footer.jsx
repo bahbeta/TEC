@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import { FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import PolicyModal from './PolicyModal';
 import PrivacyPolicyContent from './PrivacyPolicyContent';
 import CookiePolicyContent from './CookiePolicyContent';
@@ -119,6 +120,28 @@ const Footer = () => {
             >
               reach@theelevatecollective.me
             </a>
+
+            {/* Social Media Links */}
+            <div className="flex gap-4 mt-6">
+              <a
+                href="https://www.linkedin.com/company/theelevatecollective/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-cloud-white/10 flex items-center justify-center text-cloud-white/70 hover:bg-terracotta hover:text-cloud-white transition-all duration-300"
+                aria-label="Follow us on LinkedIn"
+              >
+                <FaLinkedinIn className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.instagram.com/theelevate.collective"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-cloud-white/10 flex items-center justify-center text-cloud-white/70 hover:bg-terracotta hover:text-cloud-white transition-all duration-300"
+                aria-label="Follow us on Instagram"
+              >
+                <FaInstagram className="w-4 h-4" />
+              </a>
+            </div>
           </motion.div>
 
           {/* More on TEC */}
