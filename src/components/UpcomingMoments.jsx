@@ -9,20 +9,20 @@ const UpcomingMoments = () => {
 
   const experiences = [
     {
-      title: 'The Elevate Vision Board with Malak',
-      description: 'A serene, intimate experience designed to help you slow down and reconnect with what truly matters. Guided by Malak\'s mindful practices, reflect, reset, and design a vision board with clarity and purpose.',
+      title: 'The Elevate Vision Board With Malak',
+      description: 'Welcome to our Elevated Vision Board Experience. A serene, intimate morning designed to help you slow down before year-end and reconnect with what truly matters. Guided by Malak\'s mindful practices, you\'ll reflect, reset, and design a vision board with clarity and purpose. All premium tools are provided for you to create a beautiful take-home board for your home. You\'ll also share this experience with a small circle of like-minded individuals, finding peace together in the quiet moments and leaving with renewed intention for the year ahead. Elevate your vision. Elevate your energy. Join us.',
       image: '/images/malak-vision-board.jpg',
-      dateRange: '11 Jan 2026',
+      dateRange: '1 Feb 2026',
       timing: '4pm - 6pm',
-      location: 'Dubai, UAE',
+      location: 'Dubai',
       venue: 'TBC',
-      address: 'To be confirmed',
+      address: 'TBC',
       price: 'AED 210',
       href: 'https://luma.com/gqsm1hcd',
     },
     {
       title: 'TEC Mykonos Retreat',
-      description: '3 nights, 4 days of strength, stillness & connection. A powerful escape designed for the high achiever who\'s ready to reset with intention.',
+      description: 'THE ELEVATE RETREAT | MYKONOS EDITION — 3 Nights | 4 Days of Strength, Stillness & Connection. We know more than anyone, about that moment when "doing more" stops being the answer, and becoming more becomes the new approach. This is THAT moment. Join The Elevate Collective in Mykonos for a powerful escape designed for the high achiever who\'s ready to reset with intention.',
       image: '/images/mykonos-retreat.jpg',
       dateRange: '11-14 June 2026',
       timing: '3 Nights / 4 Days',
@@ -124,7 +124,7 @@ const UpcomingMoments = () => {
           <div
             ref={scrollRef}
             onScroll={checkScroll}
-            className="flex justify-center gap-5 md:gap-6 overflow-x-auto scroll-smooth pb-4"
+            className="flex justify-center items-stretch gap-5 md:gap-6 overflow-x-auto scroll-smooth pb-4"
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
@@ -144,11 +144,12 @@ const UpcomingMoments = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="bg-white rounded-xl flex-shrink-0 overflow-hidden group apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2"
+                className="bg-white rounded-xl flex-shrink-0 overflow-hidden group apple-shadow-lg hover:apple-shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 flex flex-col"
                 style={{
                   width: 'calc(33.333% - 16px)',
                   minWidth: '300px',
-                  scrollSnapAlign: 'start'
+                  scrollSnapAlign: 'start',
+                  height: 'auto'
                 }}
               >
                 {/* Image */}
@@ -162,14 +163,14 @@ const UpcomingMoments = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-5 md:p-6">
+                <div className="p-5 md:p-6 flex flex-col flex-1">
                   {/* Title */}
                   <h3 className="font-cormorant text-xl md:text-2xl text-deep-calm mb-2 leading-tight">
                     {experience.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-deep-calm/70 text-sm leading-relaxed mb-4">
+                  <p className="text-deep-calm/70 text-sm leading-relaxed mb-4 flex-grow">
                     {experience.description}
                   </p>
 
@@ -177,7 +178,7 @@ const UpcomingMoments = () => {
                   <div className="w-full h-px bg-deep-calm/10 mb-4"></div>
 
                   {/* Event Details Grid */}
-                  <div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-4">
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-4 mt-auto">
                     {/* Date & Time */}
                     <div>
                       <p className="text-[10px] tracking-[0.15em] uppercase text-deep-calm/50 mb-0.5 font-medium">
