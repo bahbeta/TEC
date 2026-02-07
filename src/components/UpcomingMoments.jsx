@@ -9,16 +9,16 @@ const UpcomingMoments = () => {
 
   const experiences = [
     {
-      title: 'The Elevate Vision Board With Malak',
-      description: 'Welcome to our Elevated Vision Board Experience. A serene, intimate morning designed to help you slow down before year-end and reconnect with what truly matters. Guided by Malak\'s mindful practices, you\'ll reflect, reset, and design a vision board with clarity and purpose. All premium tools are provided for you to create a beautiful take-home board for your home. You\'ll also share this experience with a small circle of like-minded individuals, finding peace together in the quiet moments and leaving with renewed intention for the year ahead. Elevate your vision. Elevate your energy. Join us.',
-      image: '/images/malak-vision-board.jpg',
-      dateRange: '1 Feb 2026',
-      timing: '4pm - 6pm',
-      location: 'Dubai',
-      venue: 'TBC',
-      address: 'TBC',
-      price: 'AED 210',
-      href: 'https://luma.com/gqsm1hcd',
+      title: 'TEC Valentine\'s Partner Workout',
+      description: 'Whether as a couple! Or you bring a friend along… this Valentine\'s we encourage you to share the LOVE through movement! What to expect: WesDep S&C partner workout, a "lovers" protein shake, giveaways. As always, you bring yourselves and we will bring the vibes.',
+      image: '/images/valentines-workout.jpg',
+      dateRange: '14 Feb 2026',
+      timing: '8 - 9 am',
+      location: 'Dubai, Al Quoz',
+      venue: 'Lana Fitness',
+      address: 'Dubai, Al Quoz',
+      price: 'AED 250 for 2',
+      href: 'https://luma.com/uilg2xyf',
     },
     {
       title: 'TEC Mykonos Retreat',
