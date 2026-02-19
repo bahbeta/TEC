@@ -9,16 +9,16 @@ const UpcomingMoments = () => {
 
   const experiences = [
     {
-      title: 'TEC Valentine\'s Partner Workout',
-      description: 'Whether as a couple! Or you bring a friend along… this Valentine\'s we encourage you to share the LOVE through movement! What to expect: WesDep S&C partner workout, a "lovers" protein shake, giveaways. As always, you bring yourselves and we will bring the vibes.',
-      image: '/images/valentines-workout.jpg',
-      dateRange: '14 Feb 2026',
-      timing: '8 - 9 am',
-      location: 'Dubai, Al Quoz',
-      venue: 'Lana Fitness',
-      address: 'Dubai, Al Quoz',
-      price: 'AED 250 for 2',
-      href: 'https://luma.com/uilg2xyf',
+      title: 'The Conscious Elevated Iftar with Chef Tala',
+      description: 'This Ramadan, we invite you into something more intentional. A Conscious Elevated Iftar with Chef Tala of Three Homes Ago, where each dish has been carefully curated to honour the richness of our region, taking you on a journey beyond the plate. Across the table, a shared theme of conscious conversation will guide the evening, creating space for depth, reflection, and meaningful exchange. By The Elevate Collective, for those who seek more than just a seat, but a truly elevated experience.',
+      image: '/images/conscious-iftar.jpg',
+      dateRange: '1 Feb 2026',
+      timing: '6.30pm',
+      location: 'Dubai',
+      venue: 'TBC',
+      address: 'TBC',
+      price: 'AED 550',
+      href: 'https://luma.com/7iu800bd',
     },
     {
       title: 'TEC Mykonos Retreat',
