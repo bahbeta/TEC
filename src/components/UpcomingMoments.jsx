@@ -12,7 +12,7 @@ const UpcomingMoments = () => {
       title: 'The Conscious Elevated Iftar with Chef Tala',
       description: 'This Ramadan, we invite you into something more intentional. A Conscious Elevated Iftar with Chef Tala of Three Homes Ago, where each dish has been carefully curated to honour the richness of our region, taking you on a journey beyond the plate. Across the table, a shared theme of conscious conversation will guide the evening, creating space for depth, reflection, and meaningful exchange. By The Elevate Collective, for those who seek more than just a seat, but a truly elevated experience.',
       image: '/images/conscious-iftar.jpg',
-      dateRange: '1 Feb 2026',
+      dateRange: '27 Feb 2026',
       timing: '6.30pm',
       location: 'Dubai',
       venue: 'TBC',
