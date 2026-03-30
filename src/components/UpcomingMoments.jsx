@@ -1,11 +1,13 @@
 import Section from './Section';
 import { motion } from 'framer-motion';
 import { useState, useRef } from 'react';
+import BrochureModal from './BrochureModal';
 
 const UpcomingMoments = () => {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [brochureModal, setBrochureModal] = useState({ open: false, url: '', title: '' });
 
   const experiences = [
     {
@@ -31,6 +33,7 @@ const UpcomingMoments = () => {
       address: 'Mykonos',
       price: 'Price on Enquiry',
       href: 'https://luma.com/t6134m7k',
+      brochure: '/TEC-Mykonos-Retreat-Brochure.pdf',
     },
   ];
 
@@ -221,33 +224,54 @@ const UpcomingMoments = () => {
                   </div>
 
                   {/* Register/View Details Link */}
-                  <a
-                    href={experience.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-deep-calm text-xs tracking-[0.12em] uppercase font-medium group/link hover:text-terracotta transition-colors"
-                  >
-                    <span>REGISTER NOW</span>
-                    <svg
-                      className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                  <div className="flex items-center gap-5">
+                    <a
+                      href={experience.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-deep-calm text-xs tracking-[0.12em] uppercase font-medium group/link hover:text-terracotta transition-colors"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </a>
+                      <span>REGISTER NOW</span>
+                      <svg
+                        className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </a>
+
+                    {experience.brochure && (
+                      <button
+                        onClick={() => setBrochureModal({ open: true, url: experience.brochure, title: experience.title })}
+                        className="inline-flex items-center gap-1.5 text-terracotta text-xs tracking-[0.12em] uppercase font-medium group/brochure hover:text-deep-calm transition-colors"
+                      >
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>BROCHURE</span>
+                      </button>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
       </div>
+
+      <BrochureModal
+        isOpen={brochureModal.open}
+        onClose={() => setBrochureModal({ open: false, url: '', title: '' })}
+        brochureUrl={brochureModal.url}
+        title={brochureModal.title}
+      />
     </Section>
   );
 };
